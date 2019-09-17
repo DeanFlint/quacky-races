@@ -1,3 +1,4 @@
+/* Mobile */
 footer{
     display: grid;
     grid-template-areas: "footer";
@@ -8,34 +9,12 @@ footer{
 }
 
 
-   
+/* Tablet */
+@media only screen and (min-width: 768px) {
 
-/* footer .row {
-    display: flex; flex-direction: column;
-    }
-    footer .row address {
-    padding: 15px 0 5px 5px; }
-    .footerSocialLinks { flex-basis: 20%;
-    }
-    .footerSocialLinks ul {
-    display: flex; list-style: none; padding-left: 5px;
-    }
-    .footerSocialLinks ul li {
-    flex-basis: 40px; }
-    .footerSocialLinks ul li a i { color: #fff;
-    font-size: 1.4rem;
-    }
-    .footerLinks {
-    display: flex; list-style: none; padding-left: 0; flex-wrap: wrap;
-    }
-    .footerLinks li {
-    border-right: 1px solid #ccc; }
-    .footerLinks li:last-child { border-right: none;
-    }
-    .footerLinks li a {
-    font-size: 0.8rem; width: 100%; display: inline-block;
-    
-    padding: 2px 5px; text-decoration: none; color: #fff;
-    }
-    .footerLinks li a:hover {
-    text-decoration: underline; } */
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+
+}
