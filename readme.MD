@@ -6,4 +6,5 @@
 # can run the reload easily by using the following command in the terminal:
     npm run reload
 
-    
+# run nodemon app to run project on localhost:3000
+    nodemon app
