@@ -12,5 +12,8 @@
     "ejs": "^2.6.2",
     "express": "~4.16.0",
     "mongodb": "^3.3.2"
+  },
+  "devDependencies": {
+    "reload": "^3.0.1"
   }
 }
