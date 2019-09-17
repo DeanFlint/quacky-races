@@ -1,11 +1,11 @@
 {
   "name": "v1",
   "version": "0.0.1",
-  "description": "",
+  "description": "npm install",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reload": "node_modules/.bin/reload -b"
+    "reload": "reload -b"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +16,14 @@
   },
   "devDependencies": {
     "reload": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeanFlint/quacky-races.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/DeanFlint/quacky-races/issues"
+  },
+  "homepage": "https://github.com/DeanFlint/quacky-races#readme"
 }
