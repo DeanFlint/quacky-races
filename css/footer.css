@@ -1,4 +1,16 @@
-footer .row {
+footer{
+    display: grid;
+    grid-template-areas: "footer";
+    grid-area:footer;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    ".Links .footerSocialLinks"
+}
+
+
+   
+
+/* footer .row {
     display: flex; flex-direction: column;
     }
     footer .row address {
@@ -26,4 +38,4 @@ footer .row {
     padding: 2px 5px; text-decoration: none; color: #fff;
     }
     .footerLinks li a:hover {
-    text-decoration: underline; }
+    text-decoration: underline; } */

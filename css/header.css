@@ -1,0 +1,19 @@
+header{
+    display: grid;
+    grid-template-areas: "header";
+    grid-area: header;
+    grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+        ".menu .logo .accountArea "
+}
+
+.mobileLoginIcon {
+
+    margin: 20px auto;
+    width: 50%;
+}
+.fa-user{
+    font-size:30px;
+   
+}
+
