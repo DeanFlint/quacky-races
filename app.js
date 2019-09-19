@@ -1,46 +1,36 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const port = 3000;
+const express = require("express");
+const path = require("path");
 
-// serve static files from the static dir
-app.use('/images', express.static('images'))
+const app = express();
+
+// add for RESTful
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+const routes = require('./routes/routes');
 
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.set('view engine', 'ejs')
+app.use(express.static("./public"));
+app.use(express.static("./public/css"));
 
-app.get('/', (req, res) => {
-    res.render('index.ejs')
+app.use((req, res, next) => {
+  console.dir(req.url);
+  next();
 })
 
-app.get('/play', (req, res) => {
-    res.render('play.ejs')
-})
+app.use('/', routes(app))
 
-app.get('/predictions', (req, res) => {
-    res.render('predictions.ejs')
-})
-
-app.get('/results', (req, res) => {
-    res.render('results.ejs')
-})
-
-app.get('/profiles', (req, res) => {
-    res.render('profiles.ejs')
-})
-
-app.get('/leaderboard', (req, res) => {
-    res.render('leaderboard.ejs')
-})
-
-app.get('/register', (req, res) => {
-    res.render('register.ejs')
-})
-
-app.get('/account', (req, res) => {
-    res.render('account.ejs')
+// remove for sample files
+app.use((req, res, next) => {
+    res.status(404).send("Sorry can't find that!");
+    next();
 })
 
 
-app.listen(port, () => console.log(`App running on port ${port}`))
+app.listen(3000);
+
+console.log("Express on 3000");
+
+module.exports = app;
