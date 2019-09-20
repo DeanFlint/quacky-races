@@ -1,12 +1,64 @@
 /* Mobile */
+#playButton{
+    border: 20px solid #2C8E60;
+    width: 100%;
+    background-color: #2C8E60;
+    font-size: 20px;
+    font-family: monospace;
+   
+    }
+    .myButton {
+        background-color:#44c767;
+        -moz-border-radius:19px;
+        -webkit-border-radius:19px;
+        border-radius:19px;
+        border:5px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:17px;
+        padding:8px 76px;
+        text-decoration:none;
+        text-shadow:0px 0px 0px #2f6627;
+        width: 100%;
+        
+    }
+    .myButton:hover {
+        background-color:#5cbf2a;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+
+body{
+    background-color:#CC8D4F;
+}
+   
+p{
+    font-size: 40px;
+}
+
 
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
-
+    
 }
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
+    #playButton{
+        border: 100px solid #2C8E60;
+        width: 100%;
+        background-color: #2C8E60;
+        font-size: 40px;
+        }
+    
+    button:hover{
+        color:#CC8D4F;
+    }
+
 
 }
