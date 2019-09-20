@@ -5,6 +5,21 @@ header {
   grid-area: header;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: ".menu .logo .accountArea ";
+  height: 40px;
+}
+
+.menu,
+.logo, 
+.accountArea {
+  border: 1px solid black;
+}
+.logo,
+.burgerMenu {
+  margin: 0 auto;
+}
+
+.accountArea {
+  float: right;
 }
 
 .mobileLoginIcon {
