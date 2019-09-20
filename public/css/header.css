@@ -79,16 +79,15 @@ header {
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
-  .burgerMenu {
+  .burgerMenu{
     display: none;
   }
 
   header {
-    display: grid;
-    grid-template-areas: "header";
-    grid-area: header;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: ".logo .accountArea";
+    grid-template-columns:1fr 2fr 1fr;
+    grid-template-areas: ".logo .logo .accountArea "
+                          ".menu .menu .menu";
+
     /* height: 40px; */
     margin-bottom: 10px;
   }

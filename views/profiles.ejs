@@ -1,8 +1,14 @@
 <%- include('header') %>
 
 <main>
-    <h1>Duck Profiles</h1>
+  <h1>Duck Profiles</h1>
+
+  <div class="container">
+    <% ducks.forEach(function(duck){ %>
+    <h2><%= duck.duckName %></h2>
+    <p><%= duck.duckProfile %></p>
+    <% }) %>
+  </div>
 </main>
-    
 
 <%- include('footer') %>
