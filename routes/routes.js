@@ -23,9 +23,9 @@ module.exports = app => {
     res.render("results.ejs");
   });
 
-  //   app.get("/profiles", (req, res) => {
-  //     res.render("profiles.ejs");
-  //   });
+    app.get("/profiles", (req, res) => {
+      res.render("profiles.ejs");
+    });
 
   app.get("/leaderboard", (req, res) => {
     res.render("leaderboard.ejs");
@@ -55,22 +55,22 @@ module.exports = app => {
   //       });
   //   });
 
-  router.get("/profiles", (req, res) => {
-    app
-      .set("testQuackyRaces")
-      .collection("duck")
-      .find({})
-      .toArray(function(err, docs) {
-        if (err) {
-          console.error(err);
-        }
+  // router.get("/profiles", (req, res) => {
+  //   app
+  //     .set("testQuackyRaces")
+  //     .collection("duck")
+  //     .find({})
+  //     .toArray(function(err, docs) {
+  //       if (err) {
+  //         console.error(err);
+  //       }
 
-        return res.render("profiles", {
-          title: "Duck Profiles",
-          ducks: docs
-        });
-      });
-  });
+  //       return res.render("profiles", {
+  //         title: "Duck Profiles",
+  //         ducks: docs
+  //       });
+  //     });
+  // });
 
   //   router.post("/duck", (req, res) => {
   //     let duckID = parseInt(req.body.duckID);

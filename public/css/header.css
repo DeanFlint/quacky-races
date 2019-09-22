@@ -1,28 +1,46 @@
 /* Mobile */
+.menu {
+  grid-area: mainmenu;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.accountArea {
+  grid-area: accountArea;
+  float: right;
+  padding-top: 5px;
+}
+
+.emailInput {
+  grid-area: emailInput;
+}
+
+.passwordInput {
+  grid-area: passwordInput;
+}
+
+.loginButton {
+  grid-area: loginButton;
+}
+
 header {
   display: grid;
   grid-template-areas: "header";
   grid-area: header;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: ".menu .logo .accountArea ";
-  /* height: 40px; */
-  margin-bottom: 10px;
+  grid-template-areas: "mainmenu logo accountArea ";
+  margin-bottom: 20px;
+  padding-top: 10px;
 }
 
-/* .menu,
-.logo, 
-.accountArea {
-  border: 1px solid black;
-} */
-
-.logo-placeholder{
-  font-size: 16px;
+.logo a {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
   text-align: center;
-}
-
-.accountArea {
-  float: right;
-  padding-top: 5px;
+  margin-bottom: 0;
 }
 
 .mobileLoginIcon {
@@ -33,7 +51,55 @@ header {
   font-size: 30px;
 }
 
-/* burger menu shiet */
+.loginForm {
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "loginForm";
+  grid-area: loginForm;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "emailInput loginButton"
+                        "passwordInput loginButton" 
+                        "registerLink registerLink";
+}
+
+.emailInput,
+.passwordInput {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.emailInput,
+.passwordInput:focus {
+  outline: none;
+}
+
+.passwordInput {
+  margin-bottom: 10px;
+}
+
+.loginButton {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.loginButton button {
+  width: 100%;
+  float: right;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 20px;
+}
+
+.registerLink {
+  grid-area: registerLink;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* burger menu  */
 .bars {
   float: left;
   cursor: pointer;
@@ -60,16 +126,54 @@ header {
 
 .mainNav ul li {
   border-bottom: 1px solid rgb(0, 0, 0);
-  width: 50px;
-  /* padding: 5px; */
+}
+
+.mainNav ul li a:hover {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.bar1, .bar2, .bar3 {
+	width: 24px;
+	height: 4px;
+	margin: 6px 0; 
+	background-color: #000; 
+	transition: 0.4s;
+}
+
+/* Rotate first bar */
+.animateBurger .bar1 {
+  transform: rotate(-45deg) translate(-6px, 8px);
+  background-color: blue;
+}
+	/* Fade out the second bar */
+.animateBurger .bar2 {
+	opacity: 0; 
+}
+	/* Rotate last bar */
+.animateBurger .bar3 {
+  transform: rotate(45deg) translate(-6px, -8px);
+  background-color: blue;
+}
+
+.mainNav ul li:first-of-type {
+  border-top: 1px solid #000;
 }
 
 .mainNav ul li a {
   display: inline-block;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 10px;
-  /* padding: 8px 0; */
+  font-size: 18px;
+  padding: 10px 0 10px 5px;
+  width: 100%;
+}
+
+.loginArea {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease-in;
 }
 
 .slideMenu {
@@ -77,27 +181,57 @@ header {
   transition: height 0.3s ease-in;
 }
 
+.slideLogin {
+  height: 100px;
+  transition: height 0.3s ease-in;
+}
+
+.animateLogin .fa-user {
+  color: blue;
+  transition: 0.4s;
+}
+
 /* Tablet */
 @media only screen and (min-width: 768px) {
-  .burgerMenu{
+  .burgerMenu {
     display: none;
   }
 
   header {
-    grid-template-columns:1fr 2fr 1fr;
-    grid-template-areas: ".logo .logo .accountArea "
-                          ".menu .menu .menu";
-
-    /* height: 40px; */
-    margin-bottom: 10px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "logo accountArea "
+                          "mainmenu mainmenu";
   }
 
-  .logo-placeholder{
-    font-size: 16px;
+  .mainNav {
+    overflow: visible;
+    margin-bottom: 80px;
+  }
+
+  .mainNav ul li {
+    display: inline-block;
+    width: auto;
+    margin-right: 20px;
+    border: none;
+  }
+
+  .mainNav ul li:first-of-type {
+    border-top: none;
+  }
+
+  .mainNav ul li a {
+    font-size: 20px;
+  }
+
+  .logo a {
+    text-decoration: none;
+  }
+
+  .logo-placeholder {
+    font-size: 40px;
     text-align: left;
+    margin: auto 0;
   }
-
-
 }
 
 /* Desktop */

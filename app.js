@@ -29,14 +29,14 @@ app.use((req, res, next) => {
 });
 
 // trying to display databases
-var MongoClient = require("mongodb").MongoClient;
-MongoClient.connect(
-  "mongodb://localhost:27017",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function(err, client) {
-    app.set("testQuackyRaces", client.db("testQuackyRaces"));
-  }
-);
+// var MongoClient = require("mongodb").MongoClient;
+// MongoClient.connect(
+//   "mongodb://localhost:27017",
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   function(err, client) {
+//     app.set("testQuackyRaces", client.db("testQuackyRaces"));
+//   }
+// );
 
 // finished displaying databases
 

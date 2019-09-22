@@ -1,6 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
 /* Mobile */
 body{
-    background-color: grey;
+    /* background-color: grey; */
+    min-width: 310px;
+    margin: 0 10px;
 }
 
 
