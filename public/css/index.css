@@ -56,13 +56,13 @@ p {
 }
 
 .glow {
-    font-size: 80px;
+    font-size: 60px;
     color: #fff;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
-    padding:4px;
+    padding:50px;
   }
   
   @-webkit-keyframes glow {
