@@ -1,12 +1,42 @@
 /* Mobile */
 
 
-/* Tablet */
-@media only screen and (min-width: 768px) {
+.duckName {
+    grid-area: duckName;
+}
+
+.duckImage {
+    grid-area: duckImage;
+}
+
+.duckBio {
+    grid-area: duckBio;
 
 }
+
+.profile-section {
+    display: grid;
+    grid-area: profile-section;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "duckName duckBio"
+        "duckImage duckBio";
+}
+
+
+.duckName {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #86BC85;
+}
+
+.duckProfile {
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #86BC85;
+    font-size: 10px; */
+}
+
+
+/* Tablet */
+@media only screen and (min-width: 768px) {}
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {
-
-}
+@media only screen and (min-width: 1200px) {}

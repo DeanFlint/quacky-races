@@ -34,25 +34,15 @@
     top: 1px;
 }
 
-p {
-    color: #CEF0D4;
-    font-family: 'Rouge Script', cursive;
-    font-size: 50px;
-    font-weight: normal;
-    line-height: 48px;
-    margin: 0 0 50px;
-    text-align: center;
-    text-shadow: 1px 1px 2px #082b34;
-    padding: 1px;
+
+.duckBanner {
+    background-color: #CC8D4F;
+    padding: 10px;
 }
 
-.duckBanner{
-   background-color: #CC8D4F;
-   padding: 10px;
-}
-.duckBannerImage{
-    height:100%;
-    width:100%;
+.duckBannerImage {
+    height: 100%;
+    width: 100%;
 }
 
 .glow {
@@ -62,17 +52,24 @@ p {
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
-    padding:50px;
-  }
-  
-  @-webkit-keyframes glow {
+    padding: 50px;
+    font-family: 'Courier New', Courier, monospace;
+
+    font-weight: normal;
+    line-height: 48px;
+    margin: 0 0 50px;
+    text-align: center;
+}
+
+@-webkit-keyframes glow {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px#2C8E60, 0 0 40px #2C8E60, 0 0 50px #2C8E60, 0 0 60px #2C8E60, 0 0 70px #2C8E60;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px#2C8E60, 0 0 40px #2C8E60, 0 0 50px #2C8E60, 0 0 60px #2C8E60, 0 0 70px #2C8E60;
     }
+
     to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #2C8E60, 0 0 40px #2C8E60, 0 0 50px #2C8E60, 0 0 60px #2C8E60, 0 0 70px #2C8E60, 0 0 80px #2C8E60;
+        text-shadow: 0 0 20px #fff, 0 0 30px #2C8E60, 0 0 40px #2C8E60, 0 0 50px #2C8E60, 0 0 60px #2C8E60, 0 0 70px #2C8E60, 0 0 80px #2C8E60;
     }
-  }
+}
 
 
 /* Tablet */
