@@ -1,10 +1,28 @@
+# ------------------------------------------------
+# Instructions for setting up Mongo on your local
+# ------------------------------------------------
+    
+# Open up a terminal and enter:
+    mongod
+
+# Next, open a new terminal and enter:
+    mongo
+
+# This will make the terminal become a mongo shell for you to enter mongo commands
+
+# Next, navigate to the data folder in your terminal
+    cd data
+
+# Now enter:
+    mongoimport --db testQuackyRaces --collection duck --jsonArray --file ducks.json
+
+
+# ------------------------------------------------
+# To setup and run project
+# ------------------------------------------------
+
 # Instructions to run project:
     npm install
-
-# Added reload to refresh the browser after each save.
-# I've added the 'node_modules/.bin/reload -b' script to the package.json file so we
-# can run the reload easily by using the following command in the terminal:
-    npm run reload
 
 # run nodemon app to run project on localhost:3000
     nodemon app
