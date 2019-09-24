@@ -1,4 +1,25 @@
 /* Mobile */
+.event-runners{
+    grid-area: event-runners;
+    background-color: red;
+}
+
+.event-user-form {
+    grid-area: event-user-form;
+    background-color: blue;
+}
+
+
+  
+.event-section {
+    display: grid;
+    grid-template-areas: "event-section";
+    grid-area: event-section;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "event-runners event-user-form ";
+
+}
+
 
 
 /* Tablet */
