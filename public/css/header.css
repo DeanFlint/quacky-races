@@ -13,18 +13,6 @@
   padding-top: 5px;
 }
 
-.emailInput {
-  grid-area: emailInput;
-}
-
-.passwordInput {
-  grid-area: passwordInput;
-}
-
-.loginButton {
-  grid-area: loginButton;
-}
-
 header {
   display: grid;
   grid-template-areas: "header";
@@ -51,53 +39,7 @@ header {
   font-size: 30px;
 }
 
-.loginForm {
-  width: 85%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-areas: "loginForm";
-  grid-area: loginForm;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: "emailInput loginButton"
-                        "passwordInput loginButton" 
-                        "registerLink registerLink";
-}
 
-.emailInput,
-.passwordInput {
-  margin-bottom: 5px;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.emailInput,
-.passwordInput:focus {
-  outline: none;
-}
-
-.passwordInput {
-  margin-bottom: 10px;
-}
-
-.loginButton {
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-.loginButton button {
-  width: 100%;
-  float: right;
-  padding: 5px 10px;
-  border-radius: 5px;
-  height: 100%;
-  font-size: 20px;
-}
-
-.registerLink {
-  grid-area: registerLink;
-  text-decoration: none;
-  text-align: center;
-}
 
 /* burger menu  */
 .bars {
@@ -170,11 +112,11 @@ header {
   width: 100%;
 }
 
-.loginArea {
+/* .loginArea {
   overflow: hidden;
   height: 0;
   transition: height 0.3s ease-in;
-}
+} */
 
 .slideMenu {
   height: 300px;

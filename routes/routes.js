@@ -39,6 +39,11 @@ module.exports = app => {
     res.render("account.ejs");
   });
 
+  app.get("/login", (req, res) => {
+    res.render("login.ejs");
+  });
+
+
   // testing displaying data from a database
 
     // router.get("/api/profiles", (req, res) => {
