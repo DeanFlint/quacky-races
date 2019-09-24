@@ -35,6 +35,13 @@
 }
 
 
+
+.duckImage img {
+    width: 100px;
+    height: 100px;
+}
+
+
 /* Tablet */
 @media only screen and (min-width: 768px) {}
 
