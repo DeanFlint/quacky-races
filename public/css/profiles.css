@@ -20,6 +20,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "duckName duckBio"
         "duckImage duckBio";
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #41705D;
+
 }
 
 
