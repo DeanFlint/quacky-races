@@ -5,7 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reload": "reload -b"
+    "builddoc1": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/ducks.json",
+    "builddoc2": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/event.json",
+    "builddoc3": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/prediction.json",
+    "builddoc4": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/result.json",
+    "builddoc5": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/round.json",
+    "builddoc6": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/user.json",
+    "builddoc7": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/userScore.json"
   },
   "author": "",
   "license": "ISC",
