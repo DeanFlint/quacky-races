@@ -5,29 +5,32 @@ sudo mkdir -p /data/db
 sudo chmod 777 /data
 sudo chmod 777 /data/db
 
-
 # ------------------------------------------------
 # Instructions for setting up Mongo on your local
 # ------------------------------------------------
     
-# Open up a terminal and enter:
+# Open up a normal terminal and enter:
 
 mongod
 
-# Next, navigate to the data folder in your terminal
+# In a different normal terminal, enter:
 
 cd data
 
+# Then enter in a normal terminal:
+
+mongoimport --db testQuackyRaces --collection duck --jsonArray --file ducks.json
+
+
+# ------------------------------------------------
+# Instructions for setting up Mongo on your local
+# ------------------------------------------------
+
 # Open a new terminal and enter:
-    
+
 mongo
 
 # This will make the terminal become a mongo shell for you to enter mongo commands
-
-
-# Now enter:
-
-mongoimport --db testQuackyRaces --collection duck --jsonArray --file ducks.json
 
 
 # ------------------------------------------------
@@ -37,5 +40,12 @@ mongoimport --db testQuackyRaces --collection duck --jsonArray --file ducks.json
 # Instructions to run project:
     npm install
 
-# run nodemon app to run project on localhost:3000
+# Run nodemon app to run project on localhost:3000 
     nodemon app
+
+
+# ------------------------------------------------
+# Recommended extensions for VSCode
+# ------------------------------------------------
+
+# Azure Cosmos DB: This app lets you manipulate the data inside 
