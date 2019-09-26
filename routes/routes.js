@@ -65,6 +65,7 @@ module.exports = app => {
       .collection("ducks")
       .find({})
       .sort({ duckID: 1 })
+      .sort({ duckName: 1 })
       .toArray(function(err, docs) {
         if (err) {
           console.error(err);
