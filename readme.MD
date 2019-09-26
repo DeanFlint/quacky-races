@@ -13,13 +13,17 @@ sudo chmod 777 /data/db
 
 mongod
 
-# In a different normal terminal, enter:
+# In a different normal terminal, run each of the following scripts: (these have been setup in the package.json
+# file so this is where we edit the script if we add a new file or change the name of any of the existing filenames in the
+# data folder).
 
-cd data
-
-# Then enter in a normal terminal:
-
-mongoimport --db testQuackyRaces --collection duck --jsonArray --file ducks.json
+npm run builddoc1
+npm run builddoc2
+npm run builddoc3
+npm run builddoc4
+npm run builddoc5
+npm run builddoc6
+npm run builddoc7
 
 
 # ------------------------------------------------
