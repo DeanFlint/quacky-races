@@ -1,61 +1,68 @@
 .loginForm {
-    width: 85%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-areas: "loginForm";
-    grid-area: loginForm;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "emailInput loginButton"
-                          "passwordInput loginButton" 
-                          "registerLink registerLink";
-  }
-  
-  .emailInput,
-  .passwordInput {
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  .emailInput,
-  .passwordInput:focus {
-    outline: none;
-  }
-  
-  .passwordInput {
-    margin-bottom: 10px;
-  }
-  
-  .loginButton {
-    margin-bottom: 10px;
-    margin-left: 10px;
-  }
-  
-  .loginButton button {
-    width: 100%;
-    float: right;
-    padding: 5px 10px;
-    border-radius: 5px;
-    height: 100%;
-    font-size: 20px;
-  }
-  
-  .registerLink {
-    grid-area: registerLink;
-    text-decoration: none;
-    text-align: center;
-  }
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "loginForm";
+  grid-area: loginForm;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "emailInput loginButton"
+    "passwordInput loginButton"
+    "registerLink registerLink";
+}
 
+.emailInput,
+.passwordInput {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
 
-  
-  .emailInput {
-    grid-area: emailInput;
-  }
-  
-  .passwordInput {
-    grid-area: passwordInput;
-  }
-  
-  .loginButton {
-    grid-area: loginButton;
-  }
+.emailInput,
+.passwordInput:focus {
+  outline: none;
+}
+
+.passwordInput {
+  margin-bottom: 10px;
+}
+
+.loginButton {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.loginButton button {
+  width: 100%;
+  float: right;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 20px;
+}
+
+.registerLink {
+  grid-area: registerLink;
+  text-decoration: none;
+  text-align: center;
+}
+
+.emailInput {
+  grid-area: emailInput;
+}
+
+.passwordInput {
+  grid-area: passwordInput;
+}
+
+.loginButton {
+  grid-area: loginButton;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+}
