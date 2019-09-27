@@ -23,9 +23,9 @@ module.exports = app => {
     res.render("results.ejs");
   });
 
-    // app.get("/profiles", (req, res) => {
-    //   res.render("profiles.ejs");
-    // });
+  // app.get("/profiles", (req, res) => {
+  //   res.render("profiles.ejs");
+  // });
 
   app.get("/leaderboard", (req, res) => {
     res.render("leaderboard.ejs");
@@ -43,29 +43,29 @@ module.exports = app => {
     res.render("login.ejs");
   });
 
-
   // testing displaying data from a database
 
-    // router.get("/api/profiles", (req, res) => {
-    //   app
-    //     .set("testQuackyRaces")
-    //     .collection("duck")
-    //     .find({})
-    //     .toArray(function(err, docs) {
-    //       if (err) {
-    //         console.error(err);
-    //       }
-    //       console.dir(docs);
-    //       res.json(docs);
-    //     });
-    // });
+  // router.get("/api/profiles", (req, res) => {
+  //   app
+  //     .set("testQuackyRaces")
+  //     .collection("duck")
+  //     .find({})
+  //     .toArray(function(err, docs) {
+  //       if (err) {
+  //         console.error(err);
+  //       }
+  //       console.dir(docs);
+  //       res.json(docs);
+  //     });
+  // });
 
   router.get("/profiles", (req, res) => {
     app
       .set("testQuackyRaces")
-      .collection("duck")
+      .collection("ducks")
       .find({})
-      .sort( { duckName: 1 } )
+      .sort({ duckID: 1 })
+      .sort({ duckName: 1 })
       .toArray(function(err, docs) {
         if (err) {
           console.error(err);
@@ -78,9 +78,9 @@ module.exports = app => {
       });
   });
 
-    router.post("/duck", (req, res) => {
-      let duckID = parseInt(req.body.duckID);
-      return res.json({ postedValue: duckID });
-    });
+  router.post("/ducks", (req, res) => {
+    let duckID = parseInt(req.body.duckID);
+    return res.json({ postedValue: duckID });
+  });
   return router;
 };

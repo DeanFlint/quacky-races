@@ -1,25 +1,29 @@
 /* Mobile */
 .event-runners{
     grid-area: event-runners;
-    background-color: red;
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .event-user-form {
     grid-area: event-user-form;
-    background-color: blue;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
 }
-
-
   
 .event-section {
     display: grid;
     grid-template-areas: "event-section";
     grid-area: event-section;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-areas: "event-runners event-user-form ";
-
+   
 }
 
+.playOption {
+    margin-bottom: 5px;
+}
 
 
 /* Tablet */
@@ -29,5 +33,18 @@
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
+    .event-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
+    .event-section {
+        width: 48%;
+        margin-bottom: 10px;
+
+    }
+    .event-section:nth-of-type(odd) {
+        margin-right: 10px;
+    }
 }

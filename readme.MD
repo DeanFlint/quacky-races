@@ -24,7 +24,7 @@ npm run builddoc4
 npm run builddoc5
 npm run builddoc6
 npm run builddoc7
-
+npm run buildall (this will build all of the above at once)
 
 # ------------------------------------------------
 # Instructions for setting up Mongo on your local
@@ -53,3 +53,15 @@ mongo
 # ------------------------------------------------
 
 # Azure Cosmos DB: This app lets you manipulate the data inside 
+
+
+# ------------------------------------------------
+# TODO
+# ------------------------------------------------
+
+# express-session (npm install)
+# bcrypt (npm install)
+
+# Use <form action/login method=POST>
+
+# https://github.com/tomnomnom/hacks/tree/master/ejs-example  :  To help with sessions
