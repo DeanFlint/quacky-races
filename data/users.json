@@ -6,5 +6,29 @@
     "email": "",
     "password": "",
     "dob": ""
+  },
+  {
+    "userID": "1",
+    "forename": "Dean",
+    "surname": "Flint",
+    "email": "dean@email.com",
+    "password": "dean@email.com",
+    "dob": "28/02/1990"
+  },
+  {
+    "userID": "2",
+    "forename": "Ally",
+    "surname": "Fincham",
+    "email": "ally@email.com",
+    "password": "ally@email.com",
+    "dob": "24/01/1998"
+  },
+  {
+    "userID": "2",
+    "forename": "Kate",
+    "surname": "Marchant",
+    "email": "kate@email.com",
+    "password": "kate@email.com",
+    "dob": "24/02/1996"
   }
 ]
