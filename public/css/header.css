@@ -41,6 +41,7 @@ header {
 
 .fa-user {
   font-size: 30px;
+  color:black;
 }
 
 
@@ -62,12 +63,16 @@ header {
   overflow: hidden;
   height: 0;
   transition: height 0.3s ease-in;
+  
 }
 
 .mainNav ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
+  border: 1px solid #86BC85;
+  border-radius:5px;
+  background-color: #86BC85;
 }
 
 .mainNav ul li {
@@ -91,7 +96,7 @@ header {
 /* Rotate first bar */
 .animateBurger .bar1 {
   transform: rotate(-45deg) translate(-6px, 8px);
-  background-color: blue;
+  background-color: black;
 }
 	/* Fade out the second bar */
 .animateBurger .bar2 {
@@ -100,7 +105,7 @@ header {
 	/* Rotate last bar */
 .animateBurger .bar3 {
   transform: rotate(45deg) translate(-6px, -8px);
-  background-color: blue;
+  background-color:black;
 }
 
 .mainNav ul li:first-of-type {
@@ -114,6 +119,7 @@ header {
   font-size: 18px;
   padding: 10px 0 10px 5px;
   width: 100%;
+  
 }
 
 /* .loginArea {
@@ -133,7 +139,7 @@ header {
 }
 
 .animateLogin .fa-user {
-  color: blue;
+  color:black;
   transition: 0.4s;
 }
 
@@ -152,6 +158,9 @@ header {
   .mainNav {
     overflow: visible;
     margin-bottom: 80px;
+    background-color:grey;
+    border-radius:5px;
+
   }
 
   .mainNav ul li {
