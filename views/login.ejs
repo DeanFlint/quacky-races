@@ -1,16 +1,26 @@
 <%- include('header') %>
 
 <main>
-    <div class="loginArea">
-        <form action="" class="loginForm">
-        <input class="emailInput" type="text" placeholder="Enter your email">
-        <input class="passwordInput" type="password" placeholder="Enter your password">
-        <div class="loginButton">
-            <button>Login</button>
-        </div>
-        <a href="#" class="registerLink">Don't have an account? Click here to register.</a>
-        </form>
-    </div>
+  <div class="loginArea">
+    <form action="/login-action" method="POST" class="loginForm">
+      <input
+        class="emailInput"
+        type="text"
+        placeholder="Enter your email"
+        name="email"
+      />
+      <input
+        class="passwordInput"
+        type="password"
+        placeholder="Enter your password"
+        name="password"
+      />
+      <input type="submit" value="Log In" />
+      <a href="/register" class="registerLink"
+        >Don't have an account? Click here to register.</a
+      >
+    </form>
+  </div>
 </main>
 
 <%- include('footer') %>

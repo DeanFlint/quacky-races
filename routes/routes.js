@@ -2,6 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
+// login
+const bcrypt = require("bcrypt");
+const session = require("express-session");
+
 // const myControllers = require('../controllers/controllers.js');
 
 // console.dir(myControllers);
@@ -43,21 +47,66 @@ module.exports = app => {
     res.render("login.ejs");
   });
 
-  // testing displaying data from a database
+  // login
 
-  // router.get("/api/profiles", (req, res) => {
-  //   app
-  //     .set("testQuackyRaces")
-  //     .collection("duck")
-  //     .find({})
-  //     .toArray(function(err, docs) {
-  //       if (err) {
-  //         console.error(err);
-  //       }
-  //       console.dir(docs);
-  //       res.json(docs);
-  //     });
-  // });
+  // app.use(session({
+  //   secret = 'QU4CK',
+  //   resave = false,
+  //   saveUninitialized = true
+  // }))
+
+  // app.post('register', async (req, res) => {
+  //   let saltRounds = 8
+  //   let hash = await bcrypt.hash(req.body.password, saltRounds)
+  //   users[req.body.email] = {
+  //     hash: hash
+  //   }
+  //   res.redirect('/')
+  // })
+
+  app.post("/login-action", async (req, res) => {
+    if (!users[req.body.email]) {
+      res.render("Oops!", {
+        message: "Sorry, details not found."
+      });
+      return;
+    }
+    let user = users[req.body.email];
+
+    let success = await bcrypt.compare(req.body.password, user.hash);
+
+    if (!success) {
+      res.render("error", {
+        message: "Bad username or password!"
+      });
+      return;
+    }
+    req.session.user = req.body.email;
+    res.redirect(302, "/login");
+  });
+
+  // app.get('/logout', (req,res) => {
+  //   req.session.user = null
+  //   res.redirect(302, '/')
+  // })
+
+  router.get("/login", (req, res) => {
+    app
+      .set("testQuackyRaces")
+      .collection("users")
+      .find({})
+      .toArray(function(err, docs) {
+        if (err) {
+          console.error(err);
+        }
+      });
+    return res.render("login.ejs", {
+      users: docs
+      // user: req.session.user
+    });
+  });
+
+  // testing displaying data from a database
 
   router.get("/profiles", (req, res) => {
     app

@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const port = 3000;
 const app = express();
 
 // add for RESTful
@@ -40,7 +40,7 @@ MongoClient.connect(
 
 // finished displaying databases
 
-app.listen(3000);
+app.listen(port);
 
 console.log("Express on 3000");
 
