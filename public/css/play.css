@@ -10,7 +10,11 @@
     border: 1px solid black;
     padding: 5px;
     text-align: center;
+    display: inline-block;
+    /* flex-direction: row; */
 }
+
+
   
 .event-section {
     display: grid;
@@ -23,16 +27,12 @@
 
 .playOption {
     margin-bottom: 5px;
+    width: 20px;
 }
 
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
-
-}
-
-/* Desktop */
-@media only screen and (min-width: 1200px) {
     .event-container {
         display: flex;
         flex-direction: row;
@@ -47,4 +47,9 @@
     .event-section:nth-of-type(odd) {
         margin-right: 10px;
     }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+
 }
