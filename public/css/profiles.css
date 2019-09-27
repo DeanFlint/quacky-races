@@ -47,7 +47,21 @@
 
 
 /* Tablet */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    .profile-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .profile-section {
+        width: 48%;
+    }
+
+}
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+
+}
