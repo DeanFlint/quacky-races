@@ -1,12 +1,12 @@
 /* Mobile */
 .event-runners{
     grid-area: event-runners;
-    background-color: red;
+    border: 1px solid black;
 }
 
 .event-user-form {
     grid-area: event-user-form;
-    background-color: blue;
+    border: 1px solid black;
 }
 
 

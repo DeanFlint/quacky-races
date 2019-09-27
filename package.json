@@ -11,7 +11,8 @@
     "builddoc4": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/result.json",
     "builddoc5": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/round.json",
     "builddoc6": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/user.json",
-    "builddoc7": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/userScore.json"
+    "builddoc7": "mongoimport --db testQuackyRaces --collection duck --jsonArray --file data/userScore.json",
+    "buildall" : "builddoc1 && builddoc2 && builddoc3 && builddoc4 && builddoc5 && builddoc6 && builddoc7"
   },
   "author": "",
   "license": "ISC",
