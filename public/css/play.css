@@ -1,33 +1,53 @@
 /* Mobile */
 .event-runners{
     grid-area: event-runners;
-    border: 1px solid black;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 .event-user-form {
     grid-area: event-user-form;
-    border: 1px solid black;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
-    display: inline-block;
-    /* flex-direction: row; */
 }
 
+.input-box-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;     
+}
 
-  
+select {
+    margin: 10px;
+    min-height: 25px;
+    min-width: 60px;
+    font-size: 16px;
+}
+
 .event-section {
+    background-color: #f1f0f0;
+    border: 1px solid #b7b5b5;
     display: grid;
+    margin-bottom: 10px;
     grid-template-areas: "event-section";
     grid-area: event-section;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "event-runners event-user-form ";
-   
+    border-radius: 5px;
 }
 
 .playOption {
     margin-bottom: 5px;
     width: 20px;
+}
+
+.event-runner-name {
+    margin-bottom: 5px;
+}
+
+.event-race-name {
+    margin-bottom: 7px;
 }
 
 
@@ -40,8 +60,8 @@
     }
 
     .event-section {
-        width: 48%;
-        margin-bottom: 10px;
+        width: 49%;
+        
 
     }
     .event-section:nth-of-type(odd) {

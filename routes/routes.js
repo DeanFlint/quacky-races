@@ -127,9 +127,5 @@ module.exports = app => {
       });
   });
 
-  router.post("/ducks", (req, res) => {
-    let duckID = parseInt(req.body.duckID);
-    return res.json({ postedValue: duckID });
-  });
   return router;
 };
