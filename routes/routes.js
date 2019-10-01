@@ -1,131 +1,90 @@
-const express = require("express");
+// const express = require("express");
+// const router = express.Router();
+// const quackyDB = "quackyRacesDB"; // our DB name
 
-const router = express.Router();
 
-// login
-const bcrypt = require("bcrypt");
-const session = require("express-session");
 
-// const myControllers = require('../controllers/controllers.js');
 
-// console.dir(myControllers);
+// module.exports = app => {
+//   app.get("/", (req, res) => {
+//     res.render('index', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-module.exports = app => {
-  app.get("/", (req, res) => {
-    res.render("index.ejs");
-  });
+//   app.get("/play", (req, res) => {
+//     res.render('play', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/play", (req, res) => {
-    res.render("play.ejs");
-  });
+//   app.get("/predictions", (req, res) => {
+//     res.render('predictions', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/predictions", (req, res) => {
-    res.render("predictions.ejs");
-  });
+//   app.get("/results", (req, res) => {
+//     res.render('results', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/results", (req, res) => {
-    res.render("results.ejs");
-  });
+//   app.get("/leaderboard", (req, res) => {
+//     res.render('leaderboard', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  // app.get("/profiles", (req, res) => {
-  //   res.render("profiles.ejs");
-  // });
+//   app.get("/register", (req, res) => {
+//     res.render('register', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/leaderboard", (req, res) => {
-    res.render("leaderboard.ejs");
-  });
+//   app.get("/account", (req, res) => {
+//     res.render('account', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/register", (req, res) => {
-    res.render("register.ejs");
-  });
+//   app.get("/login", (req, res) => {
+//     res.render('login', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  app.get("/account", (req, res) => {
-    res.render("account.ejs");
-  });
 
-  app.get("/login", (req, res) => {
-    res.render("login.ejs");
-  });
+//   app.get('/api/profiles', async (req, res) => {
+//     try {
+//       const db = client.db(quackyDB);
+//       const ducks = await db.collection("ducks")
+//         .find({})
+//         .sort({ duckID: 1 })
+//         .sort({ duckName: 1 })
+//         .toArray()
 
-  // login
+//         res.json(ducks.map(ducks => ducks))
+        
+//         // .toArray( function(docs) {
+//         //   return res.render("profiles", {
+//         //     ducks: docs
+//         //   })
+//         // })
+//     } catch(err) {
+//       res.render('/profiles', {
+//         message: "Failed to list ducks"
+//       })
+//     }
+//   })
 
-  // app.use(session({
-  //   secret = 'QU4CK',
-  //   resave = false,
-  //   saveUninitialized = true
-  // }))
+//   app.get("/profiles", (req, res) => {
+//     res.render('profiles', {
+//       user: req.session.user // included in page to assign cookie to a user to access data
+//     });
+//   });
 
-  // app.post('register', async (req, res) => {
-  //   let saltRounds = 8
-  //   let hash = await bcrypt.hash(req.body.password, saltRounds)
-  //   users[req.body.email] = {
-  //     hash: hash
-  //   }
-  //   res.redirect('/')
-  // })
 
-  app.post("/login-action", async (req, res) => {
-    if (!users[req.body.email]) {
-      res.render("Oops!", {
-        message: "Sorry, details not found."
-      });
-      return;
-    }
-    let user = users[req.body.email];
 
-    let success = await bcrypt.compare(req.body.password, user.hash);
-
-    if (!success) {
-      res.render("error", {
-        message: "Bad username or password!"
-      });
-      return;
-    }
-    req.session.user = req.body.email;
-    res.redirect(302, "/login");
-  });
-
-  // app.get('/logout', (req,res) => {
-  //   req.session.user = null
-  //   res.redirect(302, '/')
-  // })
-
-  router.get("/login", (req, res) => {
-    app
-      .set("testQuackyRaces")
-      .collection("users")
-      .find({})
-      .toArray(function(err, docs) {
-        if (err) {
-          console.error(err);
-        }
-      });
-    return res.render("login.ejs", {
-      users: docs
-      // user: req.session.user
-    });
-  });
-
-  // testing displaying data from a database
-
-  router.get("/profiles", (req, res) => {
-    app
-      .set("testQuackyRaces")
-      .collection("ducks")
-      .find({})
-      .sort({ duckID: 1 })
-      .sort({ duckName: 1 })
-      .toArray(function(err, docs) {
-        if (err) {
-          console.error(err);
-        }
-
-        return res.render("profiles", {
-          title: "Duck Profiles",
-          ducks: docs
-        });
-      });
-  });
-
-  return router;
-};
+//   return router;
+// };
