@@ -23,10 +23,10 @@ app.use((req, res, next) => {
 app.use("/", routes(app));
 
 // remove for sample files
-app.use((req, res, next) => {
-  res.status(404).send("Sorry can't find that!");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.status(404).send("Sorry can't find that!");
+//   next();
+// });
 
 // trying to display databases
 var MongoClient = require("mongodb").MongoClient;
@@ -34,7 +34,7 @@ MongoClient.connect(
   "mongodb://localhost:27017",
   { useNewUrlParser: true, useUnifiedTopology: true },
   function(err, client) {
-    app.set("testQuackyRaces", client.db("testQuackyRaces"));
+    app.set("quackyRacesDB", client.db("quackyRacesDB"));
   }
 );
 

@@ -1,7 +1,12 @@
 <%- include('header') %>
 
 <main>
-    <h1>Account</h1>
+
+    
+        <% users.forEach(function(user){ %>
+          <%= user.forename %>
+        <% }) %>
+
 </main>
 
 
