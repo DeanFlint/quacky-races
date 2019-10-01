@@ -1,12 +1,63 @@
 /* Mobile */
 
+h1 {
+    padding: 10px;
+}
+
+.personName {
+    grid-area: personName;
+}
+
+.personImage {
+    grid-area: personImage;
+
+}
+
+#deanImage {
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+#kateImage {
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+#allyImage {
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.personPre {
+    grid-area: personPre;
+    border-radius: 5px;
+    /* background-color: #41705D; */
+    font-size: 20px;
+
+}
+
+.person-section {
+    display: grid;
+    grid-area: person-section;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "personName personPre"
+        "personImage personPre";
+    background-color: #f1f0f0;
+    border: 1px solid #b7b5b5;
+    border-radius: 5px;
+
+
+}
+
 
 /* Tablet */
-@media only screen and (min-width: 768px) {
-
-}
+@media only screen and (min-width: 768px) {}
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {
-
-}
+@media only screen and (min-width: 1200px) {}

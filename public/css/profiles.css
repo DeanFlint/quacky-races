@@ -20,9 +20,11 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "duckName duckBio"
         "duckImage duckBio";
-    border: 1px solid white;
     border-radius: 5px;
-    background-color: #41705D;
+    background-color: #f1f0f0;
+    border: 1px solid #b7b5b5;
+    margin-bottom: 2px;
+    margin-right: 2px;
 
 }
 
@@ -61,7 +63,4 @@
 }
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {
-
-
-}
+@media only screen and (min-width: 1200px) {}
