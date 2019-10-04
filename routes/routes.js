@@ -15,6 +15,11 @@ module.exports = app => {
     res.render("index.ejs");
   });
 
+  app.post('formAction', (req, res) => {
+    
+    
+  })
+
   app.get("/play", (req, res) => {
     res.render("play.ejs");
   });
@@ -34,6 +39,8 @@ module.exports = app => {
   app.get("/account", (req, res) => {
     res.render("account");
   });
+
+
 
   router.get("/profiles", (req, res) => {
     app
@@ -86,13 +93,9 @@ module.exports = app => {
       });
   })
 
-
   app.get("/login", (req, res) => {
     res.render("login.ejs");
   });
-
-
-
 
   app.get("/register", (req, res) => {
     res.render("register.ejs");
