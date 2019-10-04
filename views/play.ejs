@@ -1,207 +1,310 @@
 <%- include('header') %>
 
 <main>
+    <h1>Play</h1>
 
-    <div class="event-container">
+    <form action="playAction" method="POST">
+        <input type="submit" value="Submit">
 
-        <div class="event-section">
-            <div class="event-runners">
-                <h2 class="event-race-name">Event name</h3>
-                <p class="event-runner-name">1. Duck name</p>
-                <p class="event-runner-name">2. Duck name</p>
-                <p class="event-runner-name">3. Duck name</p>
-                <p class="event-runner-name">4. Duck name</p>
-                <p class="event-runner-name">5. Duck name</p>
-                <p class="event-runner-name">6. Duck name</p>         
-            </div>
 
-            <div class="event-user-form">
-                <h2 class="event-race-name">Prediction</h3>
-                    
-                <div class="input-box-area">
-                    
-                    <select>
-                        <option value="" selected disabled hidden>1st</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>2nd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>3rd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
+        <div class="event-container">
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name1</h3>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
                 </div>
-            </div>
-        </div>
+                <!-- /event-runners -->
 
-        <div class="event-section">
-            <div class="event-runners">
-                <h2 class="event-race-name">Event name</h3>
-                <p class="event-runner-name">1. Duck name</p>
-                <p class="event-runner-name">2. Duck name</p>
-                <p class="event-runner-name">3. Duck name</p>
-                <p class="event-runner-name">4. Duck name</p>
-                <p class="event-runner-name">5. Duck name</p>
-                <p class="event-runner-name">6. Duck name</p>         
-            </div>
-
-            <div class="event-user-form">
-                <h2 class="event-race-name">Prediction</h3>
-                    
-                <div class="input-box-area">
-                    
-                    <select>
-                        <option value="" selected disabled hidden>1st</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>2nd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>3rd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select id="testBox">
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
                 </div>
+                <!-- /event-user-form -->
             </div>
-        </div>
+            <!-- /event-section -->
 
-        <div class="event-section">
-            <div class="event-runners">
-                <h2 class="event-race-name">Event name</h3>
-                <p class="event-runner-name">1. Duck name</p>
-                <p class="event-runner-name">2. Duck name</p>
-                <p class="event-runner-name">3. Duck name</p>
-                <p class="event-runner-name">4. Duck name</p>
-                <p class="event-runner-name">5. Duck name</p>
-                <p class="event-runner-name">6. Duck name</p>         
-            </div>
-
-            <div class="event-user-form">
-                <h2 class="event-race-name">Prediction</h3>
-                    
-                <div class="input-box-area">
-                    
-                    <select>
-                        <option value="" selected disabled hidden>1st</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>2nd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>3rd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name2</h2>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
                 </div>
-            </div>
-        </div>
+                <!-- /event-runners -->
 
-        <div class="event-section">
-            <div class="event-runners">
-                <h2 class="event-race-name">Event name</h3>
-                <p class="event-runner-name">1. Duck name</p>
-                <p class="event-runner-name">2. Duck name</p>
-                <p class="event-runner-name">3. Duck name</p>
-                <p class="event-runner-name">4. Duck name</p>
-                <p class="event-runner-name">5. Duck name</p>
-                <p class="event-runner-name">6. Duck name</p>         
-            </div>
-
-            <div class="event-user-form">
-                <h2 class="event-race-name">Prediction</h3>
-                    
-                <div class="input-box-area">
-                    
-                    <select>
-                        <option value="" selected disabled hidden>1st</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>2nd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
-                    
-                    <select>
-                        <option value="" selected disabled hidden>3rd</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">3</option>
-                        <option value="6">4</option>
-                    </select>
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select>
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
                 </div>
+                <!-- /event-user-form -->
             </div>
+            <!-- /event-section -->
+
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name3</h3>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
+                </div>
+                <!-- /event-runners -->
+
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select>
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
+                </div>
+                <!-- /event-user-form -->
+            </div>
+            <!-- /event-section -->
+
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name4</h3>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
+                </div>
+                <!-- /event-runners -->
+
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select>
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
+                </div>
+                <!-- /event-user-form -->
+            </div>
+            <!-- /event-section -->
+
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name5</h3>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
+                </div>
+                <!-- /event-runners -->
+
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select>
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
+                </div>
+                <!-- /event-user-form -->
+            </div>
+            <!-- /event-section -->
+
+            <div class="event-section">
+                <div class="event-runners">
+                    <h2 class="event-race-name">Event name6</h3>
+                    <p class="event-runner-name num1"> Duck name</p>
+                    <p class="event-runner-name num2"> Duck name</p>
+                    <p class="event-runner-name num3"> Duck name</p>
+                    <p class="event-runner-name num4"> Duck name</p>
+                    <p class="event-runner-name num5"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p>
+                </div>
+                <!-- /event-runners -->
+
+                <div class="event-user-form">
+                    <h2 class="event-race-name">Prediction</h3>
+                    <div class="input-box-area">
+                        <select>
+                            <option value="" selected disabled hidden>1st</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>2nd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                        <select>
+                            <option value="" selected disabled hidden>3rd</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">3</option>
+                            <option value="6">4</option>
+                        </select>
+                    </div>
+                    <!-- /input-box-area -->
+                </div>
+                <!-- /event-user-form -->
+            </div>
+            <!-- /event-section -->
         </div>
-    </div>
-    
+        <!-- /event-container -->
+ 
+    </form>
 </main>
-    
 
 <%- include('footer') %>

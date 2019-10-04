@@ -36,9 +36,10 @@
 
 
 .duckBanner {
-    background-color: #86BC85;
+    background-color: #f1f0f0;
     padding: 10px;
-    border-bottom: 10px solid #2C8E60;
+    border-radius: 5px;
+    
 }
 
 .duckBannerImage {
@@ -60,7 +61,8 @@
     line-height: 48px;
     margin: 0 0 50px;
     text-align: center;
-    background-color: #86BC85;
+    background-color: #f1f0f0;
+    border-radius:5px;
 }
 
 @-webkit-keyframes glow {
@@ -87,7 +89,7 @@
     }
 
     button:hover {
-        color: #CC8D4F;
+        color:white;
     }
 
 

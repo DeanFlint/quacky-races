@@ -25,6 +25,11 @@ module.exports = app => {
     });
   });
 
+  app.post('formAction', (req, res) => {
+    
+    
+  })
+
   app.get("/play", (req, res) => {
     res.render("play", {
       user: req.session.user
@@ -54,6 +59,8 @@ module.exports = app => {
       user: req.session.user
     });
   });
+
+
 
   router.get("/profiles", (req, res) => {
     app
@@ -116,6 +123,7 @@ module.exports = app => {
   });
 
   app.get("/register", (req, res) => {
+
     res.render("register.ejs", {
       message: "",
       user: req.session.user

@@ -1,13 +1,22 @@
 /* Mobile */
 
 /* https://stackoverflow.com/questions/47918195/creating-a-basic-html-javascript-leaderboard */
-#tableDiv{
-	border: 3px dotted yellow;
+
+#leaderboard {
+	padding: 20px 0;
+
+
+}
+
+#tableDiv {
+
 	height: auto;
 	padding: 0 20px;
-	background-color: #2C8E60;
 	margin-bottom: 30px;
-	
+	border-radius: 20px;
+	background-color: #f1f0f0;
+	border: 1px solid #b7b5b5;
+
 }
 
 .row {
@@ -15,9 +24,13 @@
 	display: block;
 	width: 100%;
 	height: 40px;
-	border-bottom: 1px solid #AFAFAF;
+	border-bottom: 1px solid black;
 	/* min-width: 500px;
 	height: 100px; */
+}
+
+.row:last-of-type {
+	border-bottom: grey
 }
 
 .name {
@@ -30,18 +43,14 @@
 .score {
 	position: relative;
 	display: inline-block;
-	width: 25%;
+	/* width: 25%; */
 }
 
 
 
 
 /* Tablet */
-@media only screen and (min-width: 768px) {
-
-}
+@media only screen and (min-width: 768px) {}
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {
-
-}
+@media only screen and (min-width: 1200px) {}
