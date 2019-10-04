@@ -41,7 +41,7 @@
       <div class="accountArea">
         <!-- login/register -->
         <div class="mobileLoginIcon">
-          <% if (loggedIn == false){ %>
+          <% if (!user){ %>
           <a href="/login">
             <i class="fas fa-user"></i>
           </a>
@@ -51,7 +51,7 @@
           </a>
           <% } %>
         </div>
-
+ 
         <!-- <button class="login">login/Register</button> -->
 
         <!-- form -->

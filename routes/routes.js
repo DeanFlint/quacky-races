@@ -8,46 +8,54 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-var loggedIn = false;
+
 
 module.exports = app => {
-  app.get("/", (req, res, loggedIn) => {
+  app.use(
+    session({
+      secret: "QU4CK",
+      resave: false,
+      saveUninitialized: true
+    })
+  );
+
+  app.get("/", (req, res) => {
     res.render("index", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/play", (req, res, loggedIn) => {
+  app.get("/play", (req, res) => {
     res.render("play", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/predictions", (req, res, loggedIn) => {
+  app.get("/predictions", (req, res) => {
     res.render("predictions", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/results", (req, res, loggedIn) => {
+  app.get("/results", (req, res) => {
     res.render("results", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/leaderboard", (req, res, loggedIn) => {
+  app.get("/leaderboard", (req, res) => {
     res.render("leaderboard", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/account", (req, res, loggedIn) => {
+  app.get("/account", (req, res) => {
     res.render("account", {
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  router.get("/profiles", (req, res, loggedIn) => {
+  router.get("/profiles", (req, res) => {
     app
       .set("quackyRacesDB")
       .collection("ducks")
@@ -62,26 +70,26 @@ module.exports = app => {
         return res.render("profiles", {
           title: "Duck Profiles",
           ducks: docs,
-          loggedIn: loggedIn
+          user: req.session.user
         });
       });
   });
 
-  router.get("/api/login", (req, res) => {
-    app
-      .set("quackyRacesDB")
-      .collection("users")
-      .find({ userID: "3" })
-      .toArray(function(err, docs) {
-        if (err) {
-          console.error(err);
-        }
-        console.dir(docs);
-        res.json(docs);
-      });
-  });
+  // router.get("/api/login", (req, res) => {
+  //   app
+  //     .set("quackyRacesDB")
+  //     .collection("users")
+  //     .find({ userID: "3" })
+  //     .toArray(function(err, docs) {
+  //       if (err) {
+  //         console.error(err);
+  //       }
+  //       console.dir(docs);
+  //       res.json(docs);
+  //     });
+  // });
 
-  router.get("/account", (req, res, loggedIn) => {
+  router.get("/account", (req, res) => {
     let userID = req.params.userID;
     app
       .set("quackyRacesDB")
@@ -95,68 +103,67 @@ module.exports = app => {
         return res.render("account", {
           // firstName: docs[0].forename,
           users: docs,
-          loggedIn: loggedIn
+          user: req.session.user
         });
       });
   });
 
-  app.get("/login", (req, res, loggedIn) => {
+  app.get("/login", (req, res) => {
     res.render("login.ejs", {
       message: "",
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.get("/register", (req, res, loggedIn) => {
+  app.get("/register", (req, res) => {
     res.render("register.ejs", {
       message: "",
-      loggedIn: loggedIn
+      user: req.session.user
     });
   });
 
-  app.post("/register", async (req, res, loggedIn) => {
+  app.post("/register", async (req, res) => {
     try {
       let saltRounds = 8;
       let hash = await bcrypt.hash(req.body.password, saltRounds);
 
       const db = app.set("quackyRacesDB");
       const users = db.collection("users");
+      const dob = req.body.day + req.body.month + req.body.year
 
       if (req.body.password != req.body.confirmPassword) throw "Error";
       // add year verification
 
       await users.createIndex({ email: 1 }, { unique: true });
+
       await users.insertOne({
         email: req.body.email,
         hash: hash,
-        forename: req.body.forename.strip("").toLowerCase(),
-        surname: req.body.surname.strip("").toLowerCase(),
-        dob: req.body.dob
+        forename: req.body.forename,
+        surname: req.body.surname,
+        dob: dob
       });
-      loggedIn = true;
-      req.session.user = req.body.email;
+
+      user = req.body.email;
       res.redirect("/account");
+
     } catch (err) {
       console.log("Registration error: ", err);
+
       res.render("register", {
-        message: "Unable to register"
+        message: "Unable to register",
+        user: req.session.user
       });
     }
   });
 
-  app.get("/account", (req, res, loggedIn) => {
-    res.render("account", { loggedIn: loggedIn });
+  app.get("/account", (req, res) => {
+    res.render("account", { 
+      user: req.session.user 
+    });
   });
 
-  app.use(
-    session({
-      secret: "QU4CK",
-      resave: false,
-      saveUninitialized: true
-    })
-  );
-
-  app.post("/login", async (req, res, loggedIn) => {
+  app.post("/login", async (req, res) => {
     try {
       const db = app.set("quackyRacesDB");
       const users = db.collection("users");
@@ -168,7 +175,7 @@ module.exports = app => {
       if (!success) {
         throw "Incorrect username or password";
       }
-      loggedIn = true;
+      
       req.session.user = req.body.email;
       res.redirect(302, "/");
     } catch (err) {
@@ -178,8 +185,7 @@ module.exports = app => {
     }
   });
 
-  app.get("/logout", (req, res, loggedIn) => {
-    loggedIn = false;
+  app.get("/logout", (req, res) => {
     req.session.user = null;
     res.redirect(302, "/");
   });
