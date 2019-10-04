@@ -51,6 +51,10 @@ select {
     margin-bottom: 7px;
 }
 
+.input-box-area select{
+    border:solid black 1px;
+}
+
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
