@@ -2,6 +2,61 @@
 
 <main>
     <h1>Register</h1>
+    <div class="registerArea">
+        <form action=/register method="POST" class="registrationForm">
+          Email: <input
+            class="emailInput"
+            type=text
+            placeholder="Enter your email"
+            name=email
+          />
+          Password: <input
+            class="passwordInput"
+            type=password
+            placeholder="Enter a password"
+            name=password
+          />
+          Confirm your Password: <input 
+          class="confirmPasswordInput"
+          type=password
+          placeholder="Enter your password"
+          name=confirmPassword
+          />
+          Forename: <input 
+          class="forenameInput"
+          type=text
+          placeholder="Enter your forename"
+          name=forename
+          />
+          Surname: <input 
+          class="surnameInput"
+          type=text
+          placeholder="Enter your Surname"
+          name=surname
+          />
+          Date of Birth: <input 
+          class="day"
+          type=number
+          placeholder="DD"
+          name=day
+          />
+          <input 
+          class="month"
+          type=number
+          placeholder="MM"
+          name=month
+          />
+          <input 
+          class="year"
+          type=number
+          placeholder="YYYY"
+          name=year
+          />
+          <input type="submit" value="Register" />
+        </form>
+      </div>
+
+    <%= message %>
 </main>
     
 

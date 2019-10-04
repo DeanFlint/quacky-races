@@ -2,14 +2,14 @@
 
 <main>
   <div class="loginArea">
-    <form action="/login-action" method="POST" class="loginForm">
-      <input
+    <form action="/login" method="POST" class="loginForm">
+      Email<input
         class="emailInput"
         type="text"
         placeholder="Enter your email"
         name="email"
       />
-      <input
+      Password<input
         class="passwordInput"
         type="password"
         placeholder="Enter your password"
@@ -21,6 +21,7 @@
       >
     </form>
   </div>
+  <%= message %>
 </main>
 
 <%- include('footer') %>
