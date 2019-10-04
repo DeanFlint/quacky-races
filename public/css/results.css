@@ -1,11 +1,11 @@
 /* Mobile */
 .result-runners{
-    grid-area: event-runners;
+    grid-area: result-runners;
     padding: 5px 10px;
 }
 
 .num1::before {
-    background-image: url('/images/blackSquare.jpg');
+    background-image: url('/images/redOne.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -14,7 +14,7 @@
  }
 
  .num2::before {
-    background-image: url('/images/redSquare.png');
+    background-image: url('/images/orangeTwo.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -23,7 +23,7 @@
  }
 
  .num3::before {
-    background-image: url('/images/blueSquare.png');
+    background-image: url('/images/yellowThree.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -32,7 +32,7 @@
  }
 
  .num4::before {
-    background-image: url('/images/yellowSquare.jpg');
+    background-image: url('/images/purpleFour.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -40,7 +40,7 @@
     content:"";
  }
  .num5::before {
-    background-image: url('/images/greenSquare.png');
+    background-image: url('/images/blueFive.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -48,7 +48,7 @@
     content:"";
  }
  .num6::before {
-    background-image: url('/images/whiteSquare.png');
+    background-image: url('/images/greenSix.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -57,7 +57,7 @@
  }
 
 .result-user-form {
-    grid-area: event-user-form;
+    grid-area: result-user-form;
     padding: 10px;
     text-align: center;
 }
@@ -85,7 +85,7 @@ select {
     margin-bottom: 10px;
     grid-template-areas: "result-section";
     grid-area: result-section;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas: "result-runners result-user-form ";
     border-radius: 5px;
 }
