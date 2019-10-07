@@ -55,6 +55,25 @@ select {
     border:solid black 1px;
 }
 
+.resetButton {
+    margin-right: 20px;
+}
+
+.submitButton {
+
+}
+
+.resetButton,
+.submitButton {
+    padding: 10px 30px;
+    font-size: 20px;
+}
+
+.buttonSection {
+    width: 280px;
+    margin: 40px auto;
+}
+
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
