@@ -11,6 +11,7 @@
     width: 20px;
     height: 20px;
     content:"";
+    
  }
 
  .num2::before {
@@ -58,7 +59,7 @@
 
 .result-user-form {
     grid-area: result-user-form;
-    padding: 10px;
+    padding: 5px 10px;
     text-align: center;
 }
 
@@ -72,16 +73,18 @@
     padding-top:20px; 
 }
 .firstPlaceImage{
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
+    padding-bottom: 20px;
 }
 .secondPlaceImage{
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
+    padding-bottom:20px;
 }
 .thirdPlaceImage{
-    width:20px;
-    height:20px;
+    width:40px;
+    height:40px;
 }
 
 select {
@@ -111,7 +114,7 @@ select {
 }
 
 .result-runner-name {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 
@@ -130,7 +133,6 @@ select {
 
     .result-section {
         width: 49%;
-        
 
     }
     .result-section:nth-of-type(odd) {

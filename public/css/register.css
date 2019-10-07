@@ -1,0 +1,111 @@
+/* Mobile */
+.registrationForm{
+    display:grid;
+    grid-area:registrationForm;
+    font-size:15px;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius:20px;
+    border: 1px solid #b7b5b5;
+    background-color:#f1f0f0;
+   
+    grid-template-areas: "forename forename forename"
+                        "surname surname surname"
+                        
+                        "dateOfBirth dateOfBirth dateOfBirth"
+                        
+                        "email email email"
+                        "password password password"
+                        "confirmPassword confirmPassword confirmPassword"
+                        "submit submit submit";
+
+}
+
+.forename{
+    grid-area: forename;
+    padding:10px;
+}
+
+
+.surname{
+    grid-area:surname;
+    padding:10px;
+}
+.dayInput{
+    width:50px;
+}
+.monthInput{
+    width:50px;
+}
+.yearInput{
+    width:50px;
+}
+
+
+.dateOfBirth{
+    grid-area:dateOfBirth;
+    padding:10px;
+}
+
+.month{
+    grid-area:month;
+
+}
+
+.year{
+    grid-area:year;
+    
+}
+
+.email{
+    grid-area:email;
+    padding:10px;
+}
+
+.password{
+    grid-area:password;
+    padding:10px;
+}
+
+.confirmPassword{
+    grid-area:confirmPassword;
+    padding:10px;
+}
+
+.submit{
+    grid-area:submit;
+    border: 1px solid #b7b5b5;
+}
+.registerPageArea{
+    border-radius:20px;
+    border:1px solid white;
+   
+    padding:10px;
+}
+.submit{
+    font-size: 20px;
+    width:70px;
+    height:40px;
+}
+
+.submitButton{
+    text-align: center;
+    padding: 20px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+
+    .registrationForm{
+        width:400px;
+        margin:auto;
+    }
+
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+
+   
+
+}

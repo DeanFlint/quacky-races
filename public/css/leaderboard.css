@@ -30,7 +30,7 @@
 }
 
 .row:last-of-type {
-	border-bottom: grey
+	border-bottom: grey;
 }
 
 .name {
