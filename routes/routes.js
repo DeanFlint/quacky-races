@@ -8,8 +8,6 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-
-
 module.exports = app => {
   app.use(
     session({
@@ -25,10 +23,7 @@ module.exports = app => {
     });
   });
 
-  app.post('formAction', (req, res) => {
-    
-    
-  })
+  app.post("formAction", (req, res) => {});
 
   app.get("/play", (req, res) => {
     res.render("play", {
@@ -54,14 +49,6 @@ module.exports = app => {
     });
   });
 
-  app.get("/account", (req, res) => {
-    res.render("account", {
-      user: req.session.user
-    });
-  });
-
-
-
   router.get("/profiles", (req, res) => {
     app
       .set("quackyRacesDB")
@@ -82,39 +69,6 @@ module.exports = app => {
       });
   });
 
-  // router.get("/api/login", (req, res) => {
-  //   app
-  //     .set("quackyRacesDB")
-  //     .collection("users")
-  //     .find({ userID: "3" })
-  //     .toArray(function(err, docs) {
-  //       if (err) {
-  //         console.error(err);
-  //       }
-  //       console.dir(docs);
-  //       res.json(docs);
-  //     });
-  // });
-
-  router.get("/account", (req, res) => {
-    let userID = req.params.userID;
-    app
-      .set("quackyRacesDB")
-      .collection("users")
-      .find({ userID: userID })
-      .toArray(function(err, docs) {
-        if (err) {
-          console.error(err);
-        }
-
-        return res.render("account", {
-          // firstName: docs[0].forename,
-          users: docs,
-          user: req.session.user
-        });
-      });
-  });
-
   app.get("/login", (req, res) => {
     res.render("login.ejs", {
       message: "",
@@ -123,7 +77,6 @@ module.exports = app => {
   });
 
   app.get("/register", (req, res) => {
-
     res.render("register.ejs", {
       message: "",
       user: req.session.user
@@ -137,7 +90,7 @@ module.exports = app => {
 
       const db = app.set("quackyRacesDB");
       const users = db.collection("users");
-      const dob = req.body.day + req.body.month + req.body.year
+      const dob = req.body.day + req.body.month + req.body.year;
 
       if (req.body.password != req.body.confirmPassword) throw "Error";
       // add year verification
@@ -154,7 +107,6 @@ module.exports = app => {
 
       user = req.body.email;
       res.redirect("/account");
-
     } catch (err) {
       console.log("Registration error: ", err);
 
@@ -163,12 +115,6 @@ module.exports = app => {
         user: req.session.user
       });
     }
-  });
-
-  app.get("/account", (req, res) => {
-    res.render("account", { 
-      user: req.session.user 
-    });
   });
 
   app.post("/login", async (req, res) => {
@@ -183,12 +129,13 @@ module.exports = app => {
       if (!success) {
         throw "Incorrect username or password";
       }
-      
+
       req.session.user = req.body.email;
       res.redirect(302, "/");
     } catch (err) {
       res.render("login", {
-        message: "Incorrect Username or Password"
+        message: "Incorrect Username or Password",
+        user: ""
       });
     }
   });
@@ -196,6 +143,29 @@ module.exports = app => {
   app.get("/logout", (req, res) => {
     req.session.user = null;
     res.redirect(302, "/");
+  });
+
+  // app.get("/account", (req, res) => {
+  //   res.render("account", {
+  //     user: req.session.user
+  //   });
+  // });
+
+  router.get("/account", (req, res) => {
+    console.log(req.session.user);
+    app
+      .set("quackyRacesDB")
+      .collection("users")
+      .find({ email: req.session.user })
+      .toArray(function(err, docs) {
+        if (err) {
+          console.error(err);
+        }
+        console.log(docs);
+        return res.render("account", {
+          user: docs[0]
+        });
+      });
   });
 
   return router;
