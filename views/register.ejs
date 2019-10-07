@@ -1,63 +1,61 @@
 <%- include('header') %>
 
 <main>
-    <h1>Register</h1>
-    <div class="registerArea">
+  <div class="registerPageArea">
+      <h1>Register</h1>
+      <div class="registerArea">
         <form action=/register method="POST" class="registrationForm">
-          Email: <input
-            class="emailInput"
-            type=text
-            placeholder="Enter your email"
-            name=email
-          />
-          Password: <input
-            class="passwordInput"
-            type=password
-            placeholder="Enter a password"
-            name=password
-          />
-          Confirm your Password: <input 
-          class="confirmPasswordInput"
-          type=password
-          placeholder="Enter your password"
-          name=confirmPassword
-          />
-          Forename: <input 
-          class="forenameInput"
-          type=text
-          placeholder="Enter your forename"
-          name=forename
-          />
-          Surname: <input 
-          class="surnameInput"
-          type=text
-          placeholder="Enter your Surname"
-          name=surname
-          />
-          Date of Birth: <input 
-          class="day"
-          type=number
-          placeholder="DD"
-          name=day
-          />
-          <input 
-          class="month"
-          type=number
-          placeholder="MM"
-          name=month
-          />
-          <input 
-          class="year"
-          type=number
-          placeholder="YYYY"
-          name=year
-          />
-          <input type="submit" value="Register" />
+          <div class="forename">
+            Forename: <input class="forenameInput passwordInput" type=text placeholder="Enter your forename"
+              name=forename />
+    
+          </div>
+          <div class="surname">
+            Surname:
+             <input class="surnameInput passwordInput"  type=text placeholder="Enter your Surname"
+              name=surname />
+    
+          </div>
+    
+          <div class="dateOfBirth">
+            Date of Birth: <input class="dayInput passwordInput" type=number placeholder="DD" name=day />
+    
+            <input class="monthInput passwordInput" type=number placeholder="MM" name=month />
+    
+            <input class="yearInput passwordInput" type=number placeholder="YYYY" name=year />
+    
+          </div>
+    
+          <div class="email">
+    
+            Email: <input class="emailInput"  type=text placeholder="Enter your email" name=email />
+    
+    
+          </div>
+    
+    
+          <div class="password">
+            Password: <input class="passwordInput" type=password placeholder="Enter a password"
+              name=password />
+          </div>
+    
+          <div class="confirmPassword">
+            Confirm your Password: <input class="confirmPasswordInput" type=password
+              placeholder="Enter your password" name=confirmPassword />
+          </div>
+          
         </form>
       </div>
+    <div class="submitButton">
+        <input type="submit" value="Submit" class="submit"/>
 
-    <%= message %>
+    </div>
+      
+      
+  </div>
+
+  <%= message %>
 </main>
-    
+
 
 <%- include('footer') %>
