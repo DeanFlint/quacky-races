@@ -1,9 +1,13 @@
 <%- include('header') %>
 
-
 <main>
   <h1>Account</h1>
-  <a href ="/logout">Logout</a>
+
+  <h2 class="forename"><%= user.forename %></h2>
+  <h2 class="surname"><%= user.surname %></h2>
+  <h2 class="email"><%= user.email %></h2>
+  <h2 class="DOB"><%= user.dob %></h2>
+  <a href="/logout">Logout</a>
 </main>
 
 <%- include('footer') %>

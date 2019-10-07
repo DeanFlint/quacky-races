@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quacky Races</title>
-    <link rel="shortcut icon" type="image/jpg" href="/images/duck1.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="/images/duck1.jpg" />
 
     <!-- link for font awesome icons -->
     <link
@@ -43,7 +43,7 @@
       <div class="accountArea">
         <!-- login/register -->
         <div class="mobileLoginIcon">
-          <% if (!user){ %>
+          <% if (!user || user == undefined){ %>
           <a href="/login">
             <i class="fas fa-user"></i>
           </a>
@@ -53,7 +53,7 @@
           </a>
           <% } %>
         </div>
- 
+
         <!-- <button class="login">login/Register</button> -->
 
         <!-- form -->
