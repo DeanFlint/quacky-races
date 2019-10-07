@@ -20,7 +20,7 @@
 
 select {
     margin: 10px;
-    min-height: 25px;
+    height: 35px;
     min-width: 60px;
     font-size: 16px;
 
@@ -53,6 +53,26 @@ select {
 
 .input-box-area select{
     border:solid black 1px;
+}
+
+.resetButton {
+    margin-right: 20px;
+}
+
+.submitButton {
+    
+}
+
+.resetButton,
+.submitButton {
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.buttonSection {
+    width: 280px;
+    margin: 40px auto;
 }
 
 
