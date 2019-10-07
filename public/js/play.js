@@ -2,11 +2,14 @@
     let dropdownOptions = document.querySelectorAll(".playOptions");
     let resetButton = document.querySelector(".resetButton");
    
-    resetButton.addEventListener("click", function() {
-        console.log("button clicked")
-        for (let i = 0, numOfDropdowns = dropdownOptions.length; i < numOfDropdowns; i++) {
-            dropdownOptions[i].selectedIndex = 0;
-        }
-    });
+    if(resetButton) {
+        resetButton.addEventListener("click", function() {
+            console.log("button clicked")
+            for (let i = 0, numOfDropdowns = dropdownOptions.length; i < numOfDropdowns; i++) {
+                dropdownOptions[i].selectedIndex = 0;
+            }
+        });
+    }
+    
   
   })();

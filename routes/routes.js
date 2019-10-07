@@ -23,13 +23,7 @@ module.exports = app => {
     });
   });
 
-  app.post("formAction", (req, res) => {});
 
-  app.get("/play", (req, res) => {
-    res.render("play", {
-      user: req.session.user
-    });
-  });
 
   app.get("/predictions", (req, res) => {
     res.render("predictions", {
@@ -80,6 +74,78 @@ module.exports = app => {
     res.render("register.ejs", {
       message: "",
       user: req.session.user
+    });
+  });
+
+  app.post("/play", async (req, res) => {
+    try {
+      const race1Sel1 = req.body.race1sel1
+      const race1Sel2 = req.body.race1sel2
+      const race1Sel3 = req.body.race1sel3
+
+      const race2Sel1 = req.body.race2sel1
+      const race2Sel2 = req.body.race2sel2
+      const race2Sel3 = req.body.race2sel3
+
+      const race3Sel1 = req.body.race3sel1
+      const race3Sel2 = req.body.race3sel2
+      const race3Sel3 = req.body.race3sel3
+
+      const race4Sel1 = req.body.race4sel1
+      const race4Sel2 = req.body.race4sel2
+      const race4Sel3 = req.body.race4sel3
+
+      const race5Sel1 = req.body.race5sel1
+      const race5Sel2 = req.body.race5sel2
+      const race5Sel3 = req.body.race5sel3
+
+      const race6Sel1 = req.body.race6sel1
+      const race6Sel2 = req.body.race6sel2
+      const race6Sel3 = req.body.race6sel3
+
+      if(race1Sel1 == undefined || race1Sel2 == undefined || race1Sel3 == undefined ||
+        race2Sel1 == undefined || race2Sel2 == undefined || race2Sel3 == undefined ||
+        race3Sel1 == undefined || race3Sel2 == undefined || race3Sel3 == undefined ||
+        race4Sel1 == undefined || race4Sel2 == undefined || race4Sel3 == undefined ||
+        race5Sel1 == undefined || race5Sel2 == undefined || race5Sel3 == undefined ||
+        race6Sel1 == undefined || race6Sel2 == undefined || race6Sel3 == undefined)
+        {
+          console.log("Big fat error")
+        throw "All selections need to be made";
+      }
+
+      if(race1Sel1 == race1Sel2 || race1Sel2 == race1Sel3 || race1Sel1 == race1Sel3) {
+        throw "Duplicated selections"
+      } else if (race2Sel1 == race2Sel2 || race2Sel2 == race2Sel3 || race2Sel1 == race2Sel3) {
+        throw "Duplicated selections"
+      } else if (race3Sel1 == race3Sel2 || race3Sel2 == race3Sel3 || race3Sel1 == race3Sel3) {
+        throw "Duplicated selections"
+      } else if (race4Sel1 == race4Sel2 || race4Sel2 == race4Sel3 || race4Sel1 == race4Sel3) {
+        throw "Duplicated selections"
+      } else if (race5Sel1 == race5Sel2 || race5Sel2 == race5Sel3 || race5Sel1 == race5Sel3) {
+        throw "Duplicated selections"
+      } else if (race6Sel1 == race6Sel2 || race6Sel2 == race6Sel3 || race6Sel1 == race6Sel3) {
+        throw "Duplicated selections"
+      } 
+
+      res.redirect("/account");
+
+    } catch (err) {
+      console.log("Play error: ", err);
+
+      res.render("play", {
+        message: err,
+        user: req.session.user
+      });
+    }
+
+    
+  });
+
+  app.get("/play", (req, res) => {
+    res.render("play", {
+      user: req.session.user,
+      message: ""
     });
   });
 

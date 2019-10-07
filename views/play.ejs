@@ -9,7 +9,11 @@
         <p>If you pick the correct duck for each place on all races, you win the jackpot!</p>
     </div>
 
-    <form action="playAction" method="POST">
+    <div>
+        <%= message %>
+    </div>
+
+    <form action="/play" method="POST">
 
         <div class="event-container">
             <div class="event-section">
@@ -27,7 +31,7 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select id="testBox1" class="playOptions">
+                        <select class="playOptions" name=race1sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -36,7 +40,7 @@
                             <option value="5">5</option>
                             <option value="6">6</option>
                         </select>
-                        <select id="testBox2" class="playOptions">
+                        <select class="playOptions" name=race1sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -45,7 +49,7 @@
                             <option value="5">5</option>
                             <option value="6">6</option>
                         </select>
-                        <select id="testBox3" class="playOptions">
+                        <select class="playOptions" name=race1sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -76,32 +80,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions">
+                        <select class="playOptions" name=race2sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race2sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race2sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -125,32 +129,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions">
+                        <select class="playOptions" name=race3sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race3sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race3sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -174,32 +178,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions">
+                        <select class="playOptions" name=race4sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race4sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race4sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -223,32 +227,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions">
+                        <select class="playOptions" name=race5sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race5sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race5sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -272,32 +276,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions">
+                        <select class="playOptions" name=race6sel1>
                             <option value="" selected disabled hidden>1st</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race6sel2>
                             <option value="" selected disabled hidden>2nd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
-                        <select class="playOptions">
+                        <select class="playOptions" name=race6sel3>
                             <option value="" selected disabled hidden>3rd</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">3</option>
-                            <option value="6">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -310,7 +314,7 @@
 
         <div class="buttonSection">
             <button type="button" class="resetButton">Reset</button>
-            <button type="submit" value="Submit" class="submitButton">Submit</button>
+            <input type="submit" value="Submit" class="submitButton" />
         </div>
         
     </form>
