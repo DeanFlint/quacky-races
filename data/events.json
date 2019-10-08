@@ -1,9 +1,50 @@
 [
   {
-    "eventID": "",
-    "eventTime": "",
-    "location": "",
-    "duckID": [],
-    "raceNum": ""
+    "eventID": "event1",
+    "eventTime": "12:30pm",
+    "location": "Roundhay Park",
+    "duckID": ["D01", "D02", "D03", "D04", "D05", "D06"],
+    "raceNum": "race1",
+    "roundID": "round1"
+  },
+  {
+    "eventID": "event2",
+    "eventTime": "13:00pm",
+    "location": "Wellington Street",
+    "duckID": ["D07", "D08", "D09", "D10", "D11", "D12"],
+    "raceNum": "race2",
+    "roundID": "round1"
+  },
+  {
+    "eventID": "event3",
+    "eventTime": "13:30pm",
+    "location": "Royal Armouries Dock",
+    "duckID": ["D13", "D14", "D15", "D16", "D17", "D18"],
+    "raceNum": "race3",
+    "roundID": "round1"
+  },
+  {
+    "eventID": "event4",
+    "eventTime": "14:00pm",
+    "location": "Wetherby",
+    "duckID": ["D19", "D20", "D21", "D22", "D23", "D24"],
+    "raceNum": "race4",
+    "roundID": "round1"
+  },
+  {
+    "eventID": "event5",
+    "eventTime": "14:30pm",
+    "location": "Bath",
+    "duckID": ["D25", "D26", "D27", "D28", "D29", "D30"],
+    "raceNum": "race5",
+    "roundID": "round1"
+  },
+  {
+    "eventID": "event6",
+    "eventTime": "15:00pm",
+    "location": "The Humber",
+    "duckID": ["D31", "D32", "D33", "D34", "D35", "D36"],
+    "raceNum": "race6",
+    "roundID": "round1"
   }
 ]

@@ -154,6 +154,8 @@ module.exports = {
             } else if (race6Sel1 == race6Sel2 || race6Sel2 == race6Sel3 || race6Sel1 == race6Sel3) {
             throw "Duplicated selections"
             } 
+
+            
     
             res.redirect("/account");
     
