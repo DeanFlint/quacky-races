@@ -213,5 +213,44 @@ module.exports = {
         user: req.session.user
       });
     }
+  },
+  ducksInPlay: async function(app, req, res, raceNum){
+    try {
+      const db = app.get("quackyRacesDB");
+      const ducks = db.collection("ducks");
+      // const events = db.collection("events");
+
+      // const race = events.findOne({ "raceNum": raceNum})
+      // const duckIDs = race.duckID;
+
+      const duckNames = ducks.findOne({"duckID": "D01"})
+      console.log(duckNames.duckName)
+
+      // const arrayOfDuckNames = duckIDs.map( duckID => {
+        
+      // const duckName = ducks.findOne({ "duckID": duckID})
+      
+      //   const testName = duckName.duckName;
+        
+      // });
+      // const duckNames = await 
+        // console.log("arrayOfDuckNames" + arrayOfDuckNames)
+      
+      // with the duckID array, we want to map each id with the
+      // duckname from duck table
+      // Then pass through to play page.
+
+      console.log("race" + race);
+      
+      return res.render("play", {
+        raceNum: docs,
+        user: req.session.user,
+        message: ""
+      });
+
+    } catch (err) {
+
+    }
+
   }
 };

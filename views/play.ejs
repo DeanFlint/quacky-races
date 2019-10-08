@@ -19,12 +19,15 @@
             <div class="event-section">
                 <div class="event-runners">
                     <h2 class="event-race-name">Event name1</h3>
-                    <p class="event-runner-name num1"> Duck name</p>
-                    <p class="event-runner-name num2"> Duck name</p>
+
+                    <% raceNum.forEach(function(duck){ %>
+                    <p class="event-runner-name num1"> <%= duck.duckName %></p>
+                    <!-- <p class="event-runner-name num2"> Duck name</p>
                     <p class="event-runner-name num3"> Duck name</p>
                     <p class="event-runner-name num4"> Duck name</p>
                     <p class="event-runner-name num5"> Duck name</p>
-                    <p class="event-runner-name num6"> Duck name</p>
+                    <p class="event-runner-name num6"> Duck name</p> -->
+                    <% }) %>
                 </div>
                 <!-- /event-runners -->
 
