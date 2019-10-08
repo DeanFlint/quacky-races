@@ -1,27 +1,43 @@
 <%- include('header') %>
 
 <main>
+  <h1 class="loginTitle">Login</h1>
   <div class="loginArea">
     <form action="/login" method="POST" class="loginForm">
-      Email<input
-        class="emailInput"
-        type="text"
-        placeholder="Enter your email"
-        name="email"
-      />
-      Password<input
-        class="passwordInput"
-        type="password"
-        placeholder="Enter your password"
-        name="password"
-      />
-      <input type="submit" value="Log In" />
-      <a href="/register" class="registerLink"
-        >Don't have an account? Click here to register.</a
-      >
+
+      <div class="emailBox"> 
+          <input
+          class="emailInput"
+          type="text"
+          placeholder="Enter your email"
+          name="email"
+        />
+      </div>
+     
+      <div class="passwordBox">
+          <input
+          class="passwordInput"
+          type="password"
+          placeholder="Enter your password"
+          name="password"
+        />
+      </div>
+     
+      <div class="loginButton">
+          <input type="submit" value="Log In" class="login"/>
+      </div>
+    
     </form>
   </div>
-  <%= message %>
+  <div class="noAccount">
+      <a href="/register" class="registerLink">Don't have an account? Click here to register.</a>
+
+  </div>
+
+  <div class="incorrectInfo">
+      <%= message %>
+  </div>
+  
 </main>
 
 <%- include('footer') %>
