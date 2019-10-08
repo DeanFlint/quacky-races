@@ -12,6 +12,34 @@
                         "email ";
 }
 
+.scores{
+    display:grid;
+    font-size:20px;
+    border-radius:20px;
+    margin:20px;
+    border: 1px solid #b7b5b5;
+    background-color: #f1f0f0;
+    grid-area: scores;
+    grid-template-areas:"currentScore"
+                        "previousScore";
+  
+}
+
+.currentScore{
+    grid-area:currentScore;
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+
+.previousScore{
+    grid-area:previousScore;
+    text-align: center;
+    
+}
+.accountTitle{
+    text-align: center;
+}
 .forename{
     grid-area: forename;
     text-align: center;
@@ -37,7 +65,7 @@
 }
 
 .logout{
-    padding:10px;
+    text-align: right;
    
 }
 
@@ -47,8 +75,28 @@
 
     .accountProfile {
         width: 300px;
-        margin: auto;
+        margin:0;
+       
       }
+      .scores{
+          width:300px;
+          padding:20px;
+          
+         
+      }
+      .accountTitle{
+          text-align: left;
+      }
+
+      .account-container{
+          display:grid;
+          grid-area:account-container;
+          grid-template-columns: 1fr 1fr;
+
+          grid-template-areas: "accountProfile scores"
+                                "accountProfile scores"
+      }
+      
       
 }
 
