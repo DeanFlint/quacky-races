@@ -28,19 +28,10 @@
 
 }
 
-
 .duckName {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #86BC85;
 }
-
-.duckProfile {
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #86BC85;
-    font-size: 10px; */
-}
-
-
 
 .duckImage img {
     width: 100px;

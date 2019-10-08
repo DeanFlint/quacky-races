@@ -1,16 +1,8 @@
 /* Mobile */
 
 h1 {
+    text-align: center;
     padding: 10px;
-}
-
-.personName {
-    grid-area: personName;
-}
-
-.personImage {
-    grid-area: personImage;
-
 }
 
 #deanImage {
@@ -36,29 +28,58 @@ h1 {
 
 .personPre {
     grid-area: personPre;
-    border-radius: 5px;
-    /* background-color: #41705D; */
-    font-size: 20px;
+    /* border-radius: 5px;
+    font-size: 20px; */
+
+}
+.personName {
+    grid-area: personName;
+}
+.personImage {
+    grid-area: personImage;
 
 }
 
 .person-section {
     display: grid;
     grid-area: person-section;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "personName personPre"
         "personImage personPre";
+        border-radius: 5px;
     background-color: #f1f0f0;
     /* border: 1px solid #b7b5b5; */
-    border-radius: 5px;
+    
     margin-bottom: 2px;
+    margin-right:2px;
 
 
 }
 
 
 /* Tablet */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+
+    h1 {
+        text-align: left;
+        padding: 10px;
+    }
+
+    .prediction-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .person-section {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+
+    .person-section:nth-of-type(odd) {
+        margin-right: 20px;
+    }
+}
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {}
