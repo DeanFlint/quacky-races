@@ -11,16 +11,16 @@
    
     grid-template-areas: "forename forename forename"
                         "surname surname surname"
-                        
                         "dateOfBirth dateOfBirth dateOfBirth"
-                        
                         "email email email"
                         "password password password"
                         "confirmPassword confirmPassword confirmPassword"
-                        "submit submit submit";
+                        "submitButton submitButton submitButton";
 
 }
-
+.registerTitle{
+    text-align: center;
+}
 .forename{
     grid-area: forename;
     padding:10px;
@@ -85,12 +85,21 @@
 .submit{
     font-size: 20px;
     width:70px;
-    height:40px;
+    height:30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #b7b5b5;
+    font: 400 11px system-ui;
 }
 
 .submitButton{
+    grid-area:submitButton;
     text-align: center;
     padding: 20px;
+    text-align: center;
 }
 
 /* Tablet */
