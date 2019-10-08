@@ -11,8 +11,7 @@
     "builddoc4": "mongoimport --db quackyRacesDB --collection results --jsonArray --file data/results.json",
     "builddoc5": "mongoimport --db quackyRacesDB --collection rounds --jsonArray --file data/rounds.json",
     "builddoc6": "mongoimport --db quackyRacesDB --collection users --jsonArray --file data/users.json",
-    "builddoc7": "mongoimport --db quackyRacesDB --collection userScores --jsonArray --file data/userScores.json",
-    "buildall": "npm run builddoc1 & npm run builddoc2 & npm run builddoc3 & npm run builddoc4 & npm run builddoc5 & npm run builddoc6 & npm run builddoc7"
+    "buildall": "npm run builddoc1 & npm run builddoc2 & npm run builddoc3 & npm run builddoc4 & npm run builddoc5 & npm run builddoc6"
   },
   "author": "",
   "license": "ISC",
