@@ -3,11 +3,23 @@
 <main>
   <h1>Account</h1>
 
-  <h2 class="forename"><%= user.forename %></h2>
-  <h2 class="surname"><%= user.surname %></h2>
-  <h2 class="email"><%= user.email %></h2>
-  <h2 class="DOB"><%= user.dob %></h2>
-  <a href="/logout">Logout</a>
+  <div class="accountProfile">
+
+      <p class="forename"><strong>Forename:</strong> <%= user.forename %></p>
+      <p class="surname"><strong>Surname: </strong><%= user.surname %></p>
+      <p class="email"><strong>Email:</strong> <%= user.email %></p>
+      <p class="DOB"><strong>DOB: </strong><%= user.dob %></p>
+      
+      
+
+  </div>
+
+  <div class="logout">
+      <a href="/logout">Logout</a>
+  </div>
+
+ 
+ 
 </main>
 
 <%- include('footer') %>
