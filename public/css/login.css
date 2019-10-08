@@ -1,62 +1,119 @@
+/* Mobile */
+
 .loginForm {
-    width: 85%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-areas: "loginForm";
-    grid-area: loginForm;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "emailInput loginButton"
-                          "passwordInput loginButton" 
-                          "registerLink registerLink";
-  }
-  
-  .emailInput,
-  .passwordInput,
-  .confirmPasswordInput {
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  .emailInput,
-  .passwordInput:focus {
-    outline: none;
-  }
-  
-  .passwordInput {
-    margin-bottom: 10px;
-  }
-  
-  .loginButton {
-    margin-bottom: 10px;
-    margin-left: 10px;
-  }
-  
-  .loginButton button {
-    width: 100%;
-    float: right;
-    padding: 5px 10px;
-    border-radius: 5px;
-    height: 100%;
-    font-size: 20px;
-  }
-  
-  .registerLink {
-    grid-area: registerLink;
-    text-decoration: none;
-    text-align: center;
-  }
+  width: 85%;
+  border-radius: 20px;
+  border: 1px solid #b7b5b5;
+  background-color: #f1f0f0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "loginForm";
+  grid-area: loginForm;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "emailBox emailBox emailBox"
+    "passwordBox passwordBox passwordBox"
+    "loginButton loginButton loginButton "
+    "registerLink registerLink registerLink";
+}
+
+.loginTitle {
+  text-align: center;
+}
+
+.emailInput,
+.passwordInput,
+.confirmPasswordInput {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.emailBox {
+  grid-area: emailBox;
+  padding: 5px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.passwordBox {
+  grid-area: passwordBox;
+  padding: 5px;
+  text-align: center;
+}
+
+.emailInput,
+.passwordInput:focus {
+  outline: none;
+}
+
+.passwordInput {
+  margin-bottom: 20px;
+}
+
+.loginButton {
+  grid-area:loginButton;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.login {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid #b7b5b5;
+}
+
+.noAccount {
+  text-align: center;
+  padding: 20px;
+}
+
+.loginButton {
+  text-align: center;
+}
+
+.incorrectInfo {
+  text-align: center;
+  color: red;
+}
+
+.loginButton button {
+  width: 100%;
+  float: right;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 20px;
+}
+
+.registerLink {
+  grid-area: registerLink;
+  text-decoration: none;
+  text-align: center;
+}
 
 
-  
-  .emailInput {
-    grid-area: emailInput;
+
+.emailInput {
+  grid-area: emailInput;
+}
+
+.passwordInput {
+  grid-area: passwordInput;
+}
+
+.loginButton {
+  grid-area: loginButton;
+}
+
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+
+  .loginForm {
+    width: 400px;
+    margin: auto;
   }
-  
-  .passwordInput {
-    grid-area: passwordInput;
-  }
-  
-  .loginButton {
-    grid-area: loginButton;
-  }
+}
