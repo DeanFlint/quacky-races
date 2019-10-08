@@ -184,6 +184,26 @@ module.exports = {
         throw "Duplicated selections";
       }
 
+      const db = app.get("quackyRacesDB");
+      const predictions = db.collection("predictions");
+      const prediction1 = [race1Sel1, race1Sel2, race1Sel3];
+      const prediction2 = [race2Sel1, race2Sel2, race2Sel3];
+      const prediction3 = [race3Sel1, race3Sel2, race3Sel3];
+      const prediction4 = [race4Sel1, race4Sel2, race4Sel3];
+      const prediction5 = [race5Sel1, race5Sel2, race5Sel3];
+      const prediction6 = [race6Sel1, race6Sel2, race6Sel3];
+
+      await predictions.insertOne({
+        prediction1: prediction1,
+        prediction2: prediction2,
+        prediction3: prediction3,
+        prediction4: prediction4,
+        prediction5: prediction5,
+        prediction6: prediction6,
+        // round ID
+        email: req.session.user
+      });
+
       res.redirect("/account");
     } catch (err) {
       console.log("Play error: ", err);
