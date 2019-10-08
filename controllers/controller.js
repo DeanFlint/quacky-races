@@ -217,14 +217,27 @@ module.exports = {
   ducksInPlay: async function(app, req, res, raceNum){
     try {
       const db = app.get("quackyRacesDB");
-      const ducks = db.collection("ducks");
-      // const events = db.collection("events");
+      const ducks = await db.collection("ducks").find({}).toArray();
 
+      const duckMap = {}
+      ducks.forEach(duck => duckMap[duck.duckID] = duck)
+      
+
+      const events = db.collection("events")
+      
+      const eventResults = await events.findOne({eventID: "event1"});
+      
+      eventResults.duckID = eventResults.duckID.map(id => duckMap[id])
+       
+      // console.log(eventResults);
+      console.log(duckMap);
       // const race = events.findOne({ "raceNum": raceNum})
       // const duckIDs = race.duckID;
+      
+    
 
-      const duckNames = ducks.findOne({"duckID": "D01"})
-      console.log(duckNames.duckName)
+      // const duckNames = ducks.findOne({"duckID": "D01"});
+      // console.log(duckNames.duckName)
 
       // const arrayOfDuckNames = duckIDs.map( duckID => {
         
@@ -239,16 +252,15 @@ module.exports = {
       // with the duckID array, we want to map each id with the
       // duckname from duck table
       // Then pass through to play page.
-
-      console.log("race" + race);
-      
+     
       return res.render("play", {
-        raceNum: docs,
+        // raceNum: docs,
         user: req.session.user,
         message: ""
       });
 
     } catch (err) {
+      console.log(err);
 
     }
 
