@@ -222,7 +222,6 @@ module.exports = {
       const duckMap = {}
       ducks.forEach(duck => duckMap[duck.duckID] = duck)
       
-
       const events = db.collection("events")
       
       const eventResults1 = await events.findOne({raceNum: "race1"});
@@ -231,6 +230,13 @@ module.exports = {
       const eventResults4 = await events.findOne({raceNum: "race4"});
       const eventResults5 = await events.findOne({raceNum: "race5"});
       const eventResults6 = await events.findOne({raceNum: "race6"});
+
+      const eventName1 = eventResults1.location;
+      const eventName2 = eventResults2.location;
+      const eventName3 = eventResults3.location;
+      const eventName4 = eventResults4.location;
+      const eventName5 = eventResults5.location;
+      const eventName6 = eventResults6.location;
       
       const racingDucks1 = eventResults1.duckID = eventResults1.duckID.map(id => duckMap[id].duckName)
       const racingDucks2 = eventResults2.duckID = eventResults2.duckID.map(id => duckMap[id].duckName)
@@ -240,7 +246,12 @@ module.exports = {
       const racingDucks6 = eventResults6.duckID = eventResults6.duckID.map(id => duckMap[id].duckName)
 
       return res.render("play", {
-        // raceNum: docs,
+        eventName1: eventName1,
+        eventName2: eventName2,
+        eventName3: eventName3,
+        eventName4: eventName4,
+        eventName5: eventName5,
+        eventName6: eventName6, 
         duckNum1: 0,
         duckNum2: 0,
         duckNum3: 0,
