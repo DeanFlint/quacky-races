@@ -1,22 +1,36 @@
 <%- include('header') %>
 
 <main>
-  <h1>Account</h1>
 
-  <div class="accountProfile">
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+  <h1 class="accountTitle">Account</h1>
 
-      <p class="forename"><strong>Forename:</strong> <%= user.forename %></p>
-      <p class="surname"><strong>Surname: </strong><%= user.surname %></p>
-      <p class="email"><strong>Email:</strong> <%= user.email %></p>
-      <p class="DOB"><strong>DOB: </strong><%= user.dob %></p>
-      
-      
+  <div class="account-container">
+    
+      <div class="accountProfile">
+
+          <p class="forename"><strong>Forename:</strong> <%= user.forename %></p>
+          <p class="surname"><strong>Surname: </strong><%= user.surname %></p>
+          <p class="email"><strong>Email:</strong> <%= user.email %></p>
+          <p class="DOB"><strong>DOB: </strong><%= user.dob %></p>
+          
+      </div>
+    
+      <div class="scores">
+    
+        <p class="currentScore"><strong>Total Score: </strong>478</p>
+        <p class="previousScore"><strong>Previous Score: </strong>34</p>
+    
+      </div>
+
 
   </div>
 
-  <div class="logout">
-      <a href="/logout">Logout</a>
-  </div>
+ 
+
+  
 
  
  
