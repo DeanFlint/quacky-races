@@ -207,14 +207,14 @@ module.exports = {
       res.redirect("/account");
     } catch (err) {
       console.log("Play error: ", err);
-
-      res.render("play", {
-        message: err,
-        user: req.session.user
-      });
+      res.redirect("/play?err=" + err)
+      // res.render("play", {
+      //   message: err,
+      //   user: req.session.user
+      // });
     }
   },
-  ducksInPlay: async function(app, req, res, raceNum){
+  ducksInPlay: async function(app, req, res){
     try {
       const db = app.get("quackyRacesDB");
       const ducks = await db.collection("ducks").find({}).toArray();
@@ -225,38 +225,36 @@ module.exports = {
 
       const events = db.collection("events")
       
-      const eventResults = await events.findOne({eventID: "event1"});
+      const eventResults1 = await events.findOne({raceNum: "race1"});
+      const eventResults2 = await events.findOne({raceNum: "race2"});
+      const eventResults3 = await events.findOne({raceNum: "race3"});
+      const eventResults4 = await events.findOne({raceNum: "race4"});
+      const eventResults5 = await events.findOne({raceNum: "race5"});
+      const eventResults6 = await events.findOne({raceNum: "race6"});
       
-      eventResults.duckID = eventResults.duckID.map(id => duckMap[id])
-       
-      // console.log(eventResults);
-      console.log(duckMap);
-      // const race = events.findOne({ "raceNum": raceNum})
-      // const duckIDs = race.duckID;
-      
-    
+      const racingDucks1 = eventResults1.duckID = eventResults1.duckID.map(id => duckMap[id].duckName)
+      const racingDucks2 = eventResults2.duckID = eventResults2.duckID.map(id => duckMap[id].duckName)
+      const racingDucks3 = eventResults3.duckID = eventResults3.duckID.map(id => duckMap[id].duckName)
+      const racingDucks4 = eventResults4.duckID = eventResults4.duckID.map(id => duckMap[id].duckName)
+      const racingDucks5 = eventResults5.duckID = eventResults5.duckID.map(id => duckMap[id].duckName)
+      const racingDucks6 = eventResults6.duckID = eventResults6.duckID.map(id => duckMap[id].duckName)
 
-      // const duckNames = ducks.findOne({"duckID": "D01"});
-      // console.log(duckNames.duckName)
-
-      // const arrayOfDuckNames = duckIDs.map( duckID => {
-        
-      // const duckName = ducks.findOne({ "duckID": duckID})
-      
-      //   const testName = duckName.duckName;
-        
-      // });
-      // const duckNames = await 
-        // console.log("arrayOfDuckNames" + arrayOfDuckNames)
-      
-      // with the duckID array, we want to map each id with the
-      // duckname from duck table
-      // Then pass through to play page.
-     
       return res.render("play", {
         // raceNum: docs,
+        duckNum1: 0,
+        duckNum2: 0,
+        duckNum3: 0,
+        duckNum4: 0,
+        duckNum5: 0,
+        duckNum6: 0,
+        raceNum1: racingDucks1,
+        raceNum2: racingDucks2,
+        raceNum3: racingDucks3,
+        raceNum4: racingDucks4,
+        raceNum5: racingDucks5,
+        raceNum6: racingDucks6,
         user: req.session.user,
-        message: ""
+        message: req.query.err
       });
 
     } catch (err) {

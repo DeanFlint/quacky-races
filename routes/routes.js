@@ -56,12 +56,7 @@ module.exports = app => {
   });
 
   app.get("/play", (req, res) => {
-    controllers.ducksInPlay(app, req, res, "race1")
-    // controllers.ducksInPlay(app, req, res, "race2")
-    // controllers.ducksInPlay(app, req, res, "race3")
-    // controllers.ducksInPlay(app, req, res, "race4")
-    // controllers.ducksInPlay(app, req, res, "race5")
-    // controllers.ducksInPlay(app, req, res, "race6") 
+    controllers.ducksInPlay(app, req, res)
   });
 
   app.get("/predictions", (req, res) => {
