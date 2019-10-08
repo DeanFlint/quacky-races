@@ -1,7 +1,7 @@
 [
-    {
-      "userScoreID": "",
-      "userID": "",
-      "score": ""
-    }
-  ]
+  {
+    "userScoreID": "",
+    "email": "test@email.com",
+    "score": 6
+  }
+]

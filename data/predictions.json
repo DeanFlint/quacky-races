@@ -1,8 +1,13 @@
 [
   {
     "predictionID": "",
-    "prediction1": "",
-    "prediction2": "",
-    "prediction3": ""
+    "email": "",
+    "roundID": "",
+    "prediction1": [],
+    "prediction2": [],
+    "prediction3": [],
+    "prediction4": [],
+    "prediction5": [],
+    "prediction6": []
   }
 ]
