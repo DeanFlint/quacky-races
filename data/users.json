@@ -5,7 +5,8 @@
     "forename": "",
     "surname": "",
     "dob": "",
-    "isAdmin": ""
+    "isAdmin": "",
+    "score": 0
   },
   {
     "email": "test@email.com",
@@ -13,7 +14,8 @@
     "forename": "Test",
     "surname": "Testerson",
     "dob": "01/01/2001",
-    "isAdmin": false
+    "isAdmin": false,
+    "score": 0
   },
   {
     "email": "testadmin@email.com",
@@ -21,6 +23,7 @@
     "forename": "Test",
     "surname": "Testerson",
     "dob": "01/01/2001",
-    "isAdmin": true
+    "isAdmin": true,
+    "score": 0
   }
 ]
