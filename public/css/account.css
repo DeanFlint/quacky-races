@@ -1,9 +1,55 @@
 /* Mobile */
+.accountProfile{
+    display:grid;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid #b7b5b5;
+  background-color: #f1f0f0;
+    grid-area:accountProfile;
+    grid-template-areas: "forename "
+                        "surname "
+                        "DOB "
+                        "email ";
+}
+
+.forename{
+    grid-area: forename;
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+.surname{
+    grid-area: surname;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.DOB{
+    grid-area: DOB;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top:10px;
+}
+
+.email{
+    grid-area: email;
+    text-align: center;
+}
+
+.logout{
+    padding:10px;
+   
+}
 
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
 
+    .accountProfile {
+        width: 300px;
+        margin: auto;
+      }
+      
 }
 
 /* Desktop */
