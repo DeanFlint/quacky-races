@@ -1,7 +1,32 @@
 [
   {
-    "resultID": "",
-    "eventID": "",
-    "place": []
+    "resultID": "result1",
+    "eventID": "event1",
+    "place": ["D01", "D02", "D03", "D04", "D05", "D06"]
+  },
+  {
+    "resultID": "result2",
+    "eventID": "event2",
+    "place": ["D07", "D08", "D09", "D10", "D11", "D12"]
+  },
+  {
+    "resultID": "result3",
+    "eventID": "event3",
+    "place": ["D13", "D14", "D15", "D16", "D17", "D18"]
+  },
+  {
+    "resultID": "result4",
+    "eventID": "event4",
+    "place": ["D19", "D20", "D21", "D22", "D23", "D24"]
+  },
+  {
+    "resultID": "result5",
+    "eventID": "event5",
+    "place": ["D25", "D26", "D27", "D28", "D29", "D30"]
+  },
+  {
+    "resultID": "result6",
+    "eventID": "event6",
+    "place": ["D31", "D32", "D33", "D34", "D35", "D36"]
   }
 ]
