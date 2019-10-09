@@ -223,6 +223,7 @@ module.exports = {
   ducksInPlay: async function(app, req, res) {
     try {
       const db = app.get("quackyRacesDB");
+
       const ducks = await db
         .collection("ducks")
         .find({})
@@ -260,7 +261,12 @@ module.exports = {
       ));
 
       return res.render("play", {
-        // raceNum: docs,
+        eventName1: eventName1,
+        eventName2: eventName2,
+        eventName3: eventName3,
+        eventName4: eventName4,
+        eventName5: eventName5,
+        eventName6: eventName6, 
         duckNum1: 0,
         duckNum2: 0,
         duckNum3: 0,
