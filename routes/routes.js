@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controllers = require('../controllers/controller.js')
+const controllers = require("../controllers/controller.js");
 
 // login
 const bcrypt = require("bcrypt");
@@ -36,7 +36,7 @@ module.exports = app => {
   });
 
   app.post("/register", (req, res) => {
-    controllers.registerUser(app, req,res)
+    controllers.registerUser(app, req, res);
   });
 
   app.post("/login", (req, res) => {
@@ -52,11 +52,18 @@ module.exports = app => {
   });
 
   app.post("/play", async (req, res) => {
-    controllers.playGame(app, req, res)    
+    controllers.playGame(app, req, res);
   });
 
   app.get("/play", (req, res) => {
-    controllers.ducksInPlay(app, req, res)
+    controllers.ducksInPlay(app, req, res);
+  });
+  app.post("/admin", async (req, res) => {
+    controllers.adminSubmitResults(app, req, res);
+  });
+
+  app.get("/admin", (req, res) => {
+    controllers.adminducksInPlay(app, req, res);
   });
 
   app.get("/predictions", (req, res) => {
@@ -78,7 +85,7 @@ module.exports = app => {
   });
 
   router.get("/profiles", (req, res) => {
-    controllers.viewAllDucks(app, req, res)
+    controllers.viewAllDucks(app, req, res);
   });
 
   return router;
