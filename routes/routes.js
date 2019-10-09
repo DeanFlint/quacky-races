@@ -3,7 +3,6 @@ const router = express.Router();
 const controllers = require("../controllers/controller.js");
 
 // login
-const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 module.exports = app => {
@@ -54,16 +53,29 @@ module.exports = app => {
   app.post("/play", async (req, res) => {
     controllers.playGame(app, req, res);
   });
-
   app.get("/play", (req, res) => {
     controllers.ducksInPlay(app, req, res);
   });
-  app.post("/admin", async (req, res) => {
-    controllers.adminSubmitResults(app, req, res);
+
+  app.get("/admin", async (req, res) => {
+    try {
+      const db = app.set("quackyRacesDB");
+      const users = db.collection("users");
+
+      const user = await users.findOne({ email: req.session.user });
+      
+      if (user.isAdmin === true) {
+        controllers.adminducksInPlay(app, req, res);
+      } else throw "not admin"
+      
+    } catch (err) {
+      console.log(err)
+      res.redirect("/");
+    }
   });
 
-  app.get("/admin", (req, res) => {
-    controllers.adminducksInPlay(app, req, res);
+  app.post("/admin", async (req, res) => {
+    controllers.adminSubmitResults(app, req, res);
   });
 
   app.get("/predictions", (req, res) => {
