@@ -51,6 +51,10 @@ module.exports = {
       const dob = req.body.day + req.body.month + req.body.year;
       if (req.body.password != req.body.confirmPassword) throw "Error";
 
+      var currentYear = new Date();
+      var year = currentYear.getFullYear();
+      if (year - req.body.year < 18) throw "Error";
+
       // add year verification
       await users.createIndex({ email: 1 }, { unique: true });
       await users.insertOne({
@@ -62,6 +66,7 @@ module.exports = {
         isAdmin: false
       });
       user = req.body.email;
+
       req.session.user = req.body.email;
       res.redirect("/account");
     } catch (err) {
@@ -523,4 +528,8 @@ module.exports = {
       console.log(err);
     }
   }
+
+  // displayResults: function (app, req, res => {
+
+  // })
 };
