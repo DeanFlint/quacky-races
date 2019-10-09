@@ -50,6 +50,11 @@ module.exports = {
       const users = db.collection("users");
       const dob = req.body.day + req.body.month + req.body.year;
       if (req.body.password != req.body.confirmPassword) throw "Error";
+
+      var currentYear = new Date();
+      var year = currentYear.getFullYear();
+      if (year - req.body.year < 18) throw "Error";
+
       // add year verification
       await users.createIndex({ email: 1 }, { unique: true });
       await users.insertOne({
@@ -61,6 +66,7 @@ module.exports = {
         isAdmin: false
       });
       user = req.body.email;
+
       req.session.user = req.body.email;
       res.redirect("/account");
     } catch (err) {
@@ -207,43 +213,52 @@ module.exports = {
       res.redirect("/account");
     } catch (err) {
       console.log("Play error: ", err);
-      res.redirect("/play?err=" + err)
+      res.redirect("/play?err=" + err);
       // res.render("play", {
       //   message: err,
       //   user: req.session.user
       // });
     }
   },
-  ducksInPlay: async function(app, req, res){
+  ducksInPlay: async function(app, req, res) {
     try {
       const db = app.get("quackyRacesDB");
-      const ducks = await db.collection("ducks").find({}).toArray();
 
-      const duckMap = {}
-      ducks.forEach(duck => duckMap[duck.duckID] = duck)
-      
-      const events = db.collection("events")
-      
-      const eventResults1 = await events.findOne({raceNum: "race1"});
-      const eventResults2 = await events.findOne({raceNum: "race2"});
-      const eventResults3 = await events.findOne({raceNum: "race3"});
-      const eventResults4 = await events.findOne({raceNum: "race4"});
-      const eventResults5 = await events.findOne({raceNum: "race5"});
-      const eventResults6 = await events.findOne({raceNum: "race6"});
+      const ducks = await db
+        .collection("ducks")
+        .find({})
+        .toArray();
 
-      const eventName1 = eventResults1.location;
-      const eventName2 = eventResults2.location;
-      const eventName3 = eventResults3.location;
-      const eventName4 = eventResults4.location;
-      const eventName5 = eventResults5.location;
-      const eventName6 = eventResults6.location;
-      
-      const racingDucks1 = eventResults1.duckID = eventResults1.duckID.map(id => duckMap[id].duckName)
-      const racingDucks2 = eventResults2.duckID = eventResults2.duckID.map(id => duckMap[id].duckName)
-      const racingDucks3 = eventResults3.duckID = eventResults3.duckID.map(id => duckMap[id].duckName)
-      const racingDucks4 = eventResults4.duckID = eventResults4.duckID.map(id => duckMap[id].duckName)
-      const racingDucks5 = eventResults5.duckID = eventResults5.duckID.map(id => duckMap[id].duckName)
-      const racingDucks6 = eventResults6.duckID = eventResults6.duckID.map(id => duckMap[id].duckName)
+      const duckMap = {};
+      ducks.forEach(duck => (duckMap[duck.duckID] = duck));
+
+      const events = db.collection("events");
+
+      const eventResults1 = await events.findOne({ raceNum: "race1" });
+      const eventResults2 = await events.findOne({ raceNum: "race2" });
+      const eventResults3 = await events.findOne({ raceNum: "race3" });
+      const eventResults4 = await events.findOne({ raceNum: "race4" });
+      const eventResults5 = await events.findOne({ raceNum: "race5" });
+      const eventResults6 = await events.findOne({ raceNum: "race6" });
+
+      const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks2 = (eventResults2.duckID = eventResults2.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks3 = (eventResults3.duckID = eventResults3.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks4 = (eventResults4.duckID = eventResults4.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks5 = (eventResults5.duckID = eventResults5.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks6 = (eventResults6.duckID = eventResults6.duckID.map(
+        id => duckMap[id].duckName
+      ));
 
       return res.render("play", {
         eventName1: eventName1,
@@ -267,11 +282,260 @@ module.exports = {
         user: req.session.user,
         message: req.query.err
       });
-
     } catch (err) {
       console.log(err);
-
     }
+  },
 
+  // admin page
+  adminSubmitResults: async function(app, req, res) {
+    try {
+      const adminrace1Sel1 = req.body.adminrace1sel1;
+      const adminrace1Sel2 = req.body.adminrace1sel2;
+      const adminrace1Sel3 = req.body.adminrace1sel3;
+      const adminrace1Sel4 = req.body.adminrace1sel4;
+      const adminrace1Sel5 = req.body.adminrace1sel5;
+      const adminrace1Sel6 = req.body.adminrace1sel6;
+
+      const adminrace2Sel1 = req.body.adminrace2sel1;
+      const adminrace2Sel2 = req.body.adminrace2sel2;
+      const adminrace2Sel3 = req.body.adminrace2sel3;
+      const adminrace2Sel4 = req.body.adminrace2sel4;
+      const adminrace2Sel5 = req.body.adminrace2sel5;
+      const adminrace2Sel6 = req.body.adminrace2sel6;
+
+      const adminrace3Sel1 = req.body.adminrace3sel1;
+      const adminrace3Sel2 = req.body.adminrace3sel2;
+      const adminrace3Sel3 = req.body.adminrace3sel3;
+      const adminrace3Sel4 = req.body.adminrace3sel4;
+      const adminrace3Sel5 = req.body.adminrace3sel5;
+      const adminrace3Sel6 = req.body.adminrace3sel6;
+
+      const adminrace4Sel1 = req.body.adminrace4sel1;
+      const adminrace4Sel2 = req.body.adminrace4sel2;
+      const adminrace4Sel3 = req.body.adminrace4sel3;
+      const adminrace4Sel4 = req.body.adminrace4sel4;
+      const adminrace4Sel5 = req.body.adminrace4sel5;
+      const adminrace4Sel6 = req.body.adminrace4sel6;
+
+      const adminrace5Sel1 = req.body.adminrace5sel1;
+      const adminrace5Sel2 = req.body.adminrace5sel2;
+      const adminrace5Sel3 = req.body.adminrace5sel3;
+      const adminrace5Sel4 = req.body.adminrace5sel4;
+      const adminrace5Sel5 = req.body.adminrace5sel5;
+      const adminrace5Sel6 = req.body.adminrace5sel6;
+
+      const adminrace6Sel1 = req.body.adminrace6sel1;
+      const adminrace6Sel2 = req.body.adminrace6sel2;
+      const adminrace6Sel3 = req.body.adminrace6sel3;
+      const adminrace6Sel4 = req.body.adminrace6sel4;
+      const adminrace6Sel5 = req.body.adminrace6sel5;
+      const adminrace6Sel6 = req.body.adminrace6sel6;
+
+      if (
+        adminrace1Sel1 == undefined ||
+        adminrace1Sel2 == undefined ||
+        adminrace1Sel3 == undefined ||
+        adminrace1Sel4 == undefined ||
+        adminrace1Sel5 == undefined ||
+        adminrace1Sel6 == undefined ||
+        adminrace2Sel1 == undefined ||
+        adminrace2Sel2 == undefined ||
+        adminrace2Sel3 == undefined ||
+        adminrace2Sel4 == undefined ||
+        adminrace2Sel5 == undefined ||
+        adminrace2Sel6 == undefined ||
+        adminrace3Sel1 == undefined ||
+        adminrace3Sel2 == undefined ||
+        adminrace3Sel3 == undefined ||
+        adminrace3Sel4 == undefined ||
+        adminrace3Sel5 == undefined ||
+        adminrace3Sel6 == undefined ||
+        adminrace4Sel1 == undefined ||
+        adminrace4Sel2 == undefined ||
+        adminrace4Sel3 == undefined ||
+        adminrace4Sel4 == undefined ||
+        adminrace4Sel5 == undefined ||
+        adminrace4Sel6 == undefined ||
+        adminrace5Sel1 == undefined ||
+        adminrace5Sel2 == undefined ||
+        adminrace5Sel3 == undefined ||
+        adminrace5Sel4 == undefined ||
+        adminrace5Sel5 == undefined ||
+        adminrace5Sel6 == undefined ||
+        adminrace6Sel1 == undefined ||
+        adminrace6Sel2 == undefined ||
+        adminrace6Sel3 == undefined ||
+        adminrace6Sel4 == undefined ||
+        adminrace6Sel5 == undefined ||
+        adminrace6Sel6 == undefined
+      ) {
+        throw "Please input all results.";
+      }
+
+      const db = app.get("quackyRacesDB");
+      const results = db.collection("results");
+      const results1 = [
+        adminrace1Sel1,
+        adminrace1Sel2,
+        adminrace1Sel3,
+        adminrace1Sel4,
+        adminrace1Sel5,
+        adminrace1Sel6
+      ];
+      const results2 = [
+        adminrace2Sel1,
+        adminrace2Sel2,
+        adminrace2Sel3,
+        adminrace2Sel4,
+        adminrace2Sel5,
+        adminrace2Sel6
+      ];
+      const results3 = [
+        adminrace3Sel1,
+        adminrace3Sel2,
+        adminrace3Sel3,
+        adminrace3Sel4,
+        adminrace3Sel5,
+        adminrace3Sel6
+      ];
+      const results4 = [
+        adminrace4Sel1,
+        adminrace4Sel2,
+        adminrace4Sel3,
+        adminrace4Sel4,
+        adminrace4Sel5,
+        adminrace4Sel6
+      ];
+      const results5 = [
+        adminrace5Sel1,
+        adminrace5Sel2,
+        adminrace5Sel3,
+        adminrace5Sel4,
+        adminrace5Sel5,
+        adminrace5Sel6
+      ];
+      const results6 = [
+        adminrace6Sel1,
+        adminrace6Sel2,
+        adminrace6Sel3,
+        adminrace6Sel4,
+        adminrace6Sel5,
+        adminrace6Sel6
+      ];
+
+      await results.insertOne({
+        resultID: "result1",
+        eventID: "event1",
+        place: results1
+      }),
+        await results.insertOne({
+          resultID: "result2",
+          eventID: "event2",
+          place: results2
+        }),
+        await results.insertOne({
+          resultID: "result3",
+          eventID: "event3",
+          place: results3
+        }),
+        await results.insertOne({
+          resultID: "result4",
+          eventID: "event4",
+          place: results4
+        }),
+        await results.insertOne({
+          resultID: "result5",
+          eventID: "event5",
+          place: results5
+        }),
+        await results.insertOne({
+          resultID: "result6",
+          eventID: "event6",
+          place: results6
+        }),
+        // round ID
+
+        console.log(results1);
+      console.log(results2);
+      console.log(results3);
+      console.log(results4);
+      console.log(results5);
+      console.log(results6);
+
+      res.redirect("/admin");
+    } catch (err) {
+      console.log("Admin error: ", err);
+      res.redirect("/admin?err=" + err);
+      // res.render("play", {
+      //   message: err,
+      //   user: req.session.user
+      // });
+    }
+  },
+
+  adminducksInPlay: async function(app, req, res) {
+    try {
+      const db = app.get("quackyRacesDB");
+      const ducks = await db
+        .collection("ducks")
+        .find({})
+        .toArray();
+
+      const duckMap = {};
+      ducks.forEach(duck => (duckMap[duck.duckID] = duck));
+
+      const events = db.collection("events");
+
+      const eventResults1 = await events.findOne({ raceNum: "race1" });
+      const eventResults2 = await events.findOne({ raceNum: "race2" });
+      const eventResults3 = await events.findOne({ raceNum: "race3" });
+      const eventResults4 = await events.findOne({ raceNum: "race4" });
+      const eventResults5 = await events.findOne({ raceNum: "race5" });
+      const eventResults6 = await events.findOne({ raceNum: "race6" });
+
+      const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks2 = (eventResults2.duckID = eventResults2.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks3 = (eventResults3.duckID = eventResults3.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks4 = (eventResults4.duckID = eventResults4.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks5 = (eventResults5.duckID = eventResults5.duckID.map(
+        id => duckMap[id].duckName
+      ));
+      const racingDucks6 = (eventResults6.duckID = eventResults6.duckID.map(
+        id => duckMap[id].duckName
+      ));
+
+      return res.render("admin", {
+        // raceNum: docs,
+        duckNum1: 0,
+        duckNum2: 0,
+        duckNum3: 0,
+        duckNum4: 0,
+        duckNum5: 0,
+        duckNum6: 0,
+        raceNum1: racingDucks1,
+        raceNum2: racingDucks2,
+        raceNum3: racingDucks3,
+        raceNum4: racingDucks4,
+        raceNum5: racingDucks5,
+        raceNum6: racingDucks6,
+        user: req.session.user,
+        message: req.query.err
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
+
+  // displayResults: function (app, req, res => {
+
+  // })
 };

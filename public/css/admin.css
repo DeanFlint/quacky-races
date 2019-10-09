@@ -1,0 +1,95 @@
+/* Mobile */
+.admin-event-runners{
+    grid-area: event-runners;
+    padding: 5px 10px;
+}
+
+.admin-event-user-form {
+    grid-area: event-user-form;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-input-box-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;     
+}
+
+select {
+    margin: 10px;
+    height: 35px;
+    min-width: 60px;
+    font-size: 16px;
+
+}
+
+.admin-event-section {
+    background-color: #f1f0f0;
+    border: 1px solid #b7b5b5;
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-areas: "event-section";
+    grid-area: event-section;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "event-runners event-user-form ";
+    border-radius: 5px;
+}
+
+.admin-playOption {
+    margin-bottom: 5px;
+    width: 10px;
+}
+
+.admin-event-runner-name {
+    margin-bottom: 5px;
+}
+
+.admin-event-race-name {
+    margin-bottom: 7px;
+}
+
+.admin-input-box-area select{
+    border:solid black 1px;
+}
+
+.admin-resetButton {
+    margin-right: 20px;
+}
+
+.admin-resetButton,
+.admin-submitButton {
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.admin-buttonSection {
+    width: 280px;
+    margin: 40px auto;
+}
+
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .admin-event-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .admin-event-section {
+        width: 49%;
+        
+
+    }
+        margin-right: 10px;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+
+}
