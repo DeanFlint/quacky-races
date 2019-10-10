@@ -53,9 +53,9 @@ module.exports = app => {
 
       const user = await users.findOne({ email: req.session.user });
       
-      if (user === true) {
-        controllers.adminducksInPlay(app, req, res);
-      } else throw "not logged in"
+      if (user === "") {
+        throw "not logged in"
+      }
       
       controllers.viewUserAccount(app, req, res);
 
@@ -65,11 +65,28 @@ module.exports = app => {
     }
   });
 
-  app.post("/play", async (req, res) => {
+  app.post("/play", (req, res) => {
     controllers.playGame(app, req, res);
   });
-  app.get("/play", (req, res) => {
+
+  app.get("/play", async (req, res) => {
     controllers.ducksInPlay(app, req, res);
+
+    try {
+      const db = app.set("quackyRacesDB");
+      const users = db.collection("users");
+
+      const user = await users.findOne({ email: req.session.user });
+      
+      if (user !== true) { throw "not logged in" }
+      
+      controllers.ducksInPlay(app, req, res);
+
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
+
   });
 
   app.get("/admin", async (req, res) => {
