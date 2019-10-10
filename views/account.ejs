@@ -8,12 +8,6 @@
   <h1 class="accountTitle">Account</h1>
 
   <div class="account-container">
-
-      <% if (user.isAdmin){ %>
-        <a href="/admin">
-          Admin Page
-        </a>
-      <% } %>
     
       <div class="accountProfile">
 
@@ -21,8 +15,6 @@
           <p class="surname"><strong>Surname: </strong><%= user.surname %></p>
           <p class="email"><strong>Email:</strong> <%= user.email %></p>
           <p class="DOB"><strong>DOB: </strong><%= user.dob %></p>
-
-
           
       </div>
     
