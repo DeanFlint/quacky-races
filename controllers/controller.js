@@ -582,5 +582,8 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+  workOutFunct: async function(app, req, res) {
+
   }
 };
