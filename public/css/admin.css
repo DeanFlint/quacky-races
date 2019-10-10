@@ -1,7 +1,17 @@
 /* Mobile */
+.inputPlacements{
+    padding-bottom: 30px;
+}
+.adminTitle{
+    padding-bottom:30px;
+}
 .admin-event-runners{
     grid-area: event-runners;
     padding: 5px 10px;
+}
+
+.event-runner-name{
+    margin-bottom:30px;
 }
 
 .admin-event-user-form {
@@ -48,7 +58,7 @@ select {
 }
 
 .admin-event-race-name {
-    margin-bottom: 7px;
+    margin-bottom: 30px;
 }
 
 .admin-input-box-area select{
