@@ -2,6 +2,12 @@
 
 <main>
 
+    <% if (user.isAdmin){ %>
+      <a href="/admin">
+        Admin Page
+      </a>
+    <% } %>
+
     <div class="logout">
         <a href="/logout">Logout</a>
     </div>

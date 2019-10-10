@@ -46,15 +46,33 @@ module.exports = app => {
     controllers.logoutUser(app, req, res);
   });
 
-  router.get("/account", (req, res) => {
-    controllers.viewUserAccount(app, req, res);
+  router.get("/account", async(req, res) => {
+    try {
+      if (!req.session.user ) {
+        throw "not logged in"
+      }
+      
+      controllers.viewUserAccount(app, req, res);
+      
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
   });
 
-  app.post("/play", async (req, res) => {
+  app.post("/play", (req, res) => {
     controllers.playGame(app, req, res);
   });
-  app.get("/play", (req, res) => {
-    controllers.ducksInPlay(app, req, res);
+
+  app.get("/play", async (req, res) => {
+    try {      
+      if (!req.session.user ) { throw "not logged in" }
+      controllers.ducksInPlay(app, req, res);
+
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
   });
 
   app.get("/admin", async (req, res) => {
