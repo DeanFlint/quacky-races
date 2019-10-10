@@ -46,8 +46,23 @@ module.exports = app => {
     controllers.logoutUser(app, req, res);
   });
 
-  router.get("/account", (req, res) => {
-    controllers.viewUserAccount(app, req, res);
+  router.get("/account", async(req, res) => {
+    try {
+      const db = app.set("quackyRacesDB");
+      const users = db.collection("users");
+
+      const user = await users.findOne({ email: req.session.user });
+      
+      if (user === true) {
+        controllers.adminducksInPlay(app, req, res);
+      } else throw "not logged in"
+      
+      controllers.viewUserAccount(app, req, res);
+
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
   });
 
   app.post("/play", async (req, res) => {
