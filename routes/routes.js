@@ -63,13 +63,12 @@ module.exports = app => {
       const users = db.collection("users");
 
       const user = await users.findOne({ email: req.session.user });
-      
+
       if (user.isAdmin === true) {
         controllers.adminducksInPlay(app, req, res);
-      } else throw "not admin"
-      
+      } else throw "not admin";
     } catch (err) {
-      console.log(err)
+      console.log(err);
       res.redirect("/");
     }
   });
@@ -85,9 +84,7 @@ module.exports = app => {
   });
 
   app.get("/results", (req, res) => {
-    res.render("results", {
-      user: req.session.user
-    });
+    controllers.resultsducksInPlay(app, req, res);
   });
 
   app.get("/leaderboard", (req, res) => {
