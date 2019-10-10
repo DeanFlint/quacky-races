@@ -46,15 +46,47 @@ module.exports = app => {
     controllers.logoutUser(app, req, res);
   });
 
-  router.get("/account", (req, res) => {
-    controllers.viewUserAccount(app, req, res);
+  router.get("/account", async(req, res) => {
+    try {
+      const db = app.set("quackyRacesDB");
+      const users = db.collection("users");
+
+      const user = await users.findOne({ email: req.session.user });
+      
+      if (user === "") {
+        throw "not logged in"
+      }
+      
+      controllers.viewUserAccount(app, req, res);
+
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
   });
 
-  app.post("/play", async (req, res) => {
+  app.post("/play", (req, res) => {
     controllers.playGame(app, req, res);
   });
-  app.get("/play", (req, res) => {
+
+  app.get("/play", async (req, res) => {
     controllers.ducksInPlay(app, req, res);
+
+    try {
+      const db = app.set("quackyRacesDB");
+      const users = db.collection("users");
+
+      const user = await users.findOne({ email: req.session.user });
+      
+      if (user !== true) { throw "not logged in" }
+      
+      controllers.ducksInPlay(app, req, res);
+
+    } catch (err) {
+      console.log(err)
+      res.redirect("/login");
+    }
+
   });
 
   app.get("/admin", async (req, res) => {

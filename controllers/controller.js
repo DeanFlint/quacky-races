@@ -32,7 +32,6 @@ module.exports = {
         if (err) {
           console.error(err);
         }
-        console.log(docs);
         return res.render("account", {
           user: docs[0]
         });
@@ -312,70 +311,55 @@ module.exports = {
       const adminrace6Sel6 = req.body.adminrace6sel6;
 
       const adminAllSelections = [
-        adminrace1Sel1, adminrace1Sel2, adminrace1Sel3, adminrace1Sel4, adminrace1Sel5, adminrace1Sel6, 
-        adminrace2Sel1, adminrace2Sel2, adminrace2Sel3, adminrace2Sel4, adminrace2Sel5, adminrace2Sel6, 
-        adminrace3Sel1, adminrace3Sel2, adminrace3Sel3, adminrace3Sel4, adminrace3Sel5, adminrace3Sel6, 
-        adminrace4Sel1, adminrace4Sel2, adminrace4Sel3, adminrace4Sel4, adminrace4Sel5, adminrace4Sel6, 
-        adminrace5Sel1, adminrace5Sel2, adminrace5Sel3, adminrace5Sel4, adminrace5Sel5, adminrace5Sel6, 
-        adminrace6Sel1, adminrace6Sel2, adminrace6Sel3, adminrace6Sel4, adminrace6Sel5, adminrace6Sel6
+        [adminrace1Sel1, adminrace1Sel2, adminrace1Sel3, adminrace1Sel4, adminrace1Sel5, adminrace1Sel6], 
+        [adminrace2Sel1, adminrace2Sel2, adminrace2Sel3, adminrace2Sel4, adminrace2Sel5, adminrace2Sel6], 
+        [adminrace3Sel1, adminrace3Sel2, adminrace3Sel3, adminrace3Sel4, adminrace3Sel5, adminrace3Sel6], 
+        [adminrace4Sel1, adminrace4Sel2, adminrace4Sel3, adminrace4Sel4, adminrace4Sel5, adminrace4Sel6], 
+        [adminrace5Sel1, adminrace5Sel2, adminrace5Sel3, adminrace5Sel4, adminrace5Sel5, adminrace5Sel6], 
+        [adminrace6Sel1, adminrace6Sel2, adminrace6Sel3, adminrace6Sel4, adminrace6Sel5, adminrace6Sel6]
       ]
 
-      adminAllSelections.map(raceSelection => {
-        if (raceSelection === undefined){
-          throw "Please input all results.";
-        };
+      adminAllSelections.forEach(function(adminAllSelection) {
+        adminAllSelection.map(raceSelection => {
+          if (raceSelection === undefined){
+            throw "Please input all results.";
+          };
+          // duplicate validation
+        });
       });
 
       const db = app.get("quackyRacesDB");
       const results = db.collection("results");
-      const results1 = [
-        adminrace1Sel1, adminrace1Sel2, adminrace1Sel3, adminrace1Sel4, adminrace1Sel5, adminrace1Sel6
-      ];
-      const results2 = [
-        adminrace2Sel1, adminrace2Sel2, adminrace2Sel3, adminrace2Sel4, adminrace2Sel5, adminrace2Sel6
-      ];
-      const results3 = [
-        adminrace3Sel1, adminrace3Sel2, adminrace3Sel3, adminrace3Sel4, adminrace3Sel5, adminrace3Sel6
-      ];
-      const results4 = [
-        adminrace4Sel1, adminrace4Sel2, adminrace4Sel3, adminrace4Sel4, adminrace4Sel5, adminrace4Sel6
-      ];
-      const results5 = [
-        adminrace5Sel1, adminrace5Sel2, adminrace5Sel3, adminrace5Sel4, adminrace5Sel5, adminrace5Sel6
-      ];
-      const results6 = [
-        adminrace6Sel1, adminrace6Sel2, adminrace6Sel3, adminrace6Sel4, adminrace6Sel5, adminrace6Sel6
-      ];
 
       await results.insertOne({
         resultID: "result1",
         eventID: "event1",
-        place: results1
+        place: adminAllSelections[0]
       }),
       await results.insertOne({
         resultID: "result2",
         eventID: "event2",
-        place: results2
+        place: adminAllSelections[1]
       }),
       await results.insertOne({
         resultID: "result3",
         eventID: "event3",
-        place: results3
+        place: adminAllSelections[2]
       }),
       await results.insertOne({
         resultID: "result4",
         eventID: "event4",
-        place: results4
+        place: adminAllSelections[3]
       }),
       await results.insertOne({
         resultID: "result5",
         eventID: "event5",
-        place: results5
+        place: adminAllSelections[4]
       }),
       await results.insertOne({
         resultID: "result6",
         eventID: "event6",
-        place: results6
+        place: adminAllSelections[5]
       }),
       // round ID
 
