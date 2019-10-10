@@ -537,7 +537,7 @@ module.exports = {
         id => duckMap[id].duckName
       ));
 
-      return res.render("admin", {
+      return res.render("results", {
         duckNum1: 0,
         duckNum2: 0,
         duckNum3: 0,
