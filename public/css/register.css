@@ -95,12 +95,12 @@
     font: 400 11px system-ui;
 }
 
-.submitButton{
+ .registerSubmitButton{
     grid-area:submitButton;
     text-align: center;
     padding: 20px;
     text-align: center;
-}
+} 
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
