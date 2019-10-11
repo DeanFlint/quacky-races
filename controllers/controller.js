@@ -250,10 +250,6 @@ module.exports = {
         id => duckNameMap[id].duckName
       ));
 
-      // const racingDucksIDs1 = (eventResults1.duckID = eventResults1.duckID.map(
-      //   id => duckNameMap[id].duckID
-      // ));
-
       const racingDucks2 = (eventResults2.duckNames = eventResults2.duckID.map(
         id => duckNameMap[id].duckName
       ));
