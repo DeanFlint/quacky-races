@@ -227,8 +227,8 @@ module.exports = {
         .find({})
         .toArray();
 
-      const duckMap = {};
-      ducks.forEach(duck => (duckMap[duck.duckID] = duck));
+      const duckNameMap = {};
+      ducks.forEach(duck => (duckNameMap[duck.duckID] = duck));
 
       const events = db.collection("events");
 
@@ -246,23 +246,28 @@ module.exports = {
       const eventName5 = eventResults5.location;
       const eventName6 = eventResults6.location;
 
-      const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks1 = (eventResults1.duckNames = eventResults1.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks2 = (eventResults2.dxuckID = eventResults2.duckID.map(
-        id => duckMap[id].duckName
+
+      // const racingDucksIDs1 = (eventResults1.duckID = eventResults1.duckID.map(
+      //   id => duckNameMap[id].duckID
+      // ));
+
+      const racingDucks2 = (eventResults2.duckNames = eventResults2.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks3 = (eventResults3.duckID = eventResults3.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks3 = (eventResults3.duckNames = eventResults3.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks4 = (eventResults4.duckID = eventResults4.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks4 = (eventResults4.duckNames = eventResults4.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks5 = (eventResults5.duckID = eventResults5.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks5 = (eventResults5.duckNames = eventResults5.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks6 = (eventResults6.duckID = eventResults6.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks6 = (eventResults6.duckNames = eventResults6.duckID.map(
+        id => duckNameMap[id].duckName
       ));
 
       return res.render("play", {
@@ -285,6 +290,12 @@ module.exports = {
         raceNum5: racingDucks5,
         raceNum6: racingDucks6,
         user: req.session.user,
+        race1DuckIDs: eventResults1.duckID,
+        race2DuckIDs: eventResults2.duckID,
+        race3DuckIDs: eventResults3.duckID,
+        race4DuckIDs: eventResults4.duckID,
+        race5DuckIDs: eventResults5.duckID,
+        race6DuckIDs: eventResults6.duckID,
         message: req.query.err
       });
     } catch (err) {
