@@ -46,16 +46,15 @@ module.exports = app => {
     controllers.logoutUser(app, req, res);
   });
 
-  router.get("/account", async(req, res) => {
+  router.get("/account", async (req, res) => {
     try {
-      if (!req.session.user ) {
-        throw "not logged in"
+      if (!req.session.user) {
+        throw "not logged in";
       }
-      
+
       controllers.viewUserAccount(app, req, res);
-      
     } catch (err) {
-      console.log(err)
+      console.log(err);
       res.redirect("/login");
     }
   });
@@ -65,12 +64,13 @@ module.exports = app => {
   });
 
   app.get("/play", async (req, res) => {
-    try {      
-      if (!req.session.user ) { throw "not logged in" }
+    try {
+      if (!req.session.user) {
+        throw "not logged in";
+      }
       controllers.ducksInPlay(app, req, res);
-
     } catch (err) {
-      console.log(err)
+      console.log(err);
       res.redirect("/login");
     }
   });

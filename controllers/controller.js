@@ -302,6 +302,8 @@ module.exports = {
   // admin page
   adminSubmitResults: async function(app, req, res) {
     try {
+      const roundID = req.body.roundID;
+
       const adminrace1Sel1 = req.body.adminrace1sel1;
       const adminrace1Sel2 = req.body.adminrace1sel2;
       const adminrace1Sel3 = req.body.adminrace1sel3;
@@ -408,33 +410,33 @@ module.exports = {
       const results = db.collection("results");
 
       await results.insertOne({
-        resultID: "result1",
         eventID: "event1",
+        roundID: roundID,
         place: adminAllSelections[0]
       }),
         await results.insertOne({
-          resultID: "result2",
           eventID: "event2",
+          roundID: roundID,
           place: adminAllSelections[1]
         }),
         await results.insertOne({
-          resultID: "result3",
           eventID: "event3",
+          roundID: roundID,
           place: adminAllSelections[2]
         }),
         await results.insertOne({
-          resultID: "result4",
           eventID: "event4",
+          roundID: roundID,
           place: adminAllSelections[3]
         }),
         await results.insertOne({
-          resultID: "result5",
           eventID: "event5",
+          roundID: roundID,
           place: adminAllSelections[4]
         }),
         await results.insertOne({
-          resultID: "result6",
           eventID: "event6",
+          roundID: roundID,
           place: adminAllSelections[5]
         }),
         // round ID
@@ -492,6 +494,17 @@ module.exports = {
         id => duckMap[id].duckName
       ));
 
+      const roundIDfinder = await db
+        .collection("results")
+        .find({})
+        .sort({ roundID: -1 })
+        .limit(1)
+        .toArray();
+      console.log("roundID HERE");
+
+      const theRoundID = roundIDfinder[0].roundID;
+      console.log(theRoundID);
+
       return res.render("admin", {
         eventName1: eventName1,
         eventName2: eventName2,
@@ -511,6 +524,7 @@ module.exports = {
         raceNum4: racingDucks4,
         raceNum5: racingDucks5,
         raceNum6: racingDucks6,
+        theRoundID: theRoundID,
         user: req.session.user,
         message: req.query.err
       });
@@ -564,6 +578,27 @@ module.exports = {
         id => duckMap[id].duckName
       ));
 
+      const placeFinder = await db
+        .collection("results")
+        .find({})
+        .sort({ roundID: -1 })
+        .limit(6)
+        .toArray();
+
+      const topThrees = placeFinder.map(doc => doc.place.slice(0, 3));
+      // console.log(topThrees[0]);
+
+      const first = topThrees.map(doc => doc.slice(0, 1));
+      // console.log(first);
+
+      const second = topThrees.map(doc => doc.slice(1, 2));
+      // console.log(second);
+
+      const third = topThrees.map(doc => doc.slice(2, 3));
+      // console.log(third);
+
+      console.log(third[0]);
+
       return res.render("results", {
         eventName1: eventName1,
         eventName2: eventName2,
@@ -583,6 +618,9 @@ module.exports = {
         raceNum4: racingDucks4,
         raceNum5: racingDucks5,
         raceNum6: racingDucks6,
+        first: first,
+        second: second,
+        third: third,
         user: req.session.user,
         message: req.query.err
       });

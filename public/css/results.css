@@ -1,146 +1,141 @@
 /* Mobile */
-.result-runners{
-    grid-area: result-runners;
-    padding: 5px 10px;
+.result-runners {
+  grid-area: result-runners;
+  padding: 5px 10px;
 }
 
 .num1::before {
-    background-image: url('/images/red1.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
-    
- }
+  background-image: url("/images/number1.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
 
- .num2::before {
-    background-image: url('/images/orange2.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
- }
+.num2::before {
+  background-image: url("/images/number2.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
 
- .num3::before {
-    background-image: url('/images/yellow3.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
- }
+.num3::before {
+  background-image: url("/images/number3.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
 
- .num4::before {
-    background-image: url('/images/purple4.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
- }
- .num5::before {
-    background-image: url('/images/blue5.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
- }
- .num6::before {
-    background-image: url('/images/green6.png');
-    background-size: 20px 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content:"";
- }
+.num4::before {
+  background-image: url("/images/number4.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
+.num5::before {
+  background-image: url("/images/number5.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
+.num6::before {
+  background-image: url("/images/number6.png");
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
 
 .result-user-form {
-    grid-area: result-user-form;
-    padding: 5px 10px;
-    text-align: center;
+  grid-area: result-user-form;
+  padding: 5px 10px;
+  text-align: center;
 }
 
 .result-image-area {
-    font-family: 'Courier New', Courier, monospace;
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;  
-    padding-top:20px; 
+  font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
 }
-.firstPlaceImage{
-    width:40px;
-    height:40px;
-    padding-bottom: 20px;
+.firstPlaceImage {
+  width: 40px;
+  height: 40px;
+  padding-bottom: 20px;
 }
-.secondPlaceImage{
-    width:40px;
-    height:40px;
-    padding-bottom:20px;
+.secondPlaceImage {
+  width: 40px;
+  height: 40px;
+  padding-bottom: 20px;
 }
-.thirdPlaceImage{
-    width:40px;
-    height:40px;
+.thirdPlaceImage {
+  width: 40px;
+  height: 40px;
 }
 
 select {
-    margin: 10px;
-    min-height: 25px;
-    min-width: 60px;
-    font-size: 16px;
-
+  margin: 10px;
+  min-height: 25px;
+  min-width: 60px;
+  font-size: 16px;
 }
 
 .result-section {
-    background-color: #f1f0f0;
-    border: 1px solid #b7b5b5;
-    display: grid;
-    margin-bottom: 10px;
-    grid-template-areas: "result-section";
-    grid-area: result-section;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: "result-runners result-user-form "
-                            "result-runners result-image-area";
-    border-radius: 5px;
+  background-color: #f1f0f0;
+  border: 1px solid #b7b5b5;
+  display: grid;
+  margin-bottom: 10px;
+  grid-template-areas: "result-section";
+  grid-area: result-section;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "result-runners result-user-form "
+    "result-runners result-image-area";
+  border-radius: 5px;
 }
 
 .playOption {
-    margin-bottom: 5px;
-    width: 20px;
+  margin-bottom: 5px;
+  width: 20px;
 }
 
 .result-runner-name {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
 
 .result-race-name {
-    margin-bottom: 7px;
+  margin-bottom: 7px;
 }
-
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
-    .result-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+  .result-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-    .result-section {
-        width: 49%;
-
-    }
-    .result-section:nth-of-type(odd) {
-        margin-right: 10px;
-    }
+  .result-section {
+    width: 49%;
+  }
+  .result-section:nth-of-type(odd) {
+    margin-right: 10px;
+  }
 }
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
-
 }
