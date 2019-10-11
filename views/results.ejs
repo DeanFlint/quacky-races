@@ -3,36 +3,31 @@
 <main>
     <h1>Results</h1>
 
-   
     <div class="result-container">
-        
         <% events.forEach(event => { %>
 
         <div class="result-section">
             <div class="result-runners">
                 <h2 class="result-race-name"><% event.eventID %></h3>
-                    <% event.duckID.forEach(function(duck, i){ %>
-                        <% i++ %>
-                        <p class="result-runner-name num<%= i %>"> <%= duckNames[duck] %></p>
-                        <% }) %>
+                <% event.duckID.forEach(function(duck, i){ %>
+                <% i++ %>
+                <p class="result-runner-name num<%= i %>"> <%= duckNames[duck] %></p>
+                <% }) %>
             </div>
 
             <div class="result-user-form">
                 <h2 class="result-race-name">Results</h3>
-
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage" src="images/number<%=event.results[0].startingPlace%>.png">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage" src="images/number<%=event.results[1].startingPlace%>.png">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage" src="images/number<%=event.results[2].startingPlace%>.png">
-    
-                        </div>
+                <div class="result-image-area">
+                    <p class="firstPlace">1st</p>
+                    <img class="firstPlaceImage" src="images/number<%=event.results[0].startingPlace%>.png">
+                    <p class="secondPlace">2nd</p>
+                    <img class="secondPlaceImage" src="images/number<%=event.results[1].startingPlace%>.png">
+                    <p class="thirdPlace">3rd</p>
+                    <img class="thirdPlaceImage" src="images/number<%=event.results[2].startingPlace%>.png">
+                </div>
             </div>
         </div>
         <% }) %>
-        
     </div>
 </main>
 
