@@ -227,8 +227,8 @@ module.exports = {
         .find({})
         .toArray();
 
-      const duckMap = {};
-      ducks.forEach(duck => (duckMap[duck.duckID] = duck));
+      const duckNameMap = {};
+      ducks.forEach(duck => (duckNameMap[duck.duckID] = duck));
 
       const events = db.collection("events");
 
@@ -246,23 +246,24 @@ module.exports = {
       const eventName5 = eventResults5.location;
       const eventName6 = eventResults6.location;
 
-      const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks1 = (eventResults1.duckNames = eventResults1.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks2 = (eventResults2.dxuckID = eventResults2.duckID.map(
-        id => duckMap[id].duckName
+
+      const racingDucks2 = (eventResults2.duckNames = eventResults2.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks3 = (eventResults3.duckID = eventResults3.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks3 = (eventResults3.duckNames = eventResults3.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks4 = (eventResults4.duckID = eventResults4.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks4 = (eventResults4.duckNames = eventResults4.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks5 = (eventResults5.duckID = eventResults5.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks5 = (eventResults5.duckNames = eventResults5.duckID.map(
+        id => duckNameMap[id].duckName
       ));
-      const racingDucks6 = (eventResults6.duckID = eventResults6.duckID.map(
-        id => duckMap[id].duckName
+      const racingDucks6 = (eventResults6.duckNames = eventResults6.duckID.map(
+        id => duckNameMap[id].duckName
       ));
 
       return res.render("play", {
@@ -285,6 +286,12 @@ module.exports = {
         raceNum5: racingDucks5,
         raceNum6: racingDucks6,
         user: req.session.user,
+        race1DuckIDs: eventResults1.duckID,
+        race2DuckIDs: eventResults2.duckID,
+        race3DuckIDs: eventResults3.duckID,
+        race4DuckIDs: eventResults4.duckID,
+        race5DuckIDs: eventResults5.duckID,
+        race6DuckIDs: eventResults6.duckID,
         message: req.query.err
       });
     } catch (err) {
@@ -461,6 +468,13 @@ module.exports = {
       const eventResults5 = await events.findOne({ raceNum: "race5" });
       const eventResults6 = await events.findOne({ raceNum: "race6" });
 
+      const eventName1 = eventResults1.location;
+      const eventName2 = eventResults2.location;
+      const eventName3 = eventResults3.location;
+      const eventName4 = eventResults4.location;
+      const eventName5 = eventResults5.location;
+      const eventName6 = eventResults6.location;
+
       const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
         id => duckMap[id].duckName
       ));
@@ -492,6 +506,12 @@ module.exports = {
       console.log(theRoundID);
 
       return res.render("admin", {
+        eventName1: eventName1,
+        eventName2: eventName2,
+        eventName3: eventName3,
+        eventName4: eventName4,
+        eventName5: eventName5,
+        eventName6: eventName6,
         duckNum1: 0,
         duckNum2: 0,
         duckNum3: 0,
@@ -531,6 +551,13 @@ module.exports = {
       const eventResults4 = await events.findOne({ raceNum: "race4" });
       const eventResults5 = await events.findOne({ raceNum: "race5" });
       const eventResults6 = await events.findOne({ raceNum: "race6" });
+
+      const eventName1 = eventResults1.location;
+      const eventName2 = eventResults2.location;
+      const eventName3 = eventResults3.location;
+      const eventName4 = eventResults4.location;
+      const eventName5 = eventResults5.location;
+      const eventName6 = eventResults6.location;
 
       const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
         id => duckMap[id].duckName
@@ -573,6 +600,12 @@ module.exports = {
       console.log(third[0]);
 
       return res.render("results", {
+        eventName1: eventName1,
+        eventName2: eventName2,
+        eventName3: eventName3,
+        eventName4: eventName4,
+        eventName5: eventName5,
+        eventName6: eventName6,
         duckNum1: 0,
         duckNum2: 0,
         duckNum3: 0,
@@ -594,5 +627,8 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+  workOutFunct: async function(app, req, res) {
+
   }
 };
