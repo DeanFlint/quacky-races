@@ -5,7 +5,7 @@
 }
 
 .num1::before {
-    background-image: url('/images/redOne.png');
+    background-image: url('/images/red1.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -15,7 +15,7 @@
  }
 
  .num2::before {
-    background-image: url('/images/orangeTwo.png');
+    background-image: url('/images/orange2.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -24,7 +24,7 @@
  }
 
  .num3::before {
-    background-image: url('/images/yellowThree.png');
+    background-image: url('/images/yellow3.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -33,7 +33,7 @@
  }
 
  .num4::before {
-    background-image: url('/images/purpleFour.png');
+    background-image: url('/images/purple4.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -41,7 +41,7 @@
     content:"";
  }
  .num5::before {
-    background-image: url('/images/blueFive.png');
+    background-image: url('/images/blue5.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
@@ -49,7 +49,7 @@
     content:"";
  }
  .num6::before {
-    background-image: url('/images/greenSix.png');
+    background-image: url('/images/green6.png');
     background-size: 20px 20px;
     display: inline-block;
     width: 20px;
