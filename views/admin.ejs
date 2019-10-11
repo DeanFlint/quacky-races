@@ -4,7 +4,12 @@
 
     <div class="intro">
         <h2 class="adminTitle">Admin Page</h2>
+
+
         <p class="inputPlacements">Input the placements of all ducks in all races</p>
+        <p class="lastRoundID"><%= theRoundID %></p>
+
+
     </div>
 
     <div>
@@ -12,6 +17,13 @@
     </div>
 
     <form action="/admin" method="POST">
+
+        <input
+                      class="roundIdInput"
+                      type="text"
+                      placeholder="Submit current round"
+                      name="roundID"
+                    />
 
         <div class="admin-event-container">
             <div class="admin-event-section">
