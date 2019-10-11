@@ -1,160 +1,145 @@
 <%- include('header') %>
 
 <main>
-    <h1>Results</h1>
+	<h1>Results</h1>
+	
+	<div class="result-container">
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName1 %></h3>
+				<% raceNum1.forEach(function(duck){ %>
+				<% duckNum1++ %>
+				<p class="result-runner-name num<%= duckNum1 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-    
-    <div class="result-container">
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
 
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">Event name1</h3>
-                    <% raceNum1.forEach(function(duck){ %>
-                        <% duckNum1++ %>
-                        <p class="result-runner-name num<%= duckNum1 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="images/greenSix.png">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="images/purpleFour.png">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="images/redOne.png">
+				</div>
 
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
+			</div>
+		</div>
 
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage"src="images/green6.png">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage"src="images/purple4.png">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage"src="images/red1.png">
-    
-                        </div>
-            </div>
-        </div>
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName2 %></h3>
+				<% raceNum2.forEach(function(duck){ %>
+				<% duckNum2++ %>
+				<p class="result-runner-name num<%= duckNum2 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">Event name2</h3>
-                    <% raceNum2.forEach(function(duck){ %>
-                        <% duckNum2++ %>
-                        <p class="result-runner-name num<%= duckNum2 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
 
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="#">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="#">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="#">
+				</div>
+			</div>
+		</div>
 
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage"src="#">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage"src="#">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage"src="#">
-    
-    
-                        </div>
-            </div>
-        </div>
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName3 %></h3>
+				<% raceNum3.forEach(function(duck){ %>
+				<% duckNum3++ %>
+				<p class="result-runner-name num<%= duckNum3 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">EventName3</h3>
-                    <% raceNum3.forEach(function(duck){ %>
-                        <% duckNum3++ %>
-                        <p class="result-runner-name num<%= duckNum3 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
 
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="#">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="#">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="#">
 
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage"src="#">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage"src="#">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage"src="#">
-    
-    
-                        </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">Event name4</h3>
-                    <% raceNum4.forEach(function(duck){ %>
-                        <% duckNum4++ %>
-                        <p class="result-runner-name num<%= duckNum4 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName4 %></h3>
+				<% raceNum4.forEach(function(duck){ %>
+				<% duckNum4++ %>
+				<p class="result-runner-name num<%= duckNum4 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="#">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="#">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="#">
+				</div>
+			</div>
+		</div>
 
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage"src="#">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage"src="#">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage"src="#">
-    
-    
-                        </div>
-            </div>
-        </div>
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName5 %></h3>
+				<% raceNum5.forEach(function(duck){ %>
+				<% duckNum5++ %>
+				<p class="result-runner-name num<%= duckNum5 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">Event name5</h3>
-                    <% raceNum5.forEach(function(duck){ %>
-                        <% duckNum5++ %>
-                        <p class="result-runner-name num<%= duckNum5 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="#">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="#">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="#">
+				</div>
+			</div>
+		</div>
+		<div class="result-section">
+			<div class="result-runners">
+				<h2 class="result-race-name"><%= eventName6 %></h3>
+				<% raceNum6.forEach(function(duck){ %>
+				<% duckNum6++ %>
+				<p class="result-runner-name num<%= duckNum6 %>"> <%= duck %></p>
+				<% }) %>
+			</div>
 
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
-
-                    <div class="result-image-area">
-                            <p class="firstPlace">1st</p>
-                            <img class="firstPlaceImage"src="#">
-                            <p class="secondPlace">2nd</p>
-                            <img class="secondPlaceImage"src="#">
-                            <p class="thirdPlace">3rd</p>
-                            <img class="thirdPlaceImage"src="#">
-    
-    
-                        </div>
-            </div>
-        </div>
-        <div class="result-section">
-            <div class="result-runners">
-                <h2 class="result-race-name">Event name6</h3>
-                    <% raceNum6.forEach(function(duck){ %>
-                        <% duckNum6++ %>
-                        <p class="result-runner-name num<%= duckNum6 %>"> <%= duck %></p>
-                        <% }) %>
-            </div>
-
-            <div class="result-user-form">
-                <h2 class="result-race-name">Results</h3>
-
-                    <div class="result-image-area">
-                        <p class="firstPlace">1st</p>
-                        <img class="firstPlaceImage"src="#">
-                        <p class="secondPlace">2nd</p>
-                        <img class="secondPlaceImage"src="#">
-                        <p class="thirdPlace">3rd</p>
-                        <img class="thirdPlaceImage"src="#">
-
-
-                    </div>
-            </div>
-        </div>
-    </div>
+			<div class="result-user-form">
+				<h2 class="result-race-name">Results</h3>
+				<div class="result-image-area">
+					<p class="firstPlace">1st</p>
+					<img class="firstPlaceImage"src="#">
+					<p class="secondPlace">2nd</p>
+					<img class="secondPlaceImage"src="#">
+					<p class="thirdPlace">3rd</p>
+					<img class="thirdPlaceImage"src="#">
+				</div>
+			</div>
+		</div>
+	</div>
 </main>
-
 
 <%- include('footer') %>
