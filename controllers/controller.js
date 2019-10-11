@@ -534,6 +534,40 @@ module.exports = {
   },
   resultsducksInPlay: async function(app, req, res) {
     try {
+
+      const db = app.get('quackyRacesDB')
+      const events = await db.collection('events').find({roundID: "round1"}).sort({eventID: 1}).toArray()
+      const resultsList = await db.collection('results').find({roundID: "1"}).toArray()
+      const ducks = await db.collection('ducks').find().toArray()
+
+      const duckNames = {}
+      ducks.forEach(duck => duckNames[duck.duckID] = duck.duckName)
+
+      let results = {}
+      resultsList.forEach(result => results[result.eventID] = result)
+
+      const eventsWithResults = events.map(event => {
+
+        event.results = results[event.eventID].place.map(duck => {
+          return {ID: duck, startingPlace: event.duckID.indexOf(duck) + 1}
+        }).slice(0, 3)
+        
+        return event
+      })
+
+      res.render("results", {
+        duckNames: duckNames,
+        events: eventsWithResults,
+        user: req.session.user,
+        message: req.query.err
+      })
+    
+  
+      console.log(eventsWithResults)
+      return
+      //res.json({})
+
+      /*
       const db = app.get("quackyRacesDB");
       const ducks = await db
         .collection("ducks")
@@ -559,6 +593,51 @@ module.exports = {
       const eventName5 = eventResults5.location;
       const eventName6 = eventResults6.location;
 
+      
+
+      const placeFinder = await db
+        .collection("results")
+        .find({})
+        .sort({ roundID: -1 })
+        .sort({ eventID: 1 })
+        .limit(6)
+        .toArray();
+
+      console.log("placefinder")
+      console.log(placeFinder);
+
+      const event1Places = placeFinder[0].place
+
+      const event1PlacesIndexes = event1Places.map(doc => {
+        // console.log("doc");
+        // console.log(doc)
+        eventResults1.duckID.indexOf(doc)
+      });
+
+      console.log("event1Places")
+      console.log(event1Places);
+
+      console.log("event1PlacesIndexes")
+      console.log(event1PlacesIndexes);
+
+      console.log("eventResults1.duckID")
+      console.log(eventResults1.duckID);
+
+
+      // let resultsRace1Map = []
+      
+      // let test = 0;
+
+      // placeFinder.forEach(function(duckWinners) {
+      //   duckWinners.map(duckWinner => {
+          
+      //     // duplicate validation
+      //   });
+      // });
+
+      // const duckMap = {};
+      // ducks.forEach(duck => (duckMap[duck.duckID] = duck));
+
       const racingDucks1 = (eventResults1.duckID = eventResults1.duckID.map(
         id => duckMap[id].duckName
       ));
@@ -578,15 +657,17 @@ module.exports = {
         id => duckMap[id].duckName
       ));
 
-      const placeFinder = await db
-        .collection("results")
-        .find({})
-        .sort({ roundID: -1 })
-        .limit(6)
-        .toArray();
+      const eventMap = {
+        event1: eventResults1,
+        event2: eventResults2,
+        event3: eventResults3,
+        event4: eventResults4,
+        event5: eventResults5,
+        event6: eventResults6
+      }
 
       const topThrees = placeFinder.map(doc => doc.place.slice(0, 3));
-      // console.log(topThrees[0]);
+      console.log(topThrees);
 
       const first = topThrees.map(doc => doc.slice(0, 1));
       // console.log(first);
@@ -596,8 +677,6 @@ module.exports = {
 
       const third = topThrees.map(doc => doc.slice(2, 3));
       // console.log(third);
-
-      console.log(third[0]);
 
       return res.render("results", {
         eventName1: eventName1,
@@ -624,6 +703,7 @@ module.exports = {
         user: req.session.user,
         message: req.query.err
       });
+      */
     } catch (err) {
       console.log(err);
     }
