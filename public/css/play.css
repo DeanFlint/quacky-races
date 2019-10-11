@@ -1,4 +1,10 @@
 /* Mobile */
+
+.playInstructions{
+
+padding-top:10px;
+padding-bottom: 20px;
+}
 .event-runners {
   grid-area: event-runners;
   padding: 5px 10px;
