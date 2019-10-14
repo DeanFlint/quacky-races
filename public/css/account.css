@@ -1,4 +1,23 @@
 /* Mobile */
+
+.adminPageLink{
+    grid-area: adminPageLink;
+}
+.logout{
+    grid-area: logout;
+}
+.accountTitle{
+    grid-area: accountTitle;
+    text-align: center;
+
+}
+
+.topOfAdmin{
+    display: grid;
+    grid-area: topOfAdmin;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "adminPageLink accountTitle logout ";
+}
 .accountProfile{
     display:grid;
     font-size: 20px;
@@ -96,6 +115,11 @@
           grid-template-areas: "accountProfile scores"
                                 "accountProfile scores"
       }
+      .accountTitle{
+        grid-area: accountTitle;
+        text-align: center;
+    
+    }
       
       
 }
