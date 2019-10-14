@@ -70,8 +70,20 @@ select {
   font-size: 20px;
   border-radius: 15px;
 }
-
+.resetButton{
+  grid-area:resetButton;
+  width:100%;
+ 
+}
+.submitButton{
+  grid-area:submitButton;
+  width:100%;
+}
 .buttonSection {
+  display:grid;
+  grid-area:buttonSection;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "resetButton submitButton";
   width: 280px;
   margin: 40px auto;
 }
