@@ -5,6 +5,7 @@
 
 .logo {
   grid-area: logo;
+  text-align: center;
 }
 
 .accountArea {
@@ -191,8 +192,14 @@ header {
     text-align: left;
     margin: auto 0;
   }
+
+ .logo{
+  text-align: left;
+ }
 }
+
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
+
 }
