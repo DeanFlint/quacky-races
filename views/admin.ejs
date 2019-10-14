@@ -4,12 +4,8 @@
 
     <div class="intro">
         <h2 class="adminTitle">Admin Page</h2>
-
-
         <p class="inputPlacements">Input the placements of all ducks in all races</p>
         <p class="lastRoundID"><%= theRoundID %></p>
-
-
     </div>
 
 	<div>
@@ -17,23 +13,21 @@
 	</div>
 
 	<form action="/admin" method="POST">
-
-
         <input
-                      class="roundIdInput"
-                      type="text"
-                      placeholder="Submit current round"
-                      name="roundID"
-                    />
+			class="roundIdInput"
+			type="text"
+			placeholder="Submit current round"
+			name="roundID"
+		/>
 
         <div class="admin-event-container">
             <div class="admin-event-section">
                 <div class="admin-event-runners">
                     <h2 class="admin-event-race-name"><%= eventName1 %></h2>
-						<% raceNum1.forEach(function(duck){ %>
-						<% duckNum1++ %>
-						<p class="event-runner-name num<%= duckNum1 %>"> <%= duck %></p>
-						<% }) %>
+					<% raceNum1.forEach(function(duck){ %>
+					<% duckNum1++ %>
+					<p class="event-runner-name num<%= duckNum1 %>"> <%= duck %></p>
+					<% }) %>
 				</div>
 				<!-- /event-runners -->
 
