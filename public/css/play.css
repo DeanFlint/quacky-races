@@ -73,7 +73,6 @@ select {
 .resetButton{
   grid-area:resetButton;
   width:100%;
- 
 }
 .submitButton{
   grid-area:submitButton;
