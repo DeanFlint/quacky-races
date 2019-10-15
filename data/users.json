@@ -6,7 +6,7 @@
     "surname": "",
     "dob": "",
     "isAdmin": "",
-    "score": 0
+    "score": 10
   },
   {
     "email": "test@email.com",
@@ -15,7 +15,7 @@
     "surname": "Testerson",
     "dob": "01/01/2001",
     "isAdmin": false,
-    "score": 0
+    "score": 20
   },
   {
     "email": "testadmin@email.com",
@@ -24,6 +24,6 @@
     "surname": "Testerson",
     "dob": "01/01/2001",
     "isAdmin": true,
-    "score": 0
+    "score": 30
   }
 ]

@@ -22,6 +22,27 @@ module.exports = {
       });
   },
 
+//DISPLAY LEADERBOARD
+
+viewLeaderboard: function(app, req, res) {
+  app
+    .set("quackyRacesDB")
+    .collection("users")
+    .find({})
+    .sort({ score: -1 })
+    .toArray(function(err, docs) {
+      if (err) {
+        console.error(err);
+      }
+      return res.render("leaderboard", {
+        title: "Leaderboard",
+        users: docs,
+        user: req.session.user
+      });
+      
+    });
+},
+
   // ACCOUNT MANAGEMENT
   viewUserAccount: function(app, req, res) {
     app

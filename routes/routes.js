@@ -105,14 +105,20 @@ module.exports = app => {
     controllers.resultsducksInPlay(app, req, res);
   });
 
-  app.get("/leaderboard", (req, res) => {
-    res.render("leaderboard", {
-      user: req.session.user
-    });
-  });
+  //removed
+  
+  // app.get("/leaderboard", (req, res) => {
+  //   res.render("leaderboard", {
+  //     user: req.session.user
+  //   });
+  // });
 
   router.get("/profiles", (req, res) => {
     controllers.viewAllDucks(app, req, res);
+  });
+
+  router.get("/leaderboard", (req, res) => {
+    controllers.viewLeaderboard(app, req, res);
   });
 
   return router;
