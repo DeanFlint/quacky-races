@@ -98,7 +98,7 @@ module.exports = app => {
   });
 
   app.post("/admin", async (req, res) => {
-    controllers.adminSubmitResults(app, req, res);
+    adminControllers.adminSubmitResults(app, req, res);
   });
 
   app.get("/predictions", (req, res) => {
