@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
+
+// controllers
 const controllers = require("../controllers/controller.js");
+const accountControllers = require("../controllers/accountController.js");
+const playControllers = require("../controllers/playController.js");
+const resultsControllers = require("../controllers/resultsController.js");
+const adminControllers = require("../controllers/adminController.js");
 
 // login
 const session = require("express-session");
@@ -35,15 +41,15 @@ module.exports = app => {
   });
 
   app.post("/register", (req, res) => {
-    controllers.registerUser(app, req, res);
+    accountControllers.registerUser(app, req, res);
   });
 
   app.post("/login", (req, res) => {
-    controllers.loginUser(app, req, res);
+    accountControllers.loginUser(app, req, res);
   });
 
   router.get("/logout", (req, res) => {
-    controllers.logoutUser(app, req, res);
+    accountControllers.logoutUser(app, req, res);
   });
 
   router.get("/account", async (req, res) => {
@@ -52,7 +58,7 @@ module.exports = app => {
         throw "not logged in";
       }
 
-      controllers.viewUserAccount(app, req, res);
+      accountControllers.viewUserAccount(app, req, res);
     } catch (err) {
       console.log(err);
       res.redirect("/login");
@@ -60,7 +66,7 @@ module.exports = app => {
   });
 
   app.post("/play", (req, res) => {
-    controllers.playGame(app, req, res);
+    playControllers.playGame(app, req, res);
   });
 
   app.get("/play", async (req, res) => {
@@ -68,7 +74,7 @@ module.exports = app => {
       if (!req.session.user) {
         throw "not logged in";
       }
-      controllers.ducksInPlay(app, req, res);
+      playControllers.ducksInPlay(app, req, res);
     } catch (err) {
       console.log(err);
       res.redirect("/login");
@@ -83,7 +89,7 @@ module.exports = app => {
       const user = await users.findOne({ email: req.session.user });
 
       if (user.isAdmin === true) {
-        controllers.adminducksInPlay(app, req, res);
+        adminControllers.adminducksInPlay(app, req, res);
       } else throw "not admin";
     } catch (err) {
       console.log(err);
@@ -102,16 +108,8 @@ module.exports = app => {
   });
 
   app.get("/results", (req, res) => {
-    controllers.resultsducksInPlay(app, req, res);
+    resultsControllers.resultsducksInPlay(app, req, res);
   });
-
-  //removed
-  
-  // app.get("/leaderboard", (req, res) => {
-  //   res.render("leaderboard", {
-  //     user: req.session.user
-  //   });
-  // });
 
   router.get("/profiles", (req, res) => {
     controllers.viewAllDucks(app, req, res);
