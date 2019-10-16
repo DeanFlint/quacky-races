@@ -5,15 +5,22 @@ module.exports = {
         try {
 
             const db = app.get('quackyRacesDB')
-            const events = await db.collection('events').find({
-                roundID: "round1"
-            }).sort({
-                eventID: 1
-            }).toArray()
-            const resultsList = await db.collection('results').find({
-                roundID: "1"
-            }).toArray()
-            const ducks = await db.collection('ducks').find().toArray()
+
+            const events = await db
+                .collection('events')
+                .find({ roundID: "round1" })
+                .sort({ eventID: 1 })
+                .toArray()
+
+            const resultsList = await db
+                .collection('results')
+                .find({ roundID: "1" })
+                .toArray()
+
+            const ducks = await db
+                .collection('ducks')
+                .find()
+                .toArray()
 
             const duckNames = {}
             ducks.forEach(duck => duckNames[duck.duckID] = duck.duckName)
