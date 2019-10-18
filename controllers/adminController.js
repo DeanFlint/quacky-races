@@ -101,6 +101,8 @@ module.exports = {
                 }),
                 // round ID
 
+                message = "Results submitted!"
+
                 res.redirect("/admin");
         } catch (err) {
             console.log("Admin error: ", err);
