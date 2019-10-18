@@ -45,13 +45,43 @@
 	border-bottom: grey;
 }
 
-.name {
+.userName {
 	position: relative;
 	display: inline-block;
-	width: 75%;
+	width: 65%;
 	line-height: 45px;
+	padding-left: 45px;
 }
 
+.userScore {
+	position: relative;
+	display: inline-block;
+	/* width: 25%; */
+}
+
+.nameTitle {
+	position: relative;
+	display: inline-block;
+	width: 65%;
+	line-height: 45px;
+	padding-left: 45px;
+}
+
+.scoreTitle {
+	position: relative;
+	display: inline-block;
+	/* width: 25%; */
+}
+
+.row:nth-of-type(2) .userName{
+	background: url("/images/Golden-Duck.jpg") no-repeat;
+	background-size: 40px 40px
+}
+
+.row:nth-of-type(3) .userName {
+	background: url("/images/silver-duck.jpg") no-repeat;
+	background-size: 40px 40px
+}
 
 
 /* Tablet */

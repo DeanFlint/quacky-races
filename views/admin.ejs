@@ -4,8 +4,7 @@
 
     <div class="intro">
         <h2 class="adminTitle">Admin Page</h2>
-        <p class="inputPlacements">Input the placements of all ducks in all races</p>
-        <p class="lastRoundID"><%= theRoundID %></p>
+        <p class="inputPlacements">Input the placements of all ducks in all races</p>    
     </div>
 
 	<div>
@@ -13,29 +12,24 @@
 	</div>
 
 	<form action="/admin" method="POST">
-        <input
-			class="roundIdInput"
-			type="text"
-			placeholder="Submit current round"
-			name="roundID"
-		/>
-
+        
         <div class="admin-event-container">
+			<% events.forEach(function(event, eventNum) { %>
+				<% eventNum++ %>
             <div class="admin-event-section">
                 <div class="admin-event-runners">
-                    <h2 class="admin-event-race-name"><%= eventName1 %></h2>
-					<% raceNum1.forEach(function(duck){ %>
-					<% duckNum1++ %>
-					<p class="event-runner-name num<%= duckNum1 %>"> <%= duck %></p>
-					<% }) %>
+                    <h2 class="admin-event-race-name"><% event.eventID %></h2>
+					<% event.duckID.forEach(function(duck, i){ %>
+						<% i++ %>
+					<p class="event-runner-name num<%= i %>"> <%= duckNames[duck] %></p>
+						<% }) %>
 				</div>
 				<!-- /event-runners -->
-
 
 				<div class="admin-event-user-form">
 					<h3 class="admin-event-race-name">Results</h3>
 						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace1sel1>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel1">
 								<option value="" selected disabled hidden>1st</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -44,7 +38,7 @@
 								<option value="5">5</option>
 								<option value="6">6</option>
 							</select>
-							<select class="admin-playOptions" name=adminrace1sel2>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel2">
 								<option value="" selected disabled hidden>2nd</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -53,7 +47,7 @@
 								<option value="5">5</option>
 								<option value="6">6</option>
 							</select>
-							<select class="admin-playOptions" name=adminrace1sel3>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel3">
 								<option value="" selected disabled hidden>3rd</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -62,7 +56,7 @@
 								<option value="5">5</option>
 								<option value="6">6</option>
 							</select>
-							<select class="admin-playOptions" name=adminrace1sel4>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel4">
 								<option value="" selected disabled hidden>4th</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -71,7 +65,7 @@
 								<option value="5">5</option>
 								<option value="6">6</option>
 							</select>
-							<select class="admin-playOptions" name=adminrace1sel5>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel5">
 								<option value="" selected disabled hidden>5th</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -80,7 +74,7 @@
 								<option value="5">5</option>
 								<option value="6">6</option>
 							</select>
-							<select class="admin-playOptions" name=adminrace1sel6>
+							<select class="admin-playOptions" name="adminrace<%= eventNum %>sel6">
 								<option value="" selected disabled hidden>6th</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -95,380 +89,7 @@
 				<!-- /event-user-form -->
 			</div>
 			<!-- /event-section -->
-
-			<div class="admin-event-section">
-				<div class="admin-event-runners">
-					<h2 class="admin-event-race-name"><%= eventName2 %></h2>
-					<% raceNum2.forEach(function(duck){ %>
-					<% duckNum2++ %>
-					<p class="event-runner-name num<%= duckNum2 %>"> <%= duck %></p>
-					<% }) %>
-				</div>
-				<!-- /event-runners -->
-
-				<div class="admin-event-user-form">
-					<h2 class="admin-event-race-name">Results</h3>
-						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace2sel1>
-								<option value="" selected disabled hidden>1st</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace2sel2>
-								<option value="" selected disabled hidden>2nd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace2sel3>
-								<option value="" selected disabled hidden>3rd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace2sel4>
-								<option value="" selected disabled hidden>4th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace2sel5>
-								<option value="" selected disabled hidden>5th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace2sel6>
-								<option value="" selected disabled hidden>6th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<!-- /input-box-area -->
-				</div>
-				<!-- /event-user-form -->
-			</div>
-			<!-- /event-section -->
-
-			<div class="admin-event-section">
-				<div class="admin-event-runners">
-					<h2 class="admin-event-race-name"><%= eventName3 %></h3>
-						<% raceNum3.forEach(function(duck){ %>
-						<% duckNum3++ %>
-						<p class="event-runner-name num<%= duckNum3 %>"> <%= duck %></p>
-						<% }) %>
-				</div>
-				<!-- /event-runners -->
-
-				<div class="admin-event-user-form">
-					<h2 class="admin-event-race-name">Results</h3>
-						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace3sel1>
-								<option value="" selected disabled hidden>1st</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace3sel2>
-								<option value="" selected disabled hidden>2nd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace3sel3>
-								<option value="" selected disabled hidden>3rd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace3sel4>
-								<option value="" selected disabled hidden>4th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace3sel5>
-								<option value="" selected disabled hidden>5th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace3sel6>
-								<option value="" selected disabled hidden>6th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<!-- /input-box-area -->
-				</div>
-				<!-- /event-user-form -->
-			</div>
-			<!-- /event-section -->
-
-			<div class="admin-event-section">
-				<div class="admin-event-runners">
-					<h2 class="admin-event-race-name"><%= eventName4 %></h3>
-
-						<% raceNum4.forEach(function(duck){ %>
-						<% duckNum4++ %>
-						<p class="event-runner-name num<%= duckNum4 %>"> <%= duck %></p>
-						<% }) %>
-				</div>
-				<!-- /event-runners -->
-
-				<div class="admin-event-user-form">
-					<h2 class="admin-event-race-name">Results</h3>
-						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace4sel1>
-								<option value="" selected disabled hidden>1st</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace4sel2>
-								<option value="" selected disabled hidden>2nd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace4sel3>
-								<option value="" selected disabled hidden>3rd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace4sel4>
-								<option value="" selected disabled hidden>4th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace4sel5>
-								<option value="" selected disabled hidden>5th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace4sel6>
-								<option value="" selected disabled hidden>6th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<!-- /input-box-area -->
-				</div>
-				<!-- /event-user-form -->
-			</div>
-			<!-- /event-section -->
-
-			<div class="admin-event-section">
-				<div class="admin-event-runners">
-					<h2 class="admin-event-race-name"><%= eventName5 %></h3>
-
-
-						<% raceNum5.forEach(function(duck){ %>
-						<% duckNum5++ %>
-						<p class="event-runner-name num<%= duckNum5 %>"> <%= duck %></p>
-						<% }) %>
-				</div>
-				<!-- /event-runners -->
-
-				<div class="admin-event-user-form">
-					<h2 class="admin-event-race-name">Results</h3>
-						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace5sel1>
-								<option value="" selected disabled hidden>1st</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace5sel2>
-								<option value="" selected disabled hidden>2nd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace5sel3>
-								<option value="" selected disabled hidden>3rd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace5sel4>
-								<option value="" selected disabled hidden>4th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace5sel5>
-								<option value="" selected disabled hidden>5th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace5sel6>
-								<option value="" selected disabled hidden>6th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<!-- /input-box-area -->
-				</div>
-				<!-- /event-user-form -->
-			</div>
-			<!-- /event-section -->
-
-			<div class="admin-event-section">
-				<div class="admin-event-runners">
-					<h2 class="admin-event-race-name"><%= eventName6 %></h3>
-
-						<% raceNum6.forEach(function(duck){ %>
-						<% duckNum6++ %>
-						<p class="event-runner-name num<%= duckNum6 %>"> <%= duck %></p>
-						<% }) %>
-				</div>
-				<!-- /event-runners -->
-
-				<div class="admin-event-user-form">
-					<h2 class="admin-event-race-name">Results</h3>
-						<div class="admin-input-box-area">
-							<select class="admin-playOptions" name=adminrace6sel1>
-								<option value="" selected disabled hidden>1st</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace6sel2>
-								<option value="" selected disabled hidden>2nd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace6sel3>
-								<option value="" selected disabled hidden>3rd</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace6sel4>
-								<option value="" selected disabled hidden>4th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace6sel5>
-								<option value="" selected disabled hidden>5th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-							<select class="admin-playOptions" name=adminrace6sel6>
-								<option value="" selected disabled hidden>6th</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						<!-- /input-box-area -->
-				</div>
-				<!-- /event-user-form -->
-			</div>
-			<!-- /event-section -->
+			<% }) %>
 		</div>
 		<!-- /event-container -->
 
