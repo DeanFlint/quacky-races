@@ -1,17 +1,13 @@
 <%- include('header') %>
 
 <main>
-
     <div class="intro">
             <h1>How to play</h1>
         <div class="playInstructions">
-                
-                <p>Select which 1st, 2nd and 3rd duck to finish each race.</p>
-                <p>For all races, you will score 2 points for each duck you correctly pick for each place.</p>
-                <p>If you pick the correct duck for each place on all races, you win the jackpot!</p>
-
+            <p>Select which 1st, 2nd and 3rd duck to finish each race.</p>
+            <p>For all races, you will score 2 points for each duck you correctly pick for each place.</p>
+            <p>If you pick the correct duck for each place on all races, you win the jackpot!</p>
         </div>
-       
     </div>
 
     <div>
@@ -19,63 +15,17 @@
     </div>
 
     <form action="/play" method="POST">
-
-        <div class="event-container">
+        <div class="event-container"> 
+            <% events.forEach(function(event, raceNum) { %>             
+                <% raceNum++ %>  
+                
             <div class="event-section">
                 <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName1 %></h3>
-
-                    <% raceNum1.forEach(function(duck){ %>
-                    <% duckNum1++ %>
-                    <p class="event-runner-name num<%= duckNum1 %>"> <%= duck %></p>
-                    <% }) %>
-                   
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name=race1sel1>
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race1DuckIDs[0] %>">1</option>
-                            <option value="<%= race1DuckIDs[1] %>">2</option>
-                            <option value="<%= race1DuckIDs[2] %>">3</option>
-                            <option value="<%= race1DuckIDs[3] %>">4</option>
-                            <option value="<%= race1DuckIDs[4] %>">5</option>
-                            <option value="<%= race1DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race1sel2>
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race1DuckIDs[0] %>">1</option>
-                            <option value="<%= race1DuckIDs[1] %>">2</option>
-                            <option value="<%= race1DuckIDs[2] %>">3</option>
-                            <option value="<%= race1DuckIDs[3] %>">4</option>
-                            <option value="<%= race1DuckIDs[4] %>">5</option>
-                            <option value="<%= race1DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race1sel3>
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value=>1</option>
-                            <option value=>2</option>
-                            <option value=>3</option>
-                            <option value=>4</option>
-                            <option value=>5</option>
-                            <option value=>6</option>
-                        </select>
-                    </div>
-                    <!-- /input-box-area -->
-                </div>
-                <!-- /event-user-form -->
-            </div>
-            <!-- /event-section -->
-
-            <div class="event-section">
-                <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName2 %></h2>
-                    <% raceNum2.forEach(function(duck){ %>
-                        <% duckNum2++ %>
-                        <p class="event-runner-name num<%= duckNum2 %>"> <%= duck %></p>
+                    <h2 class="event-race-name"><%= event.location %></h2>
+                  
+                    <% event.duckID.forEach(function(duck, i){ %>
+                    <% i++ %>   
+                    <p class="event-runner-name num<%= i %>"> <%= duckNames[duck] %> </p>
                     <% }) %>
                 </div>
                 <!-- /event-runners -->
@@ -83,32 +33,32 @@
                 <div class="event-user-form">
                     <h2 class="event-race-name">Prediction</h3>
                     <div class="input-box-area">
-                        <select class="playOptions" name=race2sel1>
+                        <select class="playOptions" name="race<%= raceNum %>sel1">
                             <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race2DuckIDs[0] %>">1</option>
-                            <option value="<%= race2DuckIDs[1] %>">2</option>
-                            <option value="<%= race2DuckIDs[2] %>">3</option>
-                            <option value="<%= race2DuckIDs[3] %>">4</option>
-                            <option value="<%= race2DuckIDs[4] %>">5</option>
-                            <option value="<%= race2DuckIDs[5] %>">6</option>
+                            <option value="<%= event.duckID[0] %>">1</option>
+                            <option value="<%= event.duckID[1] %>">2</option>
+                            <option value="<%= event.duckID[2] %>">3</option>
+                            <option value="<%= event.duckID[3] %>">4</option>
+                            <option value="<%= event.duckID[4] %>">5</option>
+                            <option value="<%= event.duckID[5] %>">6</option>
                         </select>
-                        <select class="playOptions" name=race2sel2>
+                        <select class="playOptions" name="race<%= raceNum %>sel2">
                             <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race2DuckIDs[0] %>">1</option>
-                            <option value="<%= race2DuckIDs[1] %>">2</option>
-                            <option value="<%= race2DuckIDs[2] %>">3</option>
-                            <option value="<%= race2DuckIDs[3] %>">4</option>
-                            <option value="<%= race2DuckIDs[4] %>">5</option>
-                            <option value="<%= race2DuckIDs[5] %>">6</option>
+                            <option value="<%= event.duckID[0] %>">1</option>
+                            <option value="<%= event.duckID[1] %>">2</option>
+                            <option value="<%= event.duckID[2] %>">3</option>
+                            <option value="<%= event.duckID[3] %>">4</option>
+                            <option value="<%= event.duckID[4] %>">5</option>
+                            <option value="<%= event.duckID[5] %>">6</option>
                         </select>
-                        <select class="playOptions" name=race2sel3>
+                        <select class="playOptions" name="race<%= raceNum %>sel3">
                             <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= race2DuckIDs[0] %>">1</option>
-                            <option value="<%= race2DuckIDs[1] %>">2</option>
-                            <option value="<%= race2DuckIDs[2] %>">3</option>
-                            <option value="<%= race2DuckIDs[3] %>">4</option>
-                            <option value="<%= race2DuckIDs[4] %>">5</option>
-                            <option value="<%= race2DuckIDs[5] %>">6</option>
+                            <option value="<%= event.duckID[0] %>">1</option>
+                            <option value="<%= event.duckID[1] %>">2</option>
+                            <option value="<%= event.duckID[2] %>">3</option>
+                            <option value="<%= event.duckID[3] %>">4</option>
+                            <option value="<%= event.duckID[4] %>">5</option>
+                            <option value="<%= event.duckID[5] %>">6</option>
                         </select>
                     </div>
                     <!-- /input-box-area -->
@@ -116,194 +66,7 @@
                 <!-- /event-user-form -->
             </div>
             <!-- /event-section -->
-
-            <div class="event-section">
-                <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName3 %></h3>
-                    <% raceNum3.forEach(function(duck){ %>
-                        <% duckNum3++ %>
-                        <p class="event-runner-name num<%= duckNum3 %>"> <%= duck %></p>
-                    <% }) %>
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name=race3sel1>
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race3DuckIDs[0] %>">1</option>
-                            <option value="<%= race3DuckIDs[1] %>">2</option>
-                            <option value="<%= race3DuckIDs[2] %>">3</option>
-                            <option value="<%= race3DuckIDs[3] %>">4</option>
-                            <option value="<%= race3DuckIDs[4] %>">5</option>
-                            <option value="<%= race3DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race3sel2>
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race3DuckIDs[0] %>">1</option>
-                            <option value="<%= race3DuckIDs[1] %>">2</option>
-                            <option value="<%= race3DuckIDs[2] %>">3</option>
-                            <option value="<%= race3DuckIDs[3] %>">4</option>
-                            <option value="<%= race3DuckIDs[4] %>">5</option>
-                            <option value="<%= race3DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race3sel3>
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= race3DuckIDs[0] %>">1</option>
-                            <option value="<%= race3DuckIDs[1] %>">2</option>
-                            <option value="<%= race3DuckIDs[2] %>">3</option>
-                            <option value="<%= race3DuckIDs[3] %>">4</option>
-                            <option value="<%= race3DuckIDs[4] %>">5</option>
-                            <option value="<%= race3DuckIDs[5] %>">6</option>
-                        </select>
-                    </div>
-                    <!-- /input-box-area -->
-                </div>
-                <!-- /event-user-form -->
-            </div>
-            <!-- /event-section -->
-
-            <div class="event-section">
-                <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName4 %></h3>
-                    <% raceNum4.forEach(function(duck){ %>
-                        <% duckNum4++ %>
-                        <p class="event-runner-name num<%= duckNum4 %>"> <%= duck %></p>
-                    <% }) %>
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name=race4sel1>
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race4DuckIDs[0] %>">1</option>
-                            <option value="<%= race4DuckIDs[1] %>">2</option>
-                            <option value="<%= race4DuckIDs[2] %>">3</option>
-                            <option value="<%= race4DuckIDs[3] %>">4</option>
-                            <option value="<%= race4DuckIDs[4] %>">5</option>
-                            <option value="<%= race4DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race4sel2>
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race4DuckIDs[0] %>">1</option>
-                            <option value="<%= race4DuckIDs[1] %>">2</option>
-                            <option value="<%= race4DuckIDs[2] %>">3</option>
-                            <option value="<%= race4DuckIDs[3] %>">4</option>
-                            <option value="<%= race4DuckIDs[4] %>">5</option>
-                            <option value="<%= race4DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race4sel3>
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= race4DuckIDs[0] %>">1</option>
-                            <option value="<%= race4DuckIDs[1] %>">2</option>
-                            <option value="<%= race4DuckIDs[2] %>">3</option>
-                            <option value="<%= race4DuckIDs[3] %>">4</option>
-                            <option value="<%= race4DuckIDs[4] %>">5</option>
-                            <option value="<%= race4DuckIDs[5] %>">6</option>
-                        </select>
-                    </div>
-                    <!-- /input-box-area -->
-                </div>
-                <!-- /event-user-form -->
-            </div>
-            <!-- /event-section -->
-
-            <div class="event-section">
-                <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName5 %></h3>
-                    <% raceNum5.forEach(function(duck){ %>
-                        <% duckNum5++ %>
-                        <p class="event-runner-name num<%= duckNum5 %>"> <%= duck %></p>
-                    <% }) %>
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name=race5sel1>
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race5DuckIDs[0] %>">1</option>
-                            <option value="<%= race5DuckIDs[1] %>">2</option>
-                            <option value="<%= race5DuckIDs[2] %>">3</option>
-                            <option value="<%= race5DuckIDs[3] %>">4</option>
-                            <option value="<%= race5DuckIDs[4] %>">5</option>
-                            <option value="<%= race5DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race5sel2>
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race5DuckIDs[0] %>">1</option>
-                            <option value="<%= race5DuckIDs[1] %>">2</option>
-                            <option value="<%= race5DuckIDs[2] %>">3</option>
-                            <option value="<%= race5DuckIDs[3] %>">4</option>
-                            <option value="<%= race5DuckIDs[4] %>">5</option>
-                            <option value="<%= race5DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race5sel3>
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= race5DuckIDs[0] %>">1</option>
-                            <option value="<%= race5DuckIDs[1] %>">2</option>
-                            <option value="<%= race5DuckIDs[2] %>">3</option>
-                            <option value="<%= race5DuckIDs[3] %>">4</option>
-                            <option value="<%= race5DuckIDs[4] %>">5</option>
-                            <option value="<%= race5DuckIDs[5] %>">6</option>
-                        </select>
-                    </div>
-                    <!-- /input-box-area -->
-                </div>
-                <!-- /event-user-form -->
-            </div>
-            <!-- /event-section -->
-
-            <div class="event-section">
-                <div class="event-runners">
-                    <h2 class="event-race-name"><%= eventName6 %></h3>
-                    <% raceNum6.forEach(function(duck){ %>
-                        <% duckNum6++ %>
-                        <p class="event-runner-name num<%= duckNum6 %>"> <%= duck %></p>
-                    <% }) %>
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name=race6sel1>
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= race6DuckIDs[0] %>">1</option>
-                            <option value="<%= race6DuckIDs[1] %>">2</option>
-                            <option value="<%= race6DuckIDs[2] %>">3</option>
-                            <option value="<%= race6DuckIDs[3] %>">4</option>
-                            <option value="<%= race6DuckIDs[4] %>">5</option>
-                            <option value="<%= race6DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race6sel2>
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= race6DuckIDs[0] %>">1</option>
-                            <option value="<%= race6DuckIDs[1] %>">2</option>
-                            <option value="<%= race6DuckIDs[2] %>">3</option>
-                            <option value="<%= race6DuckIDs[3] %>">4</option>
-                            <option value="<%= race6DuckIDs[4] %>">5</option>
-                            <option value="<%= race6DuckIDs[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name=race6sel3>
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= race6DuckIDs[0] %>">1</option>
-                            <option value="<%= race6DuckIDs[1] %>">2</option>
-                            <option value="<%= race6DuckIDs[2] %>">3</option>
-                            <option value="<%= race6DuckIDs[3] %>">4</option>
-                            <option value="<%= race6DuckIDs[4] %>">5</option>
-                            <option value="<%= race6DuckIDs[5] %>">6</option>
-                        </select>
-                    </div>
-                    <!-- /input-box-area -->
-                </div>
-                <!-- /event-user-form -->
-            </div>
-            <!-- /event-section -->
+            <% }) %>
         </div>
         <!-- /event-container -->
 
@@ -311,7 +74,6 @@
             <button type="button" class="resetButton">Reset</button>
             <input type="submit" value="Submit" class="submitButton" />
         </div>
-        
     </form>
 </main>
 

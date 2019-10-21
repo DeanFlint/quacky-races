@@ -18,7 +18,7 @@
 				<% eventNum++ %>
             <div class="admin-event-section">
                 <div class="admin-event-runners">
-                    <h2 class="admin-event-race-name"><% event.eventID %></h2>
+                    <h2 class="admin-event-race-name"><%= event.location %></h2>
 					<% event.duckID.forEach(function(duck, i){ %>
 						<% i++ %>
 					<p class="event-runner-name num<%= i %>"> <%= duckNames[duck] %></p>
