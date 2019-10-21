@@ -52,6 +52,10 @@ module.exports = app => {
     accountControllers.logoutUser(app, req, res);
   });
 
+  router.get("/deleteUser", (req, res) => {
+    accountControllers.deleteUser(app, req, res);
+  });
+
   router.get("/account", async (req, res) => {
     try {
       if (!req.session.user) {
