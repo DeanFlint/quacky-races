@@ -1,73 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quacky Races</title>
-    <link rel="shortcut icon" type="image/jpg" href="/images/duck1.jpg" />
 
-    <!-- link for font awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../css/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quacky Races</title>
+  <link rel="shortcut icon" type="image/jpg" href="/images/duck1.jpg" />
 
-  <body>
-    <header>
-      <!-- MENU -->
-      <div class="menu">
-        <!-- Burger Menu -->
-        <div class="burgerMenu">
-          <div class="bars">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
+  <!-- link for font awesome icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body>
+  <header>
+    <!-- MENU -->
+    <div class="menu">
+      <!-- Burger Menu -->
+      <div class="burgerMenu">
+        <div class="bars">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
-        <!-- Main Menu -->
       </div>
+      <!-- Main Menu -->
+    </div>
 
-      <div class="logo">
-        <a href="/">
-          <!-- logo -->
-          <span class="logo-placeholder"> Quacky Races </span>
-          <!-- <img src="images/duck.jpg" height="40" width="40" /> -->
+    <div class="logo">
+      <a href="/">
+        <!-- logo -->
+        <span class="logo-placeholder"> Quacky Races </span>
+        <!-- <img src="images/duck.jpg" height="40" width="40" /> -->
+      </a>
+    </div>
+
+    <div class="accountArea">
+      <!-- login/register -->
+      <div class="mobileLoginIcon">
+        <% if (!user || user == undefined){ %>
+        <a href="/login">
+          <i class="fas fa-user"></i>
         </a>
+        <% } else { %>
+        <a href="/account">
+          <i class="fas fa-user"></i>
+        </a>
+        <% } %>
       </div>
 
-      <div class="accountArea">
-        <!-- login/register -->
-        <div class="mobileLoginIcon">
-          <% if (!user || user == undefined){ %>
-          <a href="/login">
-            <i class="fas fa-user"></i>
-          </a>
-          <% } else { %>
-          <a href="/account">
-            <i class="fas fa-user"></i>
-          </a>
-          <% } %>
-        </div>
+      <!-- <button class="login">login/Register</button> -->
 
-        <!-- <button class="login">login/Register</button> -->
+      <!-- form -->
+    </div>
+  </header>
+  <nav class="mainNav">
+    <ul>
+      <li><a class="nav" href="/">Home</a></li>
+      <li><a class="nav" href="play">Play</a></li>
+      <li><a class="nav" href="predictions">Predictions</a></li>
+      <li><a class="nav" href="profiles">Duck Profiles</a></li>
+      <li><a class="nav" href="results">Results</a></li>
+      <li><a class="nav" href="leaderboard">Leaderboard</a></li>
+    </ul>
+  </nav>
 
-        <!-- form -->
-      </div>
-    </header>
-    <nav class="mainNav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="play">Play</a></li>
-        <li><a href="predictions">Predictions</a></li>
-        <li><a href="profiles">Duck Profiles</a></li>
-        <li><a href="results">Results</a></li>
-        <li><a href="leaderboard">Leaderboard</a></li>
-      </ul>
-    </nav>
-  </body>
+  <script src="js/main.js"></script>
+
+</body>
+
 </html>

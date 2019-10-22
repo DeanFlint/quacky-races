@@ -1,12 +1,12 @@
 [
   {
-    "email": "",
-    "hash": "",
-    "forename": "Ally",
-    "surname": "Fincham",
-    "dob": "",
-    "isAdmin": "",
-    "score": 10
+    "email": "theDuckMaster@email.com",
+    "hash": "$2y$08$JNzxkKKz3StCgXZb7nleFOiJkH/aBPZbsBk8Kv/pGVvnXb/Wtnpje",
+    "forename": "Duckster",
+    "surname": "McQuack",
+    "dob": "12/03/1974",
+    "isAdmin": false,
+    "score": 36
   },
   {
     "email": "test@email.com",
@@ -25,5 +25,59 @@
     "dob": "01/01/2001",
     "isAdmin": true,
     "score": 30
+  },
+  {
+    "email": "test1@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Tester",
+    "surname": "McTesty",
+    "dob": "01/01/2001",
+    "isAdmin": false,
+    "score": 2
+  },
+  {
+    "email": "kyla@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Kyla",
+    "surname": "Dougan",
+    "dob": "04/03/1998",
+    "isAdmin": false,
+    "score": 34
+  },
+  {
+    "email": "cerys@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Cerys",
+    "surname": "Blakemore",
+    "dob": "28/05/1998",
+    "isAdmin": false,
+    "score": 6
+  },
+  {
+    "email": "Kate@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Kate",
+    "surname": "Marchant",
+    "dob": "24/02/1996",
+    "isAdmin": false,
+    "score": 20
+  },
+  {
+    "email": "Dean@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Dean",
+    "surname": "Flint",
+    "dob": "28/01/1990",
+    "isAdmin": false,
+    "score": 32
+  },
+  {
+    "email": "Ally@email.com",
+    "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
+    "forename": "Ally",
+    "surname": "Fincham",
+    "dob": "24/01/1998",
+    "isAdmin": false,
+    "score": 8
   }
 ]
