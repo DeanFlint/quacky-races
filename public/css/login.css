@@ -77,6 +77,7 @@
 .incorrectInfo {
   text-align: center;
   color: red;
+  font-size:20px;
 }
 
 .loginButton button {
