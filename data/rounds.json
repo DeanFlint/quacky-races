@@ -1,6 +1,7 @@
 [
   {
     "roundID": "round1",
-    "userWinnerID": []
+    "userWinnerID": [],
+    "calculatedScores": false
   }
 ]

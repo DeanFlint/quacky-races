@@ -105,6 +105,10 @@ module.exports = app => {
     adminControllers.adminSubmitResults(app, req, res);
   });
 
+  app.get("/calculate-scores", async (req, res) => {
+    adminControllers.calculateScores(app, req, res);
+  });
+
   app.get("/predictions", (req, res) => {
     res.render("predictions", {
       user: req.session.user

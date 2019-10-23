@@ -138,4 +138,30 @@ module.exports = {
             console.log(err);
         }
     },
+
+    calculateScores: async function (app, req, res) {
+        
+        // get predictions using roundID into an object
+        // for each prediction object, add the results for each race in the object
+        // compare the results and predictions for each race to calculate score
+        // get existing from user, add this week's score onto it and add back into the user db
+        try {
+
+            const db = app.get('quackyRacesDB')
+
+            // get results into an object
+            const resultsList = await db
+                .collection('results')
+                .find({ roundID: "1" })
+                .toArray()
+
+            let results = {}
+            resultsList.forEach(result => results[result.eventID] = result)
+            
+            console.log(results)
+            res.redirect("/leaderboard");
+        } catch (err) {
+            console.log(err);
+        }
+    }
 };
