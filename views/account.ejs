@@ -1,23 +1,15 @@
 <%- include('header') %>
 
-<main>
+<main class="admin-page">
   <div class="topOfAdmin">
     <% if (user.isAdmin){ %>
     <a href="/admin" class="adminPageLink">
       Admin Page
     </a>
       
-    
     <% } %>
-
-    <div class="logout">
-      <a href="/logout" >Logout</a>
-    </div>
-
-    <div class="deleteUser">
-      <a href="/deleteUser" class="adminPageLink">Delete Account</a>
-    </div>
     <h1 class="accountTitle">Account</h1>
+
   </div>
 
   <div class="account-container">
@@ -26,13 +18,18 @@
       <p class="surname"><strong>Surname: </strong><%= user.surname %></p>
       <p class="email"><strong>Email:</strong> <%= user.email %></p>
       <p class="DOB"><strong>DOB: </strong><%= user.dob %></p>
-    </div>
-
-    <div class="scores">
-      <p class="currentScore"><strong>Total Score: </strong>478</p>
-      <p class="previousScore"><strong>Previous Score: </strong>34</p>
+      <p class="currentScore"><strong>Score: </strong>478</p>
     </div>
   </div>
+  
+  <div class="logout-account">
+    <a href="/logout" class="adminPageLink">Logout</a>
+  </div>
+
+  <div class="deleteUser">
+    <a href="/deleteUser" class="adminPageLink">Delete Account</a>
+  </div>
+
 </main>
 
 <%- include('footer') %>

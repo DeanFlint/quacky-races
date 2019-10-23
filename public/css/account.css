@@ -2,7 +2,7 @@
 
 .adminPageLink{
     grid-area: adminPageLink;
-    width:50%;
+    width:25%;
     height:20px;
     text-align: center;
     border-radius:20px;
@@ -20,11 +20,18 @@
     /* padding: 8px 76px; */
     text-decoration: none;
     text-shadow: 0px 0px 0px #2f6627;
+    margin: 10px auto;
+}
+
+.admin-page {
+    width: 80%;
+    margin: 0 auto;
 }
 
 
-.logout{
+.logout-account{
     grid-area: logout;
+    text-align: center;
 }
 .accountTitle{
     grid-area: accountTitle;
@@ -38,50 +45,38 @@
 .topOfAdmin{
     display: grid;
     grid-area: topOfAdmin;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "adminPageLink accountTitle logout "
-                        "adminPageLink accountTitle deleteUser";
+    grid-template-columns: 1fr;
+    grid-template-areas: "accountTitle";
+    margin:10px auto;
+    width: 100%;
 }
 .account-container{
     align-items: center;
+
 }
 .accountProfile{
-    margin-top:10px;
+
     display:grid;
     font-size: 20px;
     border-radius: 20px;
     border: 1px solid #b7b5b5;
   background-color: #f1f0f0;
     grid-area:accountProfile;
+    margin: 0 auto;
+    width: 80%;
     grid-template-areas: "forename "
                         "surname "
                         "DOB "
-                        "email ";
+                        "email "
+                        "currentScore";
 }
 
-.scores{
-    display:grid;
-    font-size:20px;
-    border-radius:20px;
-    margin:20px;
-    border: 1px solid #b7b5b5;
-    background-color: #f1f0f0;
-    grid-area: scores;
-    grid-template-areas:"currentScore"
-                        "previousScore";
-  
-}
+
 
 .currentScore{
     grid-area:currentScore;
     text-align: center;
-    padding-bottom: 10px;
-    
-}
-
-.previousScore{
-    grid-area:previousScore;
-    text-align: center;
+    padding: 20px 0;
     
 }
 .accountTitle{
@@ -90,30 +85,35 @@
 .forename{
     grid-area: forename;
     text-align: center;
-    padding-bottom: 10px;
+    padding: 20px 0;
     
 }
 .surname{
     grid-area: surname;
     text-align: center;
-    padding-bottom: 20px;
+    padding: 20px 0;
 }
 
 .DOB{
     grid-area: DOB;
     text-align: center;
-    padding-bottom: 10px;
-    padding-top:10px;
+    padding: 20px 0;
 }
 
 .email{
     grid-area: email;
     text-align: center;
+    padding: 20px 0;
 }
 
-.logout{
-    text-align: right;
-   
+.logout-account{
+    text-align: center;
+    margin: 10px auto;
+}
+
+.deleteUser {
+    text-align: center;
+    margin: 10px auto;
 }
 
 
@@ -121,8 +121,6 @@
 @media only screen and (min-width: 768px) {
 
     .accountProfile {
-        width: 300px;
-        margin:20px;
         align-content: center;
        
       }
@@ -140,10 +138,9 @@
       .account-container{
           display:grid;
           grid-area:account-container;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
 
-          grid-template-areas: "accountProfile scores"
-                                "accountProfile scores"
+          grid-template-areas: "accountProfile";
       }
       .accountTitle{
         grid-area: accountTitle;
