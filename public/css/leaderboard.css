@@ -56,6 +56,7 @@
 .userScore {
 	position: relative;
 	display: inline-block;
+	padding:10px;
 	/* width: 25%; */
 }
 
