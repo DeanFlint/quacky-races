@@ -140,8 +140,6 @@ module.exports = {
     },
 
     calculateScores: async function (app, req, res) {
-        
-        // get predictions using roundID into an object
         // for each prediction object, add the results for each race in the object
         // compare the results and predictions for each race to calculate score
         // get existing from user, add this week's score onto it and add back into the user db
@@ -153,10 +151,22 @@ module.exports = {
             const resultsList = await db
                 .collection('results')
                 .find({ roundID: "1" })
+                .sort({ eventID: 1})
                 .toArray()
 
             let results = {}
-            resultsList.forEach(result => results[result.eventID] = result)
+            resultsList.forEach(result => results[result.eventID] = result.place.slice(0, 3))
+
+            const predictionsList = await db
+                .collection('predictions')
+                .find({ roundID: "1" })
+                .sort({ eventID: 1})
+                .toArray()
+
+            // get predictions using roundID into an object
+            let predictions = {}
+            predictionsList.forEach(prediction => predictions[1])
+
             
             console.log(results)
             res.redirect("/leaderboard");

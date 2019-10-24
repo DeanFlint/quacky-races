@@ -27,10 +27,19 @@ module.exports = app => {
   });
 
   app.get("/login", (req, res) => {
-    res.render("login.ejs", {
-      message: "",
-      user: req.session.user
-    });
+    try {
+      if (!req.session.user) {
+        throw "not logged in";
+      }
+      accountControllers.viewUserAccount(app, req, res);
+    } catch (err) {
+      console.log(err);
+      res.render("login.ejs", {
+        message: "",
+        user: req.session.user
+      });
+    }
+
   });
 
   app.get("/register", (req, res) => {
