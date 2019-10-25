@@ -20,11 +20,11 @@ module.exports = app => {
     })
   );
 
-  app.get("/", (req, res) => {
-    res.render("index", {
-      user: req.session.user
-    });
-  });
+  // app.get("/", (req, res) => {
+  //   res.render("index", {
+  //     user: req.session.user
+  //   });
+  // });
 
   app.get("/login", (req, res) => {
     try {
@@ -135,6 +135,10 @@ module.exports = app => {
   router.get("/leaderboard", (req, res) => {
     controllers.viewLeaderboard(app, req, res);
   });
+
+  router.get("/", (req,res)=>{
+    controllers.randomImageGenerator(app, req, res);
+  })
 
   return router;
 };
