@@ -1,12 +1,22 @@
 [
   {
-    "email": "",
-    "roundID": "",
-    "prediction1": [],
-    "prediction2": [],
-    "prediction3": [],
-    "prediction4": [],
-    "prediction5": [],
-    "prediction6": []
+    "email": "theDuckMaster@email.com",
+    "roundID": "round1",
+    "prediction1": ["D01", "D03", "D05"],
+    "prediction2": ["D01", "D03", "D05"],
+    "prediction3": ["D01", "D03", "D05"],
+    "prediction4": ["D01", "D03", "D05"],
+    "prediction5": ["D01", "D03", "D05"],
+    "prediction6": ["D01", "D03", "D05"]
+  },
+  {
+    "email": "test@email.com",
+    "roundID": "round1",
+    "prediction1": ["D03", "D02", "D01"],
+    "prediction2": ["D03", "D02", "D01"],
+    "prediction3": ["D03", "D02", "D01"],
+    "prediction4": ["D03", "D02", "D01"],
+    "prediction5": ["D03", "D02", "D01"],
+    "prediction6": ["D03", "D02", "D01"]
   }
 ]

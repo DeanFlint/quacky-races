@@ -148,6 +148,62 @@ module.exports = {
     randomImage;
     },
 
-    
+    calculateScores: async function (app, req, res) {
+        // for each prediction object, add the results for each race in the object
+        // compare the results and predictions for each race to calculate score
+        // get existing from user, add this week's score onto it and add back into the user db
+        try {
 
+            const db = app.get('quackyRacesDB')
+
+            // get results into an object
+            const resultsList = await db
+                .collection('results')
+                .find({ roundID: "1" })
+                .sort({ eventID: 1})
+                .toArray()
+
+            let results = {}
+            resultsList.forEach(result => results[result.eventID] = result.place.slice(0, 3))
+
+            const predictionsList = await db
+                .collection('predictions')
+                .find()
+                // .sort({ eventID: 1})
+                .toArray()
+
+            // get predictions using roundID into an object
+            let userScores = {}
+
+            // predictionsList.forEach(prediction => allPredictions[prediction.email] = prediction)
+            // console.log(allPredictions)
+
+            predictionsList.forEach(prediction => {
+                let score = 0;
+                
+                console.log(prediction.prediction1[0])
+                console.log(resultsList.event1[0])
+
+                // if(prediction.prediction1[0] === results[0][0]) {
+                //     score += 2;
+                // }
+
+                // if(prediction.prediction1[1] === results[0][1]) {
+                //     score += 2;
+                // }
+                // if(prediction.prediction1[2] === results[0][2]) {
+                //     score += 2;
+                // }
+
+                console.log(score)
+                return score
+            });            
+            
+            console.log(results)
+            // console.log(predictions)
+            res.redirect("/leaderboard");
+        } catch (err) {
+            console.log(err);
+        }
+    }
 };

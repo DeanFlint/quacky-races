@@ -27,10 +27,19 @@ module.exports = app => {
   });
 
   app.get("/login", (req, res) => {
-    res.render("login.ejs", {
-      message: "",
-      user: req.session.user
-    });
+    try {
+      if (!req.session.user) {
+        throw "not logged in";
+      }
+      accountControllers.viewUserAccount(app, req, res);
+    } catch (err) {
+      console.log(err);
+      res.render("login.ejs", {
+        message: "",
+        user: req.session.user
+      });
+    }
+
   });
 
   app.get("/register", (req, res) => {
@@ -103,6 +112,10 @@ module.exports = app => {
 
   app.post("/admin", async (req, res) => {
     adminControllers.adminSubmitResults(app, req, res);
+  });
+
+  app.get("/calculate-scores", async (req, res) => {
+    adminControllers.calculateScores(app, req, res);
   });
 
   app.get("/predictions", (req, res) => {
