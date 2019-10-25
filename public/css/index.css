@@ -1,9 +1,13 @@
+body {
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
 #playButton {
     border: 20px solid #2C8E60;
     width: 100%;
     background-color: #2C8E60;
     font-size: 20px;
-    font-family: monospace;
+    font-family: 'ZCOOL XiaoWei', serif;
 
 }
 
@@ -20,7 +24,7 @@
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
-    font-family: Arial;
+    
     font-size: 25px;
     padding: 8px 76px;
     text-decoration: none;
@@ -59,7 +63,7 @@
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
     padding: 50px;
-    font-family: 'Courier New', Courier, monospace;
+
 
     font-weight: normal;
     line-height: 48px;
