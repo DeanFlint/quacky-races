@@ -41,19 +41,28 @@ body {
     position: relative;
     top: 1px;
 }
+.duckBannerImage {
+    grid-area:duckBannerImage;
+    width:200px;
+    height:200px;
+}
+
+.welcomeText{
+    grid-area:welcomeText;
+    margin:5px;
+}
 
 
 .duckBanner {
+    display:grid;
+    grid-area:duckBanner;
+    grid-template-areas:"duckBannerImage welcomeText";
     background-color: #f1f0f0;
     padding: 10px;
     border-radius: 5px;
-    
 }
 
-.duckBannerImage {
-    height: 70%;
-    width: 70%;
-}
+
 
 .glow {
     font-size: 60px;
@@ -85,7 +94,15 @@ body {
 
 
 /* Tablet */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+
+    .duckBannerImage {
+        grid-area:duckBannerImage;
+        width:400px;
+        height:400px;
+    }
+
+}
 
 /* Desktop */
 @media only screen and (min-width: 1200px) {
