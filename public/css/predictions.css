@@ -10,29 +10,29 @@ h1 {
 }
 
 #deanImage {
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
     padding: 10px;
 }
 
 #kateImage {
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
     padding: 10px;
 }
 
 #allyImage {
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
     padding: 10px;
 }
 
 #mazImage{
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
     padding: 10px;
 }
