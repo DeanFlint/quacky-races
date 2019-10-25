@@ -5,6 +5,10 @@ h1 {
     padding: 10px;
 }
 
+.personPre {
+    font-size: 25px;
+}
+
 #deanImage {
     width: 50%;
     height: 50%;
@@ -47,10 +51,11 @@ h1 {
 
 }
 
+
 .person-section {
     display: grid;
     grid-area: person-section;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 2fr;
     grid-template-areas: "personName personPre"
         "personImage personPre";
         border-radius: 5px;
