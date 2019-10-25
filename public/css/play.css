@@ -6,13 +6,28 @@ padding-top:10px;
 padding-bottom: 20px;
 border: 1px solid #b7b5b5;
 border-radius:5px;
-width: 70%;
+text-align: center;
 margin-right: 10px;
 margin-bottom:20px;
 padding: 20px;
 background-color: #f1f0f0;
 
 }
+
+.tiebreaker {
+  padding-top:10px;
+padding-bottom: 20px;
+  border: 1px solid #b7b5b5;
+border-radius:5px;
+text-align:center;
+background-color: #f1f0f0;
+}
+
+.tiebreakerInputBox {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .event-runners {
   grid-area: event-runners;
   padding: 5px 10px;

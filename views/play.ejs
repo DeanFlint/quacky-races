@@ -4,10 +4,12 @@
     <div class="intro">
             <h1>How to play</h1>
         <div class="playInstructions">
-            <p>Select which 1st, 2nd and 3rd duck to finish each race.</p>
-            <p>For all races, you will score 2 points for each duck you correctly pick for each place.</p>
-            <p>If you pick the correct duck for each place on all races, you win the jackpot!</p>
-        </div>
+            <p>🦆 Select which 1st, 2nd and 3rd duck to finish each race🦆</p>
+            <p>🦆 For all races, you will score 2 points for each duck you correctly pick for each place🦆</p>
+            <p>🦆 If you pick the correct duck for each place on all races, you win the jackpot!🦆</p>
+        </div> 
+        
+    </div>
     </div>
 
     <div class="incorrectInfo">
@@ -75,6 +77,21 @@
             <input type="submit" value="Submit" class="submitButton" />
         </div>
     </form>
+
+    <div class="tiebreaker">
+            <p><strong> Tiebreaker!</strong></p>
+            <p>
+                If two lucky people predict all the right duck placements, this tiebreaker decides who will win the jackpot!
+            </p>
+            <p>How many times did all the ducks quack in total across all races?</p>
+            <form action="/play" method="POST" class="tiebreakersubmit">
+                <div class="tiebreakerInputBox"> <input
+                    class="tiebreakerInput"
+                    type="text"
+                    placeholder="No. of Quacks"
+                  /> </div>
+            </form>
+        </div>
 </main>
 
 <%- include('footer') %>
