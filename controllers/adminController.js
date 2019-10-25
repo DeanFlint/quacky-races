@@ -137,5 +137,17 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
+
+        var randomImageArray =[duck1.jpg, duck2.jpg, duck3.jpg];
+
+    function randomImage(randomImageArray){
+        var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+        return randomImageArray[randomNumberBetween0and19];
+    }
+
+    randomImage;
     },
+
+    
+
 };
