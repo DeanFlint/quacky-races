@@ -83,7 +83,7 @@ header {
   border-top:10px solid #2C8E60;
   /* width: 100%; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -192,6 +192,10 @@ a.active {
     background-color:grey;
     border-radius:5px;
 
+  }
+
+  .mainNav ul {
+    flex-direction: row;
   }
 
   .mainNav ul li {

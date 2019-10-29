@@ -15,25 +15,10 @@
     }
   });
 
-  // mobileLoginIcon.addEventListener("click", function() {
-  //   if (this.classList.contains("animateLogin")) {
-  //     this.setAttribute("class", "mobileLoginIcon");
-  //     loginArea.setAttribute("class", "loginArea");
-  //   } else {
-  //     resetBurger();
-  //     this.setAttribute("class", "mobileLoginIcon animateLogin");
-  //     loginArea.setAttribute("class", "loginArea slideLogin");
-  //   }
-  // });
 
   const resetBurger = function() {
     burgerMenu.setAttribute("class", "burgerMenu");
     mainNav.setAttribute("class", "mainNav");
   }
-
-  // const resetLogin = function() {
-  //   mobileLoginIcon.setAttribute("class", "mobileLoginIcon");
-  //   loginArea.setAttribute("class", "loginArea");
-  // }
 
 })();
