@@ -160,40 +160,35 @@ module.exports = {
 
             const predictionsList = await db
                 .collection('predictions')
-                .find()
+                .find({ roundID: "round1" })
                 // .sort({ eventID: 1})
                 .toArray()
 
-            // get predictions using roundID into an object
-            let userScores = {}
-
-            // predictionsList.forEach(prediction => allPredictions[prediction.email] = prediction)
-            // console.log(allPredictions)
-
             predictionsList.forEach(prediction => {
+
                 let score = 0;
-                
-                console.log(prediction.prediction1[0])
-                console.log(resultsList.event1[0])
 
-                // if(prediction.prediction1[0] === results[0][0]) {
-                //     score += 2;
-                // }
+                prediction.prediction1[0] 
 
-                // if(prediction.prediction1[1] === results[0][1]) {
-                //     score += 2;
-                // }
-                // if(prediction.prediction1[2] === results[0][2]) {
-                //     score += 2;
-                // }
+                if (prediction.prediction1[0] === results.event1[0] ) {
+                    score += 2;
+                }
 
-                console.log(score)
-                return score
-            });            
-            
-            console.log(results)
-            // console.log(predictions)
+                if (prediction.prediction1[1] === results.event1[1] ) {
+                    score += 2;
+                }
+
+                if (prediction.prediction1[2] === results.event1[2] ) {
+                    score += 2;
+                }
+
+                console.log(prediction.email)
+                console.log(score);
+
+            });
+                        
             res.redirect("/leaderboard");
+
         } catch (err) {
             console.log(err);
         }
