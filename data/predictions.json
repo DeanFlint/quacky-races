@@ -3,20 +3,20 @@
     "email": "theDuckMaster@email.com",
     "roundID": "round1",
     "prediction1": ["D01", "D03", "D05"],
-    "prediction2": ["D01", "D03", "D05"],
-    "prediction3": ["D01", "D03", "D05"],
-    "prediction4": ["D01", "D03", "D05"],
-    "prediction5": ["D01", "D03", "D05"],
-    "prediction6": ["D01", "D03", "D05"]
+    "prediction2": ["D09", "D11", "D12"],
+    "prediction3": ["D13", "D17", "D18"],
+    "prediction4": ["D20", "D23", "D24"],
+    "prediction5": ["D26", "D29", "D30"],
+    "prediction6": ["D31", "D35", "D36"]
   },
   {
     "email": "test@email.com",
     "roundID": "round1",
-    "prediction1": ["D03", "D02", "D01"],
-    "prediction2": ["D03", "D02", "D01"],
-    "prediction3": ["D03", "D02", "D01"],
-    "prediction4": ["D03", "D02", "D01"],
-    "prediction5": ["D03", "D02", "D01"],
-    "prediction6": ["D03", "D02", "D01"]
+    "prediction1": ["D01", "D03", "D05"],
+    "prediction2": ["D09", "D11", "D12"],
+    "prediction3": ["D13", "D17", "D18"],
+    "prediction4": ["D20", "D23", "D24"],
+    "prediction5": ["D26", "D29", "D30"],
+    "prediction6": ["D31", "D35", "D36"]
   }
 ]

@@ -141,9 +141,7 @@ module.exports = {
     },
 
     calculateScores: async function (app, req, res) {
-        // for each prediction object, add the results for each race in the object
-        // compare the results and predictions for each race to calculate score
-        // get existing from user, add this week's score onto it and add back into the user db
+
         try {
 
             const db = app.get('quackyRacesDB')
@@ -155,8 +153,24 @@ module.exports = {
                 .sort({ eventID: 1})
                 .toArray()
 
+            console.log(resultsList)
+
             let results = {}
             resultsList.forEach(result => results[result.eventID] = result.place.slice(0, 3))
+
+            const userTest = await db
+                .collection('users')
+
+            const userList = await db
+                .collection('users')
+                .find()
+                .toArray()
+
+            let users = {}
+            userList.forEach(user => users[user.email] = user.score )
+
+            console.log("users before")
+            console.log(users)
 
             const predictionsList = await db
                 .collection('predictions')
@@ -167,25 +181,123 @@ module.exports = {
             predictionsList.forEach(prediction => {
 
                 let score = 0;
+                let predictionsArrayPerUser = []
+                let resultIndexArray = [0, 0, 0, 0, 0, 0];
 
-                prediction.prediction1[0] 
+                predictionsArrayPerUser.push(
+                    prediction.email, 
+                    prediction.prediction1,
+                    prediction.prediction2,
+                    prediction.prediction3,
+                    prediction.prediction4,
+                    prediction.prediction5,
+                    prediction.prediction6
+                )
 
-                if (prediction.prediction1[0] === results.event1[0] ) {
-                    score += 2;
-                }
+                console.log("USER is " + prediction.email)
+                console.log(" ")
+                console.log("Race 1")
+                predictionsArrayPerUser[1].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event1[resultIndexArray[0]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event1[resultIndexArray[0]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[0]++
+                })
 
-                if (prediction.prediction1[1] === results.event1[1] ) {
-                    score += 2;
-                }
+                console.log(" ")
+                console.log("Race 2")
+                predictionsArrayPerUser[2].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event2[resultIndexArray[1]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event2[resultIndexArray[1]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[1]++
+                })
 
-                if (prediction.prediction1[2] === results.event1[2] ) {
-                    score += 2;
-                }
+                console.log(" ")
+                console.log("Race 3")
+                predictionsArrayPerUser[3].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event3[resultIndexArray[2]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event3[resultIndexArray[2]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[2]++
+                })
 
-                console.log(prediction.email)
-                console.log(score);
+                console.log(" ")
+                console.log("Race 4")
+                predictionsArrayPerUser[4].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event4[resultIndexArray[3]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event4[resultIndexArray[3]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[3]++
+                })
 
-            });
+                console.log(" ")
+                console.log("Race 5")
+                predictionsArrayPerUser[5].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event5[resultIndexArray[4]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event5[resultIndexArray[4]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[4]++
+                })
+
+                console.log(" ")
+                console.log("Race 6")
+                predictionsArrayPerUser[6].forEach(userPrediction => {
+                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event6[resultIndexArray[5]])
+                    // console.log(resultIndexArray + " resultIndexArray")
+                    if( userPrediction === results.event6[resultIndexArray[5]] ){
+                        score += 2;
+                        console.log("2 added to score")
+                    }
+                    resultIndexArray[5]++
+                })
+
+                console.log(" ")
+                console.log("Final Score for " + prediction.email + " is " + score);
+                console.log(" ")
+                console.log(" ")
+                
+                console.log(users[prediction.email])
+
+                // let currentUser = users.updateOne(
+                //     filter({email: prediction.email}),
+                //     update({score: "12"})
+                // )
+
+                // let currentUser = users.find({ "email": prediction.email });
+
+                // let currentUser = users.find( ({ email }) => email === prediction.email );
+                // console.log(currentUser)
+                
+                // console.log(score)
+                let newScore = users[prediction.email] + score;
+                users[prediction.email] = newScore;
+
+                console.log("users after")
+                console.log(users)
+
+                userTest.updateOne(
+                    { email: prediction.email}, // Filter
+                    {$set: {score: newScore}} // Update
+                )
+            });   
+
+            
                         
             res.redirect("/leaderboard");
 

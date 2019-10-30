@@ -56,14 +56,14 @@ module.exports = {
             const predictions = db.collection("predictions");
 
             await predictions.insertOne({
+                email: req.session.user,
+                roundID: "round1",
                 prediction1: allSelections[0],
                 prediction2: allSelections[1],
                 prediction3: allSelections[2],
                 prediction4: allSelections[3],
                 prediction5: allSelections[4],
-                prediction6: allSelections[5],
-                // round ID
-                email: req.session.user
+                prediction6: allSelections[5], 
             });
 
             res.redirect("/account");

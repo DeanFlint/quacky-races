@@ -6,7 +6,7 @@
     "surname": "McQuack",
     "dob": "12/03/1974",
     "isAdmin": false,
-    "score": 36
+    "score": 0
   },
   {
     "email": "test@email.com",
@@ -15,7 +15,7 @@
     "surname": "Testerson",
     "dob": "01/01/2001",
     "isAdmin": false,
-    "score": 20
+    "score": 0
   },
   {
     "email": "testadmin@email.com",
@@ -24,7 +24,7 @@
     "surname": "Testerson",
     "dob": "01/01/2001",
     "isAdmin": true,
-    "score": 30
+    "score": 0
   },
   {
     "email": "test1@email.com",
@@ -33,7 +33,7 @@
     "surname": "McTesty",
     "dob": "01/01/2001",
     "isAdmin": false,
-    "score": 2
+    "score": 0
   },
   {
     "email": "kyla@email.com",
@@ -42,7 +42,7 @@
     "surname": "Dougan",
     "dob": "04/03/1998",
     "isAdmin": false,
-    "score": 34
+    "score": 0
   },
   {
     "email": "cerys@email.com",
@@ -51,7 +51,7 @@
     "surname": "Blakemore",
     "dob": "28/05/1998",
     "isAdmin": false,
-    "score": 6
+    "score": 0
   },
   {
     "email": "Kate@email.com",
@@ -60,7 +60,7 @@
     "surname": "Marchant",
     "dob": "24/02/1996",
     "isAdmin": false,
-    "score": 20
+    "score": 0
   },
   {
     "email": "Dean@email.com",
@@ -69,7 +69,7 @@
     "surname": "Flint",
     "dob": "28/01/1990",
     "isAdmin": false,
-    "score": 32
+    "score": 0
   },
   {
     "email": "Ally@email.com",
@@ -78,6 +78,6 @@
     "surname": "Fincham",
     "dob": "24/01/1998",
     "isAdmin": false,
-    "score": 8
+    "score": 0
   }
 ]
