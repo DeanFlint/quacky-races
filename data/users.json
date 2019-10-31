@@ -20,7 +20,7 @@
   {
     "email": "testadmin@email.com",
     "hash": "$2b$08$ZXmYzIpCwIUkO7TJDaCHQezB0RjGp4ewR81tidBeYbZKImHOID3Li",
-    "forename": "Test",
+    "forename": "Test Admin",
     "surname": "Testerson",
     "dob": "01/01/2001",
     "isAdmin": true,
