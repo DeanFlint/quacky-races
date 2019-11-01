@@ -69,21 +69,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 14px;
 }
-.firstPlaceImage {
-  width: 40px;
-  height: 40px;
-  padding-bottom: 20px;
-}
-.secondPlaceImage {
-  width: 40px;
-  height: 40px;
-  padding-bottom: 20px;
-}
+.firstPlaceImage,
+.secondPlaceImage,
 .thirdPlaceImage {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 20px;
+}
+
+.firstPlace,
+.secondPlace,
+.thirdPlace {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 select {
@@ -117,7 +119,7 @@ select {
 }
 
 .result-race-name {
-  margin-bottom: 7px;
+  margin-bottom: 15px;
 }
 
 /* Tablet */

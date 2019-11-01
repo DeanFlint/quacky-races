@@ -17,25 +17,40 @@
 .profile-section {
     display: grid;
     grid-area: profile-section;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "duckName duckBio"
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "duckName duckName"
         "duckImage duckBio";
-    border-radius: 5px;
-    background-color: #f1f0f0;
-    border: 1px solid #b7b5b5;
-    margin-bottom: 2px;
+    background-color: #f7f5f5;
+    background-color: #fbfafa;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
     margin-right: 2px;
+    border-radius: 10px;
+}
 
+.duckProfile {
+    padding: 10px;
+    margin-right: 31px;
+    padding-top: 10px;
 }
 
 .duckName {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #86BC85;
+    color: #698e69;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .duckImage img {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
+    padding: 10px;
+    margin: 0px 10px;
+    margin-bottom: 5px;
+    border-radius: 15px;
 }
 
 
@@ -49,6 +64,10 @@
 
     .profile-section {
         width: 48%;
+    }
+
+    .profile-section:nth-of-type(odd) {
+        margin-right: 20px;
     }
 
 }
