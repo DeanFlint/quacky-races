@@ -6,6 +6,7 @@ module.exports = {
     playGame: async function (app, req, res) {
         try {
             const db = app.get('quackyRacesDB')
+            
             const predictions = await db  
               .collection('predictions')
               .find({roundID: 'round1'})
@@ -14,7 +15,7 @@ module.exports = {
             // const roundPredicted = predictions.roundID;
         
             if(predictions.roundID = "round1") {
-              throw "Predictions have already been placed for this round";
+              throw "You have already submitted your predictions for this round.";
             }
             else {
             const allSelections = [

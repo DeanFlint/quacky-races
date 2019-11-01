@@ -1,6 +1,4 @@
 /* Mobile */
-
-
 .duckName {
     grid-area: duckName;
 }
@@ -14,10 +12,13 @@
 
 }
 
+/* Profile-section is the main grid and includes the other grid areas*/
 .profile-section {
     display: grid;
     grid-area: profile-section;
+    /* how the grid area is split - fractions */
     grid-template-columns: 1fr 2fr;
+    /* This is where you define the other grid areas and the order */
     grid-template-areas:
         "duckName duckName"
         "duckImage duckBio";
@@ -53,6 +54,11 @@
     border-radius: 15px;
 }
 
+/* Profile container is the container and that is where flex is assigned
+The child div in the container is profile section and because we've given it a 
+width and we've given the flex container a direction of row it will display the divs 
+in a horizontal line and move the next div onto a new 
+line when no more can fit on the current line. */
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
