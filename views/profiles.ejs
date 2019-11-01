@@ -1,12 +1,11 @@
 <%- include('header') %>
 
 <main>
-  <h1>Duck Profiles</h1>
 
   <div class="profile-container">
     <% ducks.forEach(function(duck){ %>
     <div class="profile-section">
-      <div class="duckName"><h2><%= duck.duckName %></h2></div>
+      <div class="duckName"><h3><%= duck.duckName %></h3></div>
       <div class="duckImage"><img src="<%= duck.duckImage %>" alt="" /></div>
 
       <div class="duckBio">

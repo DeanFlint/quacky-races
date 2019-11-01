@@ -274,17 +274,6 @@ module.exports = {
                 
                 console.log(users[prediction.email])
 
-                // let currentUser = users.updateOne(
-                //     filter({email: prediction.email}),
-                //     update({score: "12"})
-                // )
-
-                // let currentUser = users.find({ "email": prediction.email });
-
-                // let currentUser = users.find( ({ email }) => email === prediction.email );
-                // console.log(currentUser)
-                
-                // console.log(score)
                 let newScore = users[prediction.email] + score;
                 users[prediction.email] = newScore;
 
