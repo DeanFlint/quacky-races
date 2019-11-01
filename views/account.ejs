@@ -2,12 +2,12 @@
 
 <main class="admin-page">
   <div class="topOfAdmin">
-    <% if (user.isAdmin){ %>
-    <a href="/admin" class="adminPageLink">
+    <!-- <% if (user.isAdmin){ %>
+    <a href="/admin" class="adminPageAdminLink">
       Admin Page
     </a>
       
-    <% } %>
+    <% } %> -->
     <h1 class="accountTitle">Account</h1>
 
   </div>
@@ -23,12 +23,23 @@
   </div>
   
   <div class="logout-account">
-    <a href="/logout" class="adminPageLink">Logout</a>
+    <a href="/logout" class="adminPageLogoutLink">Logout</a>
   </div>
 
   <div class="deleteUser">
-    <a href="/deleteUser" class="adminPageLink">Delete Account</a>
+    <a href="/deleteUser" class="adminPageDeleteLink">Delete Account</a>
   </div>
+
+  
+
+  
+  <% if (user.isAdmin){ %>
+    <div class="admin-account">
+      <a href="/admin" class="adminPageAdminLink">
+        Admin Page
+      </a>
+    </div>  
+  <% } %>
 
 </main>
 
