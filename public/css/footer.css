@@ -1,29 +1,28 @@
 /* Mobile */
 .links {
 	grid-area: links;
-	width: 200px;
+	padding-top: 25px;
 }
-
-/* .lniks ul {
-	padding-inline-start: 0;
-} */
 
 .links ul li {
 	list-style: none;
 	font-size: 18px;
 	margin-bottom: 10px;
-	width: 100px;
+	/* width: 100px; */
 	margin-right: 0;
+	text-align: center;
+	
 }
 
 .footerSocialLinks {
 	grid-area: footerSocialLinks;
 	text-align: center;
+	
 }
 .safeGambling {
 	grid-area: safeGambling;
-	width: 100%;
-	height: 25px;
+	/* width: 100%; */
+	margin: 0 auto;
 }
 #funStopsStop {
 	text-align: center;
@@ -58,13 +57,13 @@ footer {
 	display: grid;
 	grid-template-areas: "footer";
 	grid-area: footer;
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-columns: 1fr;
 	grid-template-areas:
 		"links"
-		"safeGambling"
-		"footerSocialLinks";
+		"footerSocialLinks"
+		"safeGambling";
 	justify-content: center;
-	padding: 40px 30px;
+	padding: 10px;
 	margin-top: 40px;
 	border-top: solid grey 1px;
 }
@@ -75,7 +74,7 @@ footer {
 /* Tablet */
 @media only screen and (min-width: 768px) {
 	footer {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 2fr 1fr;
 		grid-template-areas:
 			"links safeGambling footerSocialLinks";
 
@@ -94,6 +93,10 @@ footer {
 	.funStopsStop{
 		width: 450px;
 		height: 100px;
+	}
+
+	.safeGambling {
+		margin: 0;
 	}
 }
 
