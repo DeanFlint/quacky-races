@@ -5,6 +5,18 @@ module.exports = {
     // GAME MECHANICS
     playGame: async function (app, req, res) {
         try {
+            const db = app.get('quackyRacesDB')
+            const predictions = await db  
+              .collection('predictions')
+              .find({roundID: 'round1'})
+              .toArray()
+        
+            // const roundPredicted = predictions.roundID;
+        
+            if(predictions.roundID = "round1") {
+              throw "Predictions have already been placed for this round";
+            }
+            else {
             const allSelections = [
                 [
                     req.body.race1sel1,
@@ -67,7 +79,9 @@ module.exports = {
             });
 
             res.redirect("/account");
-        } catch (err) {
+        
+        }
+    } catch (err) {
             console.log("Play error: ", err);
             res.redirect("/play?err=" + err);
         }

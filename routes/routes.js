@@ -80,6 +80,7 @@ module.exports = app => {
 
   app.post("/play", (req, res) => {
     playControllers.playGame(app, req, res);
+    // accountControllers.alreadyPlayed(app, req, res);
   });
 
   app.get("/play", async (req, res) => {
@@ -93,6 +94,10 @@ module.exports = app => {
       res.redirect("/login");
     }
   });
+
+  // app.get("/play", (req, res) => {
+
+  // })
 
   app.get("/admin", async (req, res) => {
     try {

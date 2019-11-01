@@ -2,11 +2,34 @@
 
 <main>
 
-
+<%= message %>
   <div class="duckBanner">
     <img class="duckBannerImage" src="images/<%=frontPageImage%>" />
-    <p class="welcomeText">Welcome to Quacky Races, the Quackiest race around!
+    <div class = "welcomeText">
+    <p class = "welcome">Welcome to Quacky Races, the Quackiest race around! </p>
+      <p> This is the central hub for Duck Racing, this is a free-to-play game where you can place your bets on which ducks will win their races, and be in with the chance to win £25000! Simply predict which ducks will win! Head over to the Play page to find out more.
+        </p>
     </p>
+    <div class="registerDuck"> 
+      <p>
+        Think your duck has what it takes to race among the best? Register them below to be considered for future races!
+      </p>
+        <form action="/index" method="POST" class="registerYourDuckEmail">
+          <div class="duckRegisterInputEmail"> <input
+              class="duckRegisterInputEmail"
+              type="text"
+              placeholder="Your Email address"
+            /> </div>
+            <form action="/index" method="POST" class="registerYourDuckName">
+              <div class="duckRegisterInputName"> <input
+                  class="duckRegisterInputName"
+                  type="text"
+                  placeholder="Your Duck's Name"
+                /> </div>
+          </form>
+      </form>
+    </div>
+  </div>
   </div>
 
 
