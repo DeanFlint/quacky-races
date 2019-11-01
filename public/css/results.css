@@ -58,8 +58,9 @@
 
 .result-user-form {
   grid-area: result-user-form;
-  padding: 5px 10px;
+  padding: 10px;
   text-align: center;
+  background-color: #f1f0f0;
 }
 
 .result-image-area {
@@ -96,7 +97,6 @@ select {
 }
 
 .result-section {
-  background-color: #f1f0f0;
   border: 1px solid #b7b5b5;
   display: grid;
   margin-bottom: 10px;
