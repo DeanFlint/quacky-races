@@ -1,51 +1,78 @@
-#You may need to follow these instructions if it is the first time setting up
-
-sudo cp * /usr/local/bin
-sudo mkdir -p /data/db
-sudo chmod 777 /data
-sudo chmod 777 /data/db
-
 # ------------------------------------------------
-# Instructions for setting up Mongo on your local
+# Initial setup instructions
 # ------------------------------------------------
+
+# Clone the project from github:
+    https://github.com/DeanFlint/quacky-races.git
+
+# In the terminal, enter the following to install packages:
+    npm install
+
+# Make sure you're using 
+    npm v6.9.0 
+# and
+    node v10.16.3
+
+# To check, type:
+    npm -v
+    node -v
+
+# You can install and use different versions of npm with nvm
+    nvm install 10.16.3
+    nvm use 10.16.3
+
+# Download mongodb:
+    https://www.mongodb.com/download-center/community
+
+# On a mac, you may need to run the following:
+    sudo cp * /usr/local/bin
+    sudo mkdir -p /data/db
+    sudo chmod 777 /data
+    sudo chmod 777 /data/db
+
+# On windows:
+
+    Navigate to 'C:\Program Files\MongoDB\Server\[your_server_version]\bin' and copy this path
+
+    In start menu search for View advanced system settings and open it.
     
+    Select Advanced tab and select Environment Variables button.
+    
+    In the System Variables list find element Path, select it and click Edit.
+    
+    Paste the path which you copied before. 
+
+    Now restart your system.
+
+    Information provided from: 
+        https://stackoverflow.com/questions/31055637/getting-mongoimport-is-not-recognized-as-an-internal-or-external-command-ope
+
 # Open up a normal terminal and enter:
 
-mongod
+    mongod
 
 # In a different normal terminal, run each of the following scripts: (these have been setup in the package.json
 # file so this is where we edit the script if we add a new file or change the name of any of the existing filenames in the
 # data folder).
 
-npm run builddoc1
-npm run builddoc2
-npm run builddoc3
-npm run builddoc4
-npm run builddoc5
-npm run builddoc6
-npm run builddoc7
-npm run buildall (this will build all of the above at once)
+# Either run these individually....
+    npm run builddoc1
+    npm run builddoc2
+    npm run builddoc3
+    npm run builddoc4
+    npm run builddoc5
+    npm run builddoc6
+    npm run builddoc7
 
-# ------------------------------------------------
-# Instructions for setting up Mongo on your local
-# ------------------------------------------------
+# ....or run this (which will run all of the above scripts together)
+    npm run buildall
 
-# Open a new terminal and enter:
-
-mongo
-
-# This will make the terminal become a mongo shell for you to enter mongo commands
-
-
-# ------------------------------------------------
-# To setup and run project
-# ------------------------------------------------
-
-# Instructions to run project:
-    npm install
 
 # Run nodemon app to run project on localhost:3000 
     nodemon app
+
+# For windows, navigate to the root of the project and run:
+    node app.js
 
 
 # ------------------------------------------------
@@ -53,15 +80,3 @@ mongo
 # ------------------------------------------------
 
 # Azure Cosmos DB: This app lets you manipulate the data inside 
-
-
-# ------------------------------------------------
-# TODO
-# ------------------------------------------------
-
-# express-session (npm install)
-# bcrypt (npm install)
-
-# Use <form action/login method=POST>
-
-# https://github.com/tomnomnom/hacks/tree/master/ejs-example  :  To help with sessions
