@@ -16,6 +16,10 @@
   padding-right: 10px;
 }
 
+.logo-placeholder {
+  font-weight: bold;
+}
+
 header {
   display: grid;
   grid-template-areas: "header";
@@ -28,7 +32,6 @@ header {
   border-radius: 5px 5px 0 0;
   background-color: #86BC85;
   border: 3px solid #2C8E60;
-  
 }
 
 .logo a {
@@ -49,10 +52,15 @@ header {
   color:black;
 }
 
+.fa-user:hover {
+  color: #f9f0c1;
+}
+
 /* burger menu  */
 .bars {
   float: left;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .bar1,

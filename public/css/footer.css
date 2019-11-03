@@ -99,6 +99,14 @@ footer {
 	.links ul li {
 		text-align: left;
 	}
+
+	.links ul li a{
+		text-decoration: none;
+		color: rgb(37, 37, 37);
+		font-weight: bold;
+	}
+
+
 }
 
 /* Desktop */
