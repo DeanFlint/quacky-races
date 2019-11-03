@@ -20,12 +20,6 @@ module.exports = app => {
     })
   );
 
-  // app.get("/", (req, res) => {
-  //   res.render("index", {
-  //     user: req.session.user
-  //   });
-  // });
-
   app.get("/login", (req, res) => {
     try {
       if (!req.session.user) {
@@ -94,10 +88,6 @@ module.exports = app => {
       res.redirect("/login");
     }
   });
-
-  // app.get("/play", (req, res) => {
-
-  // })
 
   app.get("/admin", async (req, res) => {
     try {

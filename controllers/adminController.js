@@ -1,5 +1,3 @@
-const bcrypt = require("bcrypt");
-
 module.exports = {
     // admin page
     adminSubmitResults: async function (app, req, res) {
@@ -57,53 +55,63 @@ module.exports = {
                 ]
             ];
 
+            // The above is an array that contains arrays so we're using a foreach
+            // to target each array then using map for each result to the see if 
+            // any are undefined. 
             adminAllSelections.forEach(function (adminAllSelection) {
                 adminAllSelection.map(raceSelection => {
                     if (raceSelection === undefined) {
                         throw "Please input all results.";
                     }
-                    // TODO: duplicate validation
                 });
+
+                // Useing a spread operator, we're creating a new array from the 'adminAllSelection'
+                // value that's used in the above foreach function. This array will remove any duplicates
+                // so we expect the number of values in the array to 6 other a duplicate selection has
+                // had been entered.
+                // Solution found here: https://appdividend.com/2019/04/11/how-to-get-distinct-values-from-array-in-javascript/
+                let uniqueSelections = [...new Set(adminAllSelection)]
+                if (uniqueSelections.length !== 6 ) {
+                    throw "Duplicate ducks selected";
+                }
             });
 
             const db = app.get("quackyRacesDB");
             const results = db.collection("results");
 
             await results.insertOne({
-                    eventID: "event1",
-                    roundID: roundID,
-                    place: adminAllSelections[0]
-                }),
-                await results.insertOne({
-                    eventID: "event2",
-                    roundID: roundID,
-                    place: adminAllSelections[1]
-                }),
-                await results.insertOne({
-                    eventID: "event3",
-                    roundID: roundID,
-                    place: adminAllSelections[2]
-                }),
-                await results.insertOne({
-                    eventID: "event4",
-                    roundID: roundID,
-                    place: adminAllSelections[3]
-                }),
-                await results.insertOne({
-                    eventID: "event5",
-                    roundID: roundID,
-                    place: adminAllSelections[4]
-                }),
-                await results.insertOne({
-                    eventID: "event6",
-                    roundID: roundID,
-                    place: adminAllSelections[5]
-                }),
-                // round ID
+                eventID: "event1",
+                roundID: roundID,
+                place: adminAllSelections[0]
+            }),
+            await results.insertOne({
+                eventID: "event2",
+                roundID: roundID,
+                place: adminAllSelections[1]
+            }),
+            await results.insertOne({
+                eventID: "event3",
+                roundID: roundID,
+                place: adminAllSelections[2]
+            }),
+            await results.insertOne({
+                eventID: "event4",
+                roundID: roundID,
+                place: adminAllSelections[3]
+            }),
+            await results.insertOne({
+                eventID: "event5",
+                roundID: roundID,
+                place: adminAllSelections[4]
+            }),
+            await results.insertOne({
+                eventID: "event6",
+                roundID: roundID,
+                place: adminAllSelections[5]
+            }),
 
-                message = "Results submitted!"
-
-                res.redirect("/admin");
+            message = "Results submitted!"
+            res.redirect("/admin");
         } catch (err) {
             console.log("Admin error: ", err);
             res.redirect("/admin?err=" + err);
@@ -120,6 +128,8 @@ module.exports = {
                 .toArray();
 
             const duckNames = {}
+            // for each duck found in 'ducks', push to the duckNames object
+            // in the format of { duckID: duckName}.
             ducks.forEach(duck => duckNames[duck.duckID] = duck.duckName)
 
             const events = await db
@@ -143,39 +153,40 @@ module.exports = {
     calculateScores: async function (app, req, res) {
 
         try {
-
             const db = app.get('quackyRacesDB')
 
-            // get results into an object
+            // put results from round 1 into an object
             const resultsList = await db
                 .collection('results')
                 .find({ roundID: "1" })
                 .sort({ eventID: 1})
                 .toArray()
 
-            console.log(resultsList)
-
             let results = {}
+            // for each result found in 'results', push to the results object
+            // in the format of { eventID: [result1, result2, result2]}.
             resultsList.forEach(result => results[result.eventID] = result.place.slice(0, 3))
 
-            const userTest = await db
+            const usersUpdatedScore = await db
                 .collection('users')
+            // We've called this so we can update each user's new score once
+            // it's been calculated.
 
-            const userList = await db
+            const userScores = await db
                 .collection('users')
                 .find()
                 .toArray()
 
-            let users = {}
-            userList.forEach(user => users[user.email] = user.score )
-
-            console.log("users before")
-            console.log(users)
+            let usersPreviousScores = {}
+            // for each user found in 'users', push to the usersPreviousScores object
+            // in the format of { userEmail: score}.
+            // This is so we can add the score they get for this current round to 
+            // their previous score.
+            userScores.forEach(user => usersPreviousScores[user.email] = user.score )
 
             const predictionsList = await db
                 .collection('predictions')
                 .find({ roundID: "round1" })
-                // .sort({ eventID: 1})
                 .toArray()
 
             predictionsList.forEach(prediction => {
@@ -183,6 +194,9 @@ module.exports = {
                 let score = 0;
                 let predictionsArrayPerUser = []
                 let resultIndexArray = [0, 0, 0, 0, 0, 0];
+                // we're using this as an index count 
+                // so we can target each of the three predictions
+                // per event
 
                 predictionsArrayPerUser.push(
                     prediction.email, 
@@ -193,101 +207,71 @@ module.exports = {
                     prediction.prediction5,
                     prediction.prediction6
                 )
+                // we're creating a new array that will have the user's email (so we
+                // can identify who the updated score belongs to) with all of thier
+                // predictions for this current round.
 
-                console.log("USER is " + prediction.email)
-                console.log(" ")
-                console.log("Race 1")
+                // The first item in the array will be the prediction for the first event
+                // If the first prediction in event1 matches the first result in event 1,
+                // we add 2 points to the score. The first item in resultsIndexArray then increments
+                // by 1, so next time the loop hits this if statement, we'll be comparing the
+                // userPrediction to the next item in the results array for event 1.
                 predictionsArrayPerUser[1].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event1[resultIndexArray[0]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event1[resultIndexArray[0]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[0]++
                 })
 
-                console.log(" ")
-                console.log("Race 2")
                 predictionsArrayPerUser[2].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event2[resultIndexArray[1]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event2[resultIndexArray[1]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[1]++
                 })
 
-                console.log(" ")
-                console.log("Race 3")
                 predictionsArrayPerUser[3].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event3[resultIndexArray[2]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event3[resultIndexArray[2]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[2]++
                 })
 
-                console.log(" ")
-                console.log("Race 4")
                 predictionsArrayPerUser[4].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event4[resultIndexArray[3]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event4[resultIndexArray[3]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[3]++
                 })
 
-                console.log(" ")
-                console.log("Race 5")
                 predictionsArrayPerUser[5].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event5[resultIndexArray[4]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event5[resultIndexArray[4]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[4]++
                 })
 
-                console.log(" ")
-                console.log("Race 6")
                 predictionsArrayPerUser[6].forEach(userPrediction => {
-                    console.log("userPrediction = " + userPrediction + " AND " + "Actual Result" + " = " + results.event6[resultIndexArray[5]])
-                    // console.log(resultIndexArray + " resultIndexArray")
                     if( userPrediction === results.event6[resultIndexArray[5]] ){
                         score += 2;
-                        console.log("2 added to score")
                     }
                     resultIndexArray[5]++
                 })
 
-                console.log(" ")
-                console.log("Final Score for " + prediction.email + " is " + score);
-                console.log(" ")
-                console.log(" ")
-                
-                console.log(users[prediction.email])
+                // Now that the score for this round has been calculated for the user,
+                // we're adding it to the previous score that we stored in the usersPreviousScores
+                // array. 
+                let newScore = usersPreviousScores[prediction.email] + score;
+                usersPreviousScores[prediction.email] = newScore;
 
-                let newScore = users[prediction.email] + score;
-                users[prediction.email] = newScore;
-
-                console.log("users after")
-                console.log(users)
-
-                userTest.updateOne(
+                // We can now update this score using the usersUpdatedScore variable we initiated above
+                // using the user's email address as an identifier.
+                usersUpdatedScore.updateOne(
                     { email: prediction.email}, // Filter
                     {$set: {score: newScore}} // Update
                 )
             });   
 
-            
-                        
             res.redirect("/leaderboard");
 
         } catch (err) {

@@ -1,5 +1,3 @@
-const bcrypt = require("bcrypt");
-
 module.exports = {
 
     // GAME MECHANICS
@@ -11,8 +9,6 @@ module.exports = {
               .collection('predictions')
               .find({roundID: 'round1'})
               .toArray()
-        
-            // const roundPredicted = predictions.roundID;
         
             if(predictions.roundID = "round1") {
               throw "You have already submitted your predictions for this round.";
