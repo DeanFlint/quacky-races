@@ -44,16 +44,17 @@ body {
     top: 1px;
 }
 .duckBannerImage {
-    grid-area:duckBannerImage;
+    grid-area: duckBannerImage;
     width:300px;
     height:200px;
 }
 
 .welcomeText{
-    grid-area:welcomeText;
+    grid-area: welcomeText;
     margin:5px;
     text-align: center;
     line-height: 1.5;
+    /* padding-left: 20px; */
 }
 
 .welcome{
@@ -72,9 +73,11 @@ body {
 .duckBanner {
     display:grid;
     grid-area:duckBanner;
-    grid-template-areas:"duckBannerImage welcomeText registerDuck";
+    grid-template-areas:"welcomeText"
+                        "duckBannerImage"
+                        "registerDuck";
     background-color: #f1f0f0;
-    padding: 10px;
+    padding: 25px;
     border-radius: 5px;
 }
 
@@ -114,8 +117,18 @@ body {
 
     .duckBannerImage {
         grid-area:duckBannerImage;
-        width:400px;
-        height:400px;
+        width:300px;
+        height:300px;
+        border-radius: 10px;
+    }
+
+    .duckBanner {
+        grid-template-areas:"duckBannerImage welcomeText"
+                            "duckBannerImage registerDuck";
+    }
+
+    .welcomeText{
+        padding-left: 20px;
     }
 
 }

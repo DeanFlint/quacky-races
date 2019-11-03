@@ -21,6 +21,11 @@ body{
     body {
        width: 900px;
        margin: 0 auto;
+       
+   }
+
+   main {
+        min-height: 650px;
    }
 }
 

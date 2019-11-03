@@ -2,16 +2,16 @@
 .links {
 	grid-area: links;
 	padding-top: 25px;
+	width: 200px;
+	margin: 0 auto 20px;
 }
 
 .links ul li {
 	list-style: none;
 	font-size: 18px;
 	margin-bottom: 10px;
-	/* width: 100px; */
 	margin-right: 0;
 	text-align: center;
-	
 }
 
 .footerSocialLinks {
@@ -21,12 +21,11 @@
 }
 .safeGambling {
 	grid-area: safeGambling;
-	/* width: 100%; */
 	margin: 0 auto;
 }
 #funStopsStop {
 	text-align: center;
-	width: 450px;
+	width: 350px;
 	height: 100px;
 	padding-top: 0px;
 }
@@ -38,7 +37,6 @@
 	font-size: 30px;
 	margin-right: 5px;
 	color: black;
-	
 }
 
 .fa-twitter:hover,
@@ -50,8 +48,6 @@
 .fa-youtube:hover {
 	color: red;
 }
-
-
 
 footer {
 	display: grid;
@@ -65,7 +61,9 @@ footer {
 	justify-content: center;
 	padding: 10px;
 	margin-top: 40px;
-	border-top: solid grey 1px;
+	border-radius: 5px 5px 0 0;
+    background-color: #86BC85;
+    border: 3px solid #2C8E60;
 }
 
 
@@ -90,15 +88,23 @@ footer {
 		padding-top: 25px;
 	}
 
-	.funStopsStop{
-		width: 450px;
-		height: 100px;
+	#funStopsStop {
+		width: 350px;
 	}
 
 	.safeGambling {
 		margin: 0;
 	}
+	
+	.links ul li {
+		text-align: left;
+	}
 }
 
 /* Desktop */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+	#funStopsStop {
+		width: 450px;
+	}
+
+}
