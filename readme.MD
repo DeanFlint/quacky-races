@@ -5,6 +5,9 @@
 # Clone the project from github:
     https://github.com/DeanFlint/quacky-races.git
 
+# Install node if you don't already have it:
+    https://nodejs.org/en/download/
+
 # In the terminal, enter the following to install packages:
     npm install
 
@@ -16,6 +19,9 @@
 # To check, type:
     npm -v
     node -v
+
+# Install nvm, run:
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
 # You can install and use different versions of npm with nvm
     nvm install 10.16.3
