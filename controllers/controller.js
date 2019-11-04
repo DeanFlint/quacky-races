@@ -59,8 +59,8 @@ module.exports = {
     "duck29.jpg", "duck30.jpg", "duck31.jpg", "duck32.jpg", "duck33.jpg", "duck34.jpg", 
     "duck35.jpg", "duck36.jpg"];
 
-    let randomImageArray = Math.floor(Math.random() * randomImageArray.length);
-    let frontPageImage = randomImageArray[randomImageArray];
+    let randomImageArrayIndex = Math.floor(Math.random() * randomImageArray.length);
+    let frontPageImage = randomImageArray[randomImageArrayIndex];
 
     return res.render("index", {
       frontPageImage: frontPageImage,
