@@ -15,6 +15,9 @@ body{
 /* Tablet */
 @media only screen and (min-width: 768px) {
 
+    main {
+        min-height: 600px;
+   }
 }
 
 @media only screen and (min-width: 899px) {
@@ -24,9 +27,7 @@ body{
        
    }
 
-   main {
-        min-height: 650px;
-   }
+   
 }
 
 /* Desktop */

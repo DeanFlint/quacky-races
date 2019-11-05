@@ -104,6 +104,7 @@ select {
   grid-area: result-section;
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
+    "result-race-name result-race-name"
     "result-runners result-user-form "
     "result-runners result-image-area";
   border-radius: 5px;
@@ -115,11 +116,16 @@ select {
 }
 
 .result-runner-name {
-  margin-bottom: 20px;
+  margin-top: 27px;
+}
+
+.result-runner-name:first-of-type {
+  margin-top: 10px;
 }
 
 .result-race-name {
-  margin-bottom: 15px;
+  padding: 10px;
+  grid-area: result-race-name;
 }
 
 /* Tablet */

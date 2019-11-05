@@ -22,8 +22,9 @@
                 <% raceNum++ %>  
                 
             <div class="event-section">
+                <h2 class="event-race-name"><%= event.location %>: <%= event.eventTime %></h2>
                 <div class="event-runners">
-                    <h2 class="event-race-name"><%= event.location %></h2>
+                    
                   
                     <% event.duckID.forEach(function(duck, i){ %>
                     <% i++ %>   

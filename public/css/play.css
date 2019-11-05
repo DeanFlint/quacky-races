@@ -35,7 +35,7 @@ background-color: #f1f0f0;
 
 .event-user-form {
   grid-area: event-user-form;
-  padding: 10px;
+  padding: 0 10px;
   text-align: center;
 }
 
@@ -62,7 +62,8 @@ select {
   grid-template-areas: "event-section";
   grid-area: event-section;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "event-runners event-user-form ";
+  grid-template-areas: "event-race-name event-race-name"
+                        "event-runners event-user-form ";
   border-radius: 5px;
 }
 
@@ -77,6 +78,9 @@ select {
 
 .event-race-name {
   margin-bottom: 7px;
+  grid-area: event-race-name;
+  padding: 5px 10px;
+  
 }
 
 .input-box-area select {

@@ -7,8 +7,9 @@
         <% events.forEach(event => { %>
 
         <div class="result-section">
+            <h2 class="result-race-name"><%= event.location%>: <%= event.eventTime%></h2>
+            
             <div class="result-runners">
-                <h2 class="result-race-name"><%= event.location %></h3>
                 <% event.duckID.forEach(function(duck, i){ %>
                 <% i++ %>
                 <p class="result-runner-name num<%= i %>"> <%= duckNames[duck] %></p>
