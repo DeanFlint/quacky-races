@@ -13,11 +13,11 @@
     "email": "test@email.com",
     "roundID": "round1",
     "prediction1": ["D01", "D03", "D05"],
-    "prediction2": ["D010", "D11", "D12"],
+    "prediction2": ["D10", "D11", "D12"],
     "prediction3": ["D13", "D14", "D15"],
     "prediction4": ["D19", "D23", "D24"],
     "prediction5": ["D25", "D29", "D30"],
-    "prediction6": ["D30", "D35", "D36"]
+    "prediction6": ["D31", "D35", "D36"]
   },
   {
     "email": "test1@email.com",

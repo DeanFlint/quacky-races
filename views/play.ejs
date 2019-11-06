@@ -1,98 +1,143 @@
 <%- include('header') %>
 
 <main>
-    <div class="intro">
-            <h1>How to play</h1>
-        <div class="playInstructions">
-            <p>🦆 Select which 1st, 2nd and 3rd duck to finish each race 🦆</p>
-            <p>🦆 For all races, you will score 2 points for each duck you correctly pick for each place 🦆</p>
-            <p>🦆 If you pick the correct duck for each place on all races, you win the jackpot! 🦆</p>
-        </div> 
+
+    <% if (predictions.hasAlreadyPlayed == true){ %>
+        <p>Your predictions for this round</p>
+        <div>
+            <p><%= events[0].location%>: <%= events[0].eventTime%></p>
+            <img src="<%= predictions.images1[0] %>">
+            <img src="<%= predictions.images1[1] %>">
+            <img src="<%= predictions.images1[2] %>">
+        </div>
+
+        <div>
+            <p><%= events[1].location%>: <%= events[1].eventTime%></p>
+            <img src="<%= predictions.images2[0] %>">
+            <img src="<%= predictions.images2[1] %>">
+            <img src="<%= predictions.images3[2] %>">
+        </div>
+
+        <div>
+            <p><%= events[2].location%>: <%= events[2].eventTime%></p>
+            <img src="<%= predictions.images3[0] %>">
+            <img src="<%= predictions.images3[1] %>">
+            <img src="<%= predictions.images3[2] %>">
+        </div>
+
+        <div>
+            <p><%= events[3].location%>: <%= events[3].eventTime%></p>
+            <img src="<%= predictions.images4[0] %>">
+            <img src="<%= predictions.images4[1] %>">
+            <img src="<%= predictions.images4[2] %>">
+        </div>
+
+        <div>
+            <p><%= events[4].location%>: <%= events[4].eventTime%></p>
+            <img src="<%= predictions.images5[0] %>">
+            <img src="<%= predictions.images5[1] %>">
+            <img src="<%= predictions.images5[2] %>">
+        </div>
+
+        <div>
+            <p><%= events[5].location%>: <%= events[5].eventTime%></p>
+            <img src="<%= predictions.images6[0] %>">
+            <img src="<%= predictions.images6[1] %>">
+            <img src="<%= predictions.images6[2] %>">
+        </div>
         
-    </div>
-    </div>
+    <% } else {%>
+        <div class="intro">
+            <h1>How to play</h1>
+            <div class="playInstructions">
+                <p>🦆 Select which 1st, 2nd and 3rd duck to finish each race 🦆</p>
+                <p>🦆 For all races, you will score 2 points for each duck you correctly pick for each place 🦆</p>
+                <p>🦆 If you pick the correct duck for each place on all races, you win the jackpot! 🦆</p>
+            </div> 
+        </div>
 
-    <div class="incorrectInfo">
-        <%= message %>
-    </div>
+        <div class="incorrectInfo">
+            <%= message %>
+        </div>
 
-    <form action="/play" method="POST">
-        <div class="event-container"> 
-            <% events.forEach(function(event, raceNum) { %>             
-                <% raceNum++ %>  
-                
-            <div class="event-section">
-                <h2 class="event-race-name"><%= event.location %>: <%= event.eventTime %></h2>
-                <div class="event-runners">
+        <form action="/play" method="POST">
+            <div class="event-container"> 
+                <% events.forEach(function(event, raceNum) { %>             
+                    <% raceNum++ %>  
                     
-                  
-                    <% event.duckID.forEach(function(duck, i){ %>
-                    <% i++ %>   
-                    <p class="event-runner-name num<%= i %>"> <%= duckNames[duck] %> </p>
-                    <% }) %>
-                </div>
-                <!-- /event-runners -->
-
-                <div class="event-user-form">
-                    <h2 class="event-race-name">Prediction</h3>
-                    <div class="input-box-area">
-                        <select class="playOptions" name="race<%= raceNum %>sel1">
-                            <option value="" selected disabled hidden>1st</option>
-                            <option value="<%= event.duckID[0] %>">1</option>
-                            <option value="<%= event.duckID[1] %>">2</option>
-                            <option value="<%= event.duckID[2] %>">3</option>
-                            <option value="<%= event.duckID[3] %>">4</option>
-                            <option value="<%= event.duckID[4] %>">5</option>
-                            <option value="<%= event.duckID[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name="race<%= raceNum %>sel2">
-                            <option value="" selected disabled hidden>2nd</option>
-                            <option value="<%= event.duckID[0] %>">1</option>
-                            <option value="<%= event.duckID[1] %>">2</option>
-                            <option value="<%= event.duckID[2] %>">3</option>
-                            <option value="<%= event.duckID[3] %>">4</option>
-                            <option value="<%= event.duckID[4] %>">5</option>
-                            <option value="<%= event.duckID[5] %>">6</option>
-                        </select>
-                        <select class="playOptions" name="race<%= raceNum %>sel3">
-                            <option value="" selected disabled hidden>3rd</option>
-                            <option value="<%= event.duckID[0] %>">1</option>
-                            <option value="<%= event.duckID[1] %>">2</option>
-                            <option value="<%= event.duckID[2] %>">3</option>
-                            <option value="<%= event.duckID[3] %>">4</option>
-                            <option value="<%= event.duckID[4] %>">5</option>
-                            <option value="<%= event.duckID[5] %>">6</option>
-                        </select>
+                <div class="event-section">
+                    <h2 class="event-race-name"><%= event.location %>: <%= event.eventTime %></h2>
+                    <div class="event-runners">
+                        
+                    
+                        <% event.duckID.forEach(function(duck, i){ %>
+                        <% i++ %>   
+                        <p class="event-runner-name num<%= i %>"> <%= duckNames[duck] %> </p>
+                        <% }) %>
                     </div>
-                    <!-- /input-box-area -->
+                    <!-- /event-runners -->
+
+                    <div class="event-user-form">
+                        <h2 class="event-race-name">Prediction</h3>
+                        <div class="input-box-area">
+                            <select class="playOptions" name="race<%= raceNum %>sel1">
+                                <option value="" selected disabled hidden>1st</option>
+                                <option value="<%= event.duckID[0] %>">1</option>
+                                <option value="<%= event.duckID[1] %>">2</option>
+                                <option value="<%= event.duckID[2] %>">3</option>
+                                <option value="<%= event.duckID[3] %>">4</option>
+                                <option value="<%= event.duckID[4] %>">5</option>
+                                <option value="<%= event.duckID[5] %>">6</option>
+                            </select>
+                            <select class="playOptions" name="race<%= raceNum %>sel2">
+                                <option value="" selected disabled hidden>2nd</option>
+                                <option value="<%= event.duckID[0] %>">1</option>
+                                <option value="<%= event.duckID[1] %>">2</option>
+                                <option value="<%= event.duckID[2] %>">3</option>
+                                <option value="<%= event.duckID[3] %>">4</option>
+                                <option value="<%= event.duckID[4] %>">5</option>
+                                <option value="<%= event.duckID[5] %>">6</option>
+                            </select>
+                            <select class="playOptions" name="race<%= raceNum %>sel3">
+                                <option value="" selected disabled hidden>3rd</option>
+                                <option value="<%= event.duckID[0] %>">1</option>
+                                <option value="<%= event.duckID[1] %>">2</option>
+                                <option value="<%= event.duckID[2] %>">3</option>
+                                <option value="<%= event.duckID[3] %>">4</option>
+                                <option value="<%= event.duckID[4] %>">5</option>
+                                <option value="<%= event.duckID[5] %>">6</option>
+                            </select>
+                        </div>
+                        <!-- /input-box-area -->
+                    </div>
+                    <!-- /event-user-form -->
                 </div>
-                <!-- /event-user-form -->
+                <!-- /event-section -->
+                <% }) %>
             </div>
-            <!-- /event-section -->
-            <% }) %>
-        </div>
-        <!-- /event-container -->
+            <!-- /event-container -->
 
-        <div class="buttonSection">
-            <button type="button" class="resetButton">Reset</button>
-            <input type="submit" value="Submit" class="submitButton" />
-        </div>
-    </form>
+            <div class="buttonSection">
+                <button type="button" class="resetButton">Reset</button>
+                <input type="submit" value="Submit" class="submitButton" />
+            </div>
+        </form>
 
-    <div class="tiebreaker">
-            <p><strong> Tiebreaker!</strong></p>
-            <p>
-                If two lucky people predict all the right duck placements, this tiebreaker decides who will win the jackpot!
-            </p>
-            <p>How many times did all the ducks quack in total across all races?</p>
-            <form action="/play" method="POST" class="tiebreakersubmit">
-                <div class="tiebreakerInputBox"> <input
-                    class="tiebreakerInput"
-                    type="text"
-                    placeholder="No. of Quacks"
-                  /> </div>
-            </form>
+        <div class="tiebreaker">
+                <p><strong> Tiebreaker!</strong></p>
+                <p>
+                    If two lucky people predict all the right duck placements, this tiebreaker decides who will win the jackpot!
+                </p>
+                <p>How many times did all the ducks quack in total across all races?</p>
+                <form action="/play" method="POST" class="tiebreakersubmit">
+                    <div class="tiebreakerInputBox"> <input
+                        class="tiebreakerInput"
+                        type="text"
+                        placeholder="No. of Quacks"
+                    /> </div>
+                </form>
         </div>
+    <% } %>
 </main>
 
 <%- include('footer') %>

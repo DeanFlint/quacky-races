@@ -4,16 +4,7 @@ module.exports = {
     playGame: async function (app, req, res) {
         try {
             const db = app.get('quackyRacesDB')
-            
-            const predictions = await db  
-              .collection('predictions')
-              .find({roundID: 'round1'})
-              .toArray()
-        
-            if(predictions.roundID = "round1") {
-              throw "You have already submitted your predictions for this round.";
-            }
-            else {
+
             const allSelections = [
                 [
                     req.body.race1sel1,
@@ -61,7 +52,6 @@ module.exports = {
                 }
             });
 
-            const db = app.get("quackyRacesDB");
             const predictions = db.collection("predictions");
 
             await predictions.insertOne({
@@ -72,16 +62,16 @@ module.exports = {
                 prediction3: allSelections[2],
                 prediction4: allSelections[3],
                 prediction5: allSelections[4],
-                prediction6: allSelections[5], 
+                prediction6: allSelections[5],
+                hasAlreadyPlayed: predictions.roundID
             });
 
-            res.redirect("/account");
-        
-        }
-    } catch (err) {
-            console.log("Play error: ", err);
-            res.redirect("/play?err=" + err);
-        }
+            res.redirect("/play");
+
+            } catch (err) {
+                console.log("Play error: ", err);
+                res.redirect("/play?err=" + err);
+            }
     },
 
     ducksInPlay: async function (app, req, res) {
@@ -105,11 +95,94 @@ module.exports = {
             const eventDetails = {}
             events.forEach(event => eventDetails[event.eventID] = event.location)
 
+            let predictionsForUser = await db
+                .collection('predictions')
+                .find({ roundID: "round1", email: req.session.user})
+                .toArray()
+
+            let userPrediction = {};
+
+            console.log(predictionsForUser)
+            
+            if (predictionsForUser[0]) {
+                userPrediction.images1 = predictionsForUser[0].prediction1.map(duck => {
+                    duck = events[0].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+                
+                userPrediction.prediction1 = predictionsForUser[0].prediction1.map(duck => {
+                    duck = events[0].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.images2 = predictionsForUser[0].prediction2.map(duck => {
+                    duck = events[1].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+
+                userPrediction.prediction2 = predictionsForUser[0].prediction2.map(duck => {
+                    duck = events[1].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.images3 = predictionsForUser[0].prediction3.map(duck => {
+                    duck = events[2].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+
+                userPrediction.prediction3 = predictionsForUser[0].prediction3.map(duck => {
+                    duck = events[2].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.images4 = predictionsForUser[0].prediction4.map(duck => {
+                    duck = events[3].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+
+                userPrediction.prediction4 = predictionsForUser[0].prediction4.map(duck => {
+                    duck = events[3].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.images5 = predictionsForUser[0].prediction5.map(duck => {
+                    duck = events[4].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+
+                userPrediction.prediction5 = predictionsForUser[0].prediction5.map(duck => {
+                    duck = events[4].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.images6 = predictionsForUser[0].prediction6.map(duck => {
+                    duck = events[5].duckID.indexOf(duck) + 1
+                    duckImage = "images/number" + duck.toString() + ".png"
+                    return duckImage
+                })
+
+                userPrediction.prediction6 = predictionsForUser[0].prediction6.map(duck => {
+                    duck = events[5].duckID.indexOf(duck) + 1
+                    return duck
+                })
+
+                userPrediction.hasAlreadyPlayed = true
+
+            } else {
+                userPrediction.hasAlreadyPlayed = false
+            }       
+
             return res.render("play", {
                 duckNames: duckNames,
                 events: events,
                 user: req.session.user,
-                message: req.query.err
+                message: req.query.err,
+                predictions: userPrediction
             });
         } catch (err) {
             console.log(err);
