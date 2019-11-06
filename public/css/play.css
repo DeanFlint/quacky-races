@@ -1,26 +1,24 @@
 /* Mobile */
 
 .playInstructions{
-
-padding-top:10px;
-padding-bottom: 20px;
-border: 1px solid #b7b5b5;
-border-radius:5px;
-text-align: center;
-margin-right: 10px;
-margin-bottom:20px;
-padding: 20px;
-background-color: #f1f0f0;
-
+  padding-top:10px;
+  padding-bottom: 20px;
+  border: 1px solid #b7b5b5;
+  border-radius:5px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom:20px;
+  padding: 20px;
+  background-color: #f1f0f0;
 }
 
 .tiebreaker {
   padding-top:10px;
-padding-bottom: 20px;
+  padding-bottom: 20px;
   border: 1px solid #b7b5b5;
-border-radius:5px;
-text-align:center;
-background-color: #f1f0f0;
+  border-radius:5px;
+  text-align:center;
+  background-color: #f1f0f0;
 }
 
 .tiebreakerInputBox {
@@ -114,6 +112,37 @@ select {
   margin: 40px auto;
 }
 
+.userPredictionsContainer {
+  width: 75%;
+  margin: 20px auto;
+  padding-top: 20px;
+  display:grid;
+  grid-area:userPredictionsContainer;
+  grid-template-columns: 1fr;
+  grid-template-areas: "userPredictionPageTitle"
+                      "userPredictionsSection";
+}
+
+.userPredictionsSection {
+  /* grid-area:userPredictionsSection; */
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.userPredictionsSection img {
+  width: 25px;
+  height: 25px;
+  margin: 10px 20px 0 20px;
+}
+
+.userPredictionPageTitle {
+  text-align: center;
+  grid-area:userPredictionPageTitle;
+  margin-bottom: 30px;
+}
+
+
 /* Tablet */
 @media only screen and (min-width: 768px) {
   .event-container {
@@ -127,6 +156,20 @@ select {
   }
   .event-section:nth-of-type(odd) {
     margin-right: 10px;
+  }
+
+  .userPredictionsContainer {
+    width: 75%;
+    margin: 20px auto;
+    display:grid;
+    grid-area:userPredictionsContainer;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "userPredictionPageTitle userPredictionPageTitle"
+                        "userPredictionsSection userPredictionsSection";
+  }
+
+  .userPredictionsSection img {
+    margin: 20px 10px;
   }
 }
 

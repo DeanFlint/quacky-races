@@ -71,7 +71,7 @@ module.exports = {
             } catch (err) {
                 console.log("Play error: ", err);
                 res.redirect("/play?err=" + err);
-            }
+        }
     },
 
     ducksInPlay: async function (app, req, res) {
@@ -101,8 +101,6 @@ module.exports = {
                 .toArray()
 
             let userPrediction = {};
-
-            console.log(predictionsForUser)
             
             if (predictionsForUser[0]) {
                 userPrediction.images1 = predictionsForUser[0].prediction1.map(duck => {

@@ -3,49 +3,52 @@
 <main>
 
     <% if (predictions.hasAlreadyPlayed == true){ %>
-        <p>Your predictions for this round</p>
-        <div>
-            <p><%= events[0].location%>: <%= events[0].eventTime%></p>
-            <img src="<%= predictions.images1[0] %>">
-            <img src="<%= predictions.images1[1] %>">
-            <img src="<%= predictions.images1[2] %>">
-        </div>
+        <div class="userPredictionsContainer">
+            <h2 class="userPredictionPageTitle">Your predictions for this round, good luck!</h2>
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[0].location%>: <%= events[0].eventTime%></h3>
+                <img src="<%= predictions.images1[0] %>">
+                <img src="<%= predictions.images1[1] %>">
+                <img src="<%= predictions.images1[2] %>">
+            </div>
 
-        <div>
-            <p><%= events[1].location%>: <%= events[1].eventTime%></p>
-            <img src="<%= predictions.images2[0] %>">
-            <img src="<%= predictions.images2[1] %>">
-            <img src="<%= predictions.images3[2] %>">
-        </div>
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[1].location%>: <%= events[1].eventTime%></h3>
+                <img src="<%= predictions.images2[0] %>">
+                <img src="<%= predictions.images2[1] %>">
+                <img src="<%= predictions.images3[2] %>">
+            </div>
 
-        <div>
-            <p><%= events[2].location%>: <%= events[2].eventTime%></p>
-            <img src="<%= predictions.images3[0] %>">
-            <img src="<%= predictions.images3[1] %>">
-            <img src="<%= predictions.images3[2] %>">
-        </div>
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[2].location%>: <%= events[2].eventTime%></h3>
+                <img src="<%= predictions.images3[0] %>">
+                <img src="<%= predictions.images3[1] %>">
+                <img src="<%= predictions.images3[2] %>">
+            </div>
 
-        <div>
-            <p><%= events[3].location%>: <%= events[3].eventTime%></p>
-            <img src="<%= predictions.images4[0] %>">
-            <img src="<%= predictions.images4[1] %>">
-            <img src="<%= predictions.images4[2] %>">
-        </div>
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[3].location%>: <%= events[3].eventTime%></h3>
+                <img src="<%= predictions.images4[0] %>">
+                <img src="<%= predictions.images4[1] %>">
+                <img src="<%= predictions.images4[2] %>">
+            </div>
 
-        <div>
-            <p><%= events[4].location%>: <%= events[4].eventTime%></p>
-            <img src="<%= predictions.images5[0] %>">
-            <img src="<%= predictions.images5[1] %>">
-            <img src="<%= predictions.images5[2] %>">
-        </div>
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[4].location%>: <%= events[4].eventTime%></h3>
+                <img src="<%= predictions.images5[0] %>">
+                <img src="<%= predictions.images5[1] %>">
+                <img src="<%= predictions.images5[2] %>">
+            </div>
 
-        <div>
-            <p><%= events[5].location%>: <%= events[5].eventTime%></p>
-            <img src="<%= predictions.images6[0] %>">
-            <img src="<%= predictions.images6[1] %>">
-            <img src="<%= predictions.images6[2] %>">
+            <div class="userPredictionsSection">
+                <h3 class="userPredictionTitle"><%= events[5].location%>: <%= events[5].eventTime%></h3>
+                <img src="<%= predictions.images6[0] %>">
+                <img src="<%= predictions.images6[1] %>">
+                <img src="<%= predictions.images6[2] %>">
+            </div>
+            
         </div>
-        
+       
     <% } else {%>
         <div class="intro">
             <h1>How to play</h1>
