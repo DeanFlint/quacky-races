@@ -4,6 +4,7 @@ module.exports = {
         try {
             const roundID = req.body.roundID;  
 
+            // An array to collect the form selections
             const adminAllSelections = [
                 [
                     req.body.adminrace1sel1,
