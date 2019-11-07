@@ -1,18 +1,22 @@
 const express = require("express");
 const router = express.Router();
 
-// controllers
+// connects to all the controllers to use the functions defined in them
 const controllers = require("../controllers/controller.js");
 const accountControllers = require("../controllers/accountController.js");
 const playControllers = require("../controllers/playController.js");
 const resultsControllers = require("../controllers/resultsController.js");
 const adminControllers = require("../controllers/adminController.js");
 
-// login
+
+// session is used to maintain if a user is logged in or not 
 const session = require("express-session");
 
 module.exports = app => {
   app.use(
+
+    // the secret is used to keep a session secure, if a user's session is inppropriately used the secret
+    // can be changed and all sessions will have to be revalidated
     session({
       secret: "QU4CK",
       resave: false,
@@ -20,6 +24,7 @@ module.exports = app => {
     })
   );
 
+  
   app.get("/login", (req, res) => {
     try {
       if (!req.session.user) {
