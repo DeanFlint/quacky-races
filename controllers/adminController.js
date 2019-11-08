@@ -66,10 +66,10 @@ module.exports = {
                     }
                 });
 
-                // Useing a spread operator, we're creating a new array from the 'adminAllSelection'
+                // Using a spread operator, we're creating a new array from the 'adminAllSelection'
                 // value that's used in the above foreach function. This array will remove any duplicates
-                // so we expect the number of values in the array to 6 other a duplicate selection has
-                // had been entered.
+                // so we expect the number of values in the array to be 6 otherwise a duplicate selection has
+                // been entered.
                 // Solution found here: https://appdividend.com/2019/04/11/how-to-get-distinct-values-from-array-in-javascript/
                 let uniqueSelections = [...new Set(adminAllSelection)]
                 if (uniqueSelections.length !== 6 ) {
