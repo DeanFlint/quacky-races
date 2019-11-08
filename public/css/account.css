@@ -106,6 +106,8 @@
     align-items: center;
 
 }
+
+/* grid created */
 .accountProfile{
     font-family: 'ZCOOL XiaoWei', serif;
     display:grid;
@@ -165,6 +167,7 @@
     margin: 10px auto;
 }
 
+/* this makes the winner text glow yellow and orange */
 .wingo {
     text-align: center;
     padding-bottom: 10px;
