@@ -16,6 +16,7 @@ module.exports = {
         if (err) {
           console.error(err);
         }
+
         //renders the account page, passing the information in that user's document
         //"user" can then be referenced in the account ejs to locate specific details
         // such as their full name, DOB, score etc. 

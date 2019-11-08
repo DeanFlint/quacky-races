@@ -24,7 +24,9 @@ module.exports = app => {
     })
   );
 
-  
+  // load the login page, if there is not a session in place for a user then it throws an error which results in the login page being loaded
+  // if a user is logged in and a session is active, then it loads the account page and uses the viewUserAccount function from the account
+  // controller which passes through their user information to be displayed
   app.get("/login", (req, res) => {
     try {
       if (!req.session.user) {
@@ -41,6 +43,7 @@ module.exports = app => {
 
   });
 
+  // we use app.get to load a page - READ
   app.get("/register", (req, res) => {
     res.render("register.ejs", {
       message: "",
@@ -48,6 +51,7 @@ module.exports = app => {
     });
   });
 
+  // we use app.post to put information into the database - CREATE
   app.post("/register", (req, res) => {
     accountControllers.registerUser(app, req, res);
   });
@@ -60,6 +64,7 @@ module.exports = app => {
     accountControllers.logoutUser(app, req, res);
   });
 
+  // delete user uses a delete function to remove a user from the database - DELETE
   router.get("/deleteUser", (req, res) => {
     accountControllers.deleteUser(app, req, res);
   });
@@ -94,6 +99,9 @@ module.exports = app => {
     }
   });
 
+
+  // Used to load the admin page, first checks whether the user logged in has a true 'isAdmin' value, and if this is the case, then the admin page will load
+  // If a user isn't an admin and tries to load the admin page by altering the URL, they will be redirected to the home page
   app.get("/admin", async (req, res) => {
     try {
       const db = app.set("quackyRacesDB");
@@ -114,6 +122,7 @@ module.exports = app => {
     adminControllers.adminSubmitResults(app, req, res);
   });
 
+  // Calculate scores updates the users scores in the database depending on how their predictions match up to the results - UPDATE
   app.get("/calculate-scores", async (req, res) => {
     adminControllers.calculateScores(app, req, res);
   });
