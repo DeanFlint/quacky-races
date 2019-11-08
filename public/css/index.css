@@ -15,6 +15,14 @@ body {
 
 }
 
+.submitDuck{
+    width: 60px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;   
+}
+
 .indexButton{
     text-align: center;
 }
