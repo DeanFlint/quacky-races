@@ -3,11 +3,11 @@
     "email": "theDuckMaster@email.com",
     "roundID": "round1",
     "prediction1": ["D01", "D02", "D03"],
-    "prediction2": ["D07", "D08", "D09"],
-    "prediction3": ["D13", "D14", "D15"],
-    "prediction4": ["D19", "D20", "D21"],
-    "prediction5": ["D25", "D26", "D27"],
-    "prediction6": ["D31", "D32", "D33"]
+    "prediction2": ["D11", "D07", "D10"],
+    "prediction3": ["D15", "D13", "D18"],
+    "prediction4": ["D24", "D21", "D23"],
+    "prediction5": ["D25", "D27", "D29"],
+    "prediction6": ["D36", "D32", "D34"]
   },
   {
     "email": "test@email.com",

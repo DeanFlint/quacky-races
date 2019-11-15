@@ -7,26 +7,26 @@
   {
     "roundID": "1",
     "eventID": "event2",
-    "place": ["D07", "D08", "D09", "D10", "D11", "D12"]
+    "place": ["D11", "D07", "D10", "D09", "D08", "D12"]
   },
   {
     "roundID": "1",
     "eventID": "event3",
-    "place": ["D13", "D14", "D15", "D16", "D17", "D18"]
+    "place": ["D15", "D13", "D18", "D16", "D17", "D14"]
   },
   {
     "roundID": "1",
     "eventID": "event4",
-    "place": ["D19", "D20", "D21", "D22", "D23", "D24"]
+    "place": ["D24", "D21", "D23", "D20", "D19", "D22"]
   },
   {
     "roundID": "1",
     "eventID": "event5",
-    "place": ["D25", "D26", "D27", "D28", "D29", "D30"]
+    "place": ["D25", "D27", "D29", "D26", "D28", "D30"]
   },
   {
     "roundID": "1",
     "eventID": "event6",
-    "place": ["D31", "D32", "D33", "D34", "D35", "D36"]
+    "place": ["D36", "D32", "D34", "D34", "D32", "D36"]
   }
 ]
