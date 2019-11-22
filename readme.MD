@@ -115,3 +115,13 @@
     test@email.com - password
     testadmin@email.com - password (for admin only content)
     theDuckMaster@email.com - password (winning predictions)
+
+# ------------------------------------------------
+
+# Play the game
+
+# ------------------------------------------------
+
+Register a new account and make your predictions!
+Then log in as an admin, navigate to the admin page (from Account) and press 'Generate Results'
+Then you can log in as your account again and see what you scored and where you are on the leaderboard!

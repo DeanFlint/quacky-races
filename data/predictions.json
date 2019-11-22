@@ -37,7 +37,7 @@
     "prediction3": ["D13", "D17", "D18"],
     "prediction4": ["D20", "D23", "D24"],
     "prediction5": ["D26", "D29", "D30"],
-    "prediction6": ["D31", "D32", "D33"]
+    "prediction6": ["D36", "D32", "D34"]
   },
   {
     "email": "cerys@email.com",
@@ -72,10 +72,10 @@
   {
     "email": "Ally@email.com",
     "roundID": "round1",
-    "prediction1": ["D01", "D02", "D03"],
+    "prediction1": ["D01", "D02", "D06"],
     "prediction2": ["D07", "D08", "D09"],
     "prediction3": ["D13", "D17", "D18"],
-    "prediction4": ["D20", "D23", "D24"],
+    "prediction4": ["D24", "D22", "D25"],
     "prediction5": ["D26", "D29", "D30"],
     "prediction6": ["D31", "D32", "D33"]
   }
