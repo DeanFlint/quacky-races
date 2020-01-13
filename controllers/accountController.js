@@ -1,6 +1,6 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
-module.exports = { 
+module.exports = {
   // ACCOUNT MANAGEMENT
   viewUserAccount: function (app, req, res) {
     app
@@ -19,7 +19,7 @@ module.exports = {
 
         //renders the account page, passing the information in that user's document
         //"user" can then be referenced in the account ejs to locate specific details
-        // such as their full name, DOB, score etc. 
+        // such as their full name, DOB, score etc.
         return res.render("account", {
           user: docs[0]
         });
@@ -47,7 +47,7 @@ module.exports = {
       // we require a user to confirm their password so they set the correct password
       if (req.body.password != req.body.confirmPassword) throw "Error";
 
-      // this is a very rudimentary way to check if a user is over 18 years old, a more sophisticated method would 
+      // this is a very rudimentary way to check if a user is over 18 years old, a more sophisticated method would
       // be added in if this was not a prototype
       var currentYear = new Date();
       var year = currentYear.getFullYear();
@@ -93,14 +93,14 @@ module.exports = {
       const db = app.get("quackyRacesDB");
       const users = db.collection("users");
 
-      // This searches the user collection of the database to find the email that was submitted to log in 
+      // This searches the user collection of the database to find the email that was submitted to log in
       const user = await users.findOne({
         email: req.body.email
       });
 
 
       // bcrypt.compare is a method from bcrypt to allow the comparison of two hashed passwords
-      // everytime a password is hashed with bcrypt, it has a different value, so they can't be compared by 
+      // everytime a password is hashed with bcrypt, it has a different value, so they can't be compared by
       // conventional means. Bcrypt can tell when a password matches a hash
       let success = await bcrypt.compare(req.body.password, user.hash);
 
@@ -117,9 +117,9 @@ module.exports = {
       res.redirect(302, "play");
     } catch (err) {
       res.render("login", {
-        // our error messages say incorrect username or password to not inform the person attempting to log in 
-        // which is causing the error. 
-        // This is because someone trying to hack into someone's account could attempt their email address, and 
+        // our error messages say incorrect username or password to not inform the person attempting to log in
+        // which is causing the error.
+        // This is because someone trying to hack into someone's account could attempt their email address, and
         // if they are told only the password is wrong they gain informaton that that email is registered
         // and they can then try to brute force their way into the account
         message: "Incorrect Username or Password",
@@ -147,13 +147,13 @@ module.exports = {
         if (dbResp.deletedCount === 1) {
           console.log("User deleted");
         } else {
-          
+
           res.render("account", {
             message: "Could not delete account"
           });
         }
       });
-      // clear the session because if the user account has been deleted they can't be logged in 
+      // clear the session because if the user account has been deleted they can't be logged in
       req.session.user = null;
       res.redirect(302, "/");
     } catch (err) {
